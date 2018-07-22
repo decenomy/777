@@ -38,4 +38,25 @@
 // to timing attacks. Turn off if an attacker can measure coin minting time.
 #define	ZEROCOIN_FAST_MINT 1
 
+/** Parameters used in the new protocol.
+ *  !TODO: move where appropriate
+ */
+typedef std::vector<CBigNum> CBN_vector;
+typedef std::vector<CBN_vector> CBN_matrix;
+
+struct preChallengeShifts {
+    CBN_vector nAks, pAks;
+    CBN_vector nBks, pBks;
+    CBN_vector nzks, pzks;
+};
+
+const int ZKP_M = 2;
+const int ZKP_N = 510;
+const int ZKP_M1DASH = 3;
+const int ZKP_M2DASH = 5;
+const int ZKP_NDASH = 2;
+const int ZKP_PADS = 2;
+const std::vector<int> ZKP_MS = {2,2,2,2,2,2,2,2,2};
+const int ZKP_SERIALSIZE = 256;
+
 #endif /* ZEROCOIN_H_ */

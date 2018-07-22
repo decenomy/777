@@ -317,25 +317,36 @@ libzerocoin_libbitcoin_zerocoin_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/Accumulator.h \
   libzerocoin/AccumulatorProofOfKnowledge.h \
+  libzerocoin/ArithmeticCircuit.h \
   libzerocoin/bignum.h \
+  libzerocoin/Bulletproofs.h \
   libzerocoin/Coin.h \
   libzerocoin/CoinSpend.h \
   libzerocoin/Commitment.h \
   libzerocoin/Denominations.h \
+  libzerocoin/InnerProductArgument.h \
   libzerocoin/ParamGeneration.h \
   libzerocoin/Params.h \
+  libzerocoin/PolynomialCommitment.h \
   libzerocoin/SerialNumberSignatureOfKnowledge.h \
+  libzerocoin/SerialNumberSoK_small.h \
   libzerocoin/SpendType.h \
   libzerocoin/ZerocoinDefines.h \
+  libzerocoin/zkplib.h \
   libzerocoin/Accumulator.cpp \
   libzerocoin/AccumulatorProofOfKnowledge.cpp \
+  libzerocoin/ArithmeticCircuit.cpp \
+  libzerocoin/Bulletproofs.cpp \
   libzerocoin/Coin.cpp \
   libzerocoin/Denominations.cpp \
   libzerocoin/CoinSpend.cpp \
   libzerocoin/Commitment.cpp \
+  libzerocoin/InnerProductArgument.cpp \
   libzerocoin/ParamGeneration.cpp \
   libzerocoin/Params.cpp \
-  libzerocoin/SerialNumberSignatureOfKnowledge.cpp
+  libzerocoin/PolynomialCommitment.cpp \
+  libzerocoin/SerialNumberSignatureOfKnowledge.cpp \
+  libzerocoin/SerialNumberSoK_small.cpp
 
 # common: shared between pivxd, and pivx-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)

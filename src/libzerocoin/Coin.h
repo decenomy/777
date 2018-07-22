@@ -106,6 +106,16 @@ public:
     // @return the coins serial number
     const CBigNum& getSerialNumber() const { return this->serialNumber; }
     const CBigNum& getRandomness() const { return this->randomness; }
+    void getRandomnessBits(std::vector<int> &randomness_bits) const
+    {
+        randomness_bits.resize(ZKP_SERIALSIZE);
+        std::string bin_string = this->randomness.ToString(2);
+        unsigned int len = bin_string.length();
+        for(unsigned int i=0; i<len; i++)
+            randomness_bits[len-1-i] = (int)bin_string[i]-'0';
+        for(unsigned int i=len; i<ZKP_SERIALSIZE; i++)
+            randomness_bits[i] = 0;
+    }
     const CPrivKey& getPrivKey() const { return this->privkey; }
     const CPubKey getPubKey() const;
     const uint8_t& getVersion() const { return this->version; }

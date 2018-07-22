@@ -40,6 +40,18 @@ public:
 	CBigNum g;
 
 	/**
+	 * A list of ZKP_N + ZKP_PAD generators for the group.
+	 * The first one is g (i.e. gis[0] = g)
+	 */
+	CBN_vector gis;
+
+    /**
+     * A random generator in Zp used for Bulletproofs inner Product
+     */
+    CBigNum u_inner_prod;
+
+
+	/**
 	 * A second generator for the group.
 	 * Note log_g(h) and log_h(g) must
 	 * be unknown.
@@ -61,6 +73,8 @@ public:
 		    READWRITE(initialized);
 		    READWRITE(g);
 		    READWRITE(h);
+		    READWRITE(gis);
+		    READWRITE(u_inner_prod);
 		    READWRITE(modulus);
 		    READWRITE(groupOrder);
 	}	
@@ -204,6 +218,15 @@ public:
 	 */
 	uint32_t zkp_hash_len;
 	
+	/**
+	 * Constraints tensors generated with ArithmeticCircuit::setPreConstraints()
+	 */
+	std::vector<CBN_matrix> ZKP_wA;
+	std::vector<CBN_matrix> ZKP_wB;
+	std::vector<CBN_matrix> ZKP_wC;
+	CBN_vector ZKP_K;
+	CBN_vector ZKP_wCoeffA, ZKP_wCoeffB;
+
 	ADD_SERIALIZE_METHODS;
   template <typename Stream, typename Operation>  inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
 	    READWRITE(initialized);
