@@ -250,7 +250,7 @@ CBigNum ArithmeticCircuit::AiDotBiYDash(const int i)
 void ArithmeticCircuit::set_YPowers()
 {
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    YPowers[0] = y.pow_mod(CBigNum(ZKP_SERIALSIZE+ZKP_M+1), q);
+    YPowers[0] = y.pow_mod(CBigNum(4*ZKP_SERIALSIZE+ZKP_M+1), q);
     for(unsigned int i=1; i<4*ZKP_SERIALSIZE-2; i++)
         YPowers[i] = y.mul_mod(YPowers[i-1], q);
 }
