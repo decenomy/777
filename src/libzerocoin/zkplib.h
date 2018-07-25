@@ -23,6 +23,16 @@ inline void vectorTimesConstant(CBN_vector& kV, const CBN_vector V,
         kV[i] = V[i].mul_mod(k, modulus);
 }
 
+inline CBN_vector vectorTimesConstant(const CBN_vector V,
+        const CBigNum k, const CBigNum modulus)
+{
+    CBN_vector kV(V.size());
+    for(unsigned int i=0; i<V.size(); i++)
+        kV[i] = V[i].mul_mod(k, modulus);
+
+    return kV;
+}
+
 inline void unit_vector(CBN_vector& v, unsigned int j)
 {
     for(unsigned int i=0; i<v.size(); i++)
@@ -128,6 +138,27 @@ inline CBN_vector hadamard(const CBN_vector u, const CBN_vector v, const CBigNum
         h[i] = u[i].mul_mod(v[i], modulus);
 
     return h;
+}
+
+// Print Functions
+inline void printVector(const CBN_vector v)
+{
+    std::cout << "[";
+    for(unsigned int i=0; i<v.size()-1; i++)
+        std::cout << v[i] << ",  ";
+    std::cout << v[v.size()-1] << "]";
+
+}
+
+inline void printMatrix(const CBN_matrix w)
+{
+    std::cout << "[";
+    for(unsigned int i=0; i<w.size()-1; i++) {
+        printVector(w[i]);
+        std::cout << ",  ";
+    }
+    printVector(w[w.size()-1]);
+    std::cout << "]";
 }
 
 } /* namespace libzerocoin */

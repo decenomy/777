@@ -96,15 +96,6 @@ private:
 
 };
 
-struct DelayedProof {
-    DelayedProof(Bulletproofs* innerP): innerProduct(*innerP) {};
-    CBigNum ComR;
-    CBigNum comRdash;
-    CBigNum z;
-    Bulletproofs innerProduct;
-    CBN_vector ymPowers;
-    CBN_vector s_vec2;
-};
 
 struct fBE {
     fBE() {};
@@ -113,6 +104,32 @@ struct fBE {
     CBN_vector ymPowers;
     CBigNum a;
     CBigNum b;
+};
+
+struct SerialNumberSoKProof2 {
+    SerialNumberSoKProof2(const SerialNumberSoK_small &sig, const CBigNum& coinSerial, const CBigNum& valueOfCommitment,
+            const CBN_vector& xPowersPositive, const CBN_vector& xPowersNegative, const CBN_vector& YPowers, const CBN_vector& YDash, const CBN_vector& YmPowers ):
+        signature(sig),
+        coinSerialNumber(coinSerial),
+        valueOfCommitmentToCoin(valueOfCommitment),
+        xPowersPos(xPowersPositive),
+        xPowersNeg(xPowersNegative),
+        yPowers(YPowers),
+        yDash(YDash),
+        ymPowers(YmPowers),
+        s_vec_2(ZKP_N, CBigNum(0))
+{}
+    SerialNumberSoK_small signature;
+    CBigNum  coinSerialNumber;
+    CBigNum valueOfCommitmentToCoin;
+    CBN_vector xPowersPos, xPowersNeg;
+    CBN_vector yPowers, yDash, ymPowers;
+    // *** proof3 ***
+    CBigNum z;
+    // *** proof4 ***
+    CBigNum ComR;
+    // *** proof5 ***
+    CBN_vector s_vec_2;
 };
 
 class SerialNumberSoKProof {
@@ -140,9 +157,10 @@ public:
     uint256 msghash;
 
     static bool BatchVerify(std::vector<SerialNumberSoKProof> &proofs);
-    static bool BatchBulletproofs(const ZerocoinParams* ZCp, const CBN_matrix ck_inner_g, std::vector<DelayedProof> &proofs);
+    static bool BatchBulletproofs(const CBN_matrix ck_inner_g, std::vector<SerialNumberSoKProof2> &proofs);
     static CBN_vector getFinal_gh(const ZerocoinParams* ZCp, CBN_vector gs, std::vector<fBE> forBigExpo);
 };
+
 
 } /* namespace libzerocoin */
 #endif /* SERIALNUMBERPROOFSMALL_H_ */

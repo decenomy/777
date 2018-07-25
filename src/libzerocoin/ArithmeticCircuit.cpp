@@ -22,15 +22,14 @@ ArithmeticCircuit::ArithmeticCircuit(const ZerocoinParams* p):
             wB(p->ZKP_wB),
             wC(p->ZKP_wC),
             K(p->ZKP_K),
-            YPowers(4*ZKP_SERIALSIZE-2),
+            YPowers(0),
             YDash(ZKP_N),
             wAj(ZKP_M, CBN_vector(ZKP_N)),
             wBj(ZKP_M, CBN_vector(ZKP_N)),
             wCj(ZKP_M, CBN_vector(ZKP_N)),
+            y_vec_neg(0),
             params(p),
-            r_bits(ZKP_SERIALSIZE, 0),
-            wCoeffA(p->ZKP_wCoeffA),
-            wCoeffB(p->ZKP_wCoeffB)
+            r_bits(ZKP_SERIALSIZE, 0)
 {}
 
 void ArithmeticCircuit::setWireValues(const PrivateCoin& coin)
@@ -78,12 +77,14 @@ void ArithmeticCircuit::setWireValues(const PrivateCoin& coin)
 }
 
 void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
-        vector<CBN_matrix>& wA, vector<CBN_matrix>& wB, vector<CBN_matrix>& wC, CBN_vector& K,
-        CBN_vector& wCoeffA, CBN_vector& wCoeffB)
+        vector<CBN_matrix>& wA, vector<CBN_matrix>& wB, vector<CBN_matrix>& wC, CBN_vector& K)
 {
     const CBigNum a = params->coinCommitmentGroup.g;
     const CBigNum b = params->coinCommitmentGroup.h;
     const CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
+    const int N = ZKP_SERIALSIZE;
+    const int n = ZKP_N;
+    const int m = ZKP_M;
     /* ---------------------------------- **** CONSTRAINTS **** ----------------------------------
      * -------------------------------------------------------------------------------------------
      * Matrices wA, wB, wC and vector K, specifying constraints that ensure that the circuit
@@ -91,11 +92,11 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
      *
      */
 
-    wA.resize(4*ZKP_SERIALSIZE-2, CBN_matrix(ZKP_M, CBN_vector(ZKP_N)));
-    wB.resize(4*ZKP_SERIALSIZE-2, CBN_matrix(ZKP_M, CBN_vector(ZKP_N)));
-    wC.resize(4*ZKP_SERIALSIZE-2, CBN_matrix(ZKP_M, CBN_vector(ZKP_N)));
-    K.resize(4*ZKP_SERIALSIZE-2);
-    unsigned int i_div_n = 0, i_mod_n = 0;
+    wA.resize(4*N, CBN_matrix(m, CBN_vector(n, CBigNum(0))));
+    wB.resize(4*N, CBN_matrix(m, CBN_vector(n, CBigNum(0))));
+    wC.resize(4*N, CBN_matrix(m, CBN_vector(n, CBigNum(0))));
+    K.resize(4*N, CBigNum(0));
+    unsigned int i_div_n = 0;
     unsigned int k_div_n = 0, k_mod_n = 0;
     unsigned int ell_div_n = 0, ell_mod_n = 0;
     unsigned int ell=0;
@@ -104,17 +105,21 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
     CBN_vector U(ZKP_N);   // Unit vector
 
     /* Constraints to ensure A[k][l] - B[k][l] = 1 */
-    for(unsigned int i=0; i<ZKP_SERIALSIZE; i++) {
-        i_div_n = i / ZKP_N;
-        i_mod_n = i % ZKP_N;;
-        unit_vector(wA[i][i_div_n], i_mod_n);
-        unit_vector(U, i_mod_n);
+    k = 1;
+    for(unsigned int i=0; i<N; i++) {
+        i_div_n = i / n;
+        k_div_n = k / n;
+        k_mod_n = k % n;
+        unit_vector(wA[i][i_div_n], k_mod_n);
+        unit_vector(U, k_mod_n);
         vectorTimesConstant(wB[i][i_div_n], U, CBigNum(-1), q);
         K[i] = CBigNum(1);
+        k = k+1;
     }
 
     /* Constraints to ensure C[i] = 0 */
-    for(unsigned int i=ZKP_SERIALSIZE; i<2*ZKP_SERIALSIZE; i++) {
+    k = 1;
+    for(unsigned int i=N; i<2*N; i++) {
         k_div_n = k / ZKP_N;
         k_mod_n = k % ZKP_N;
         unit_vector(wC[i][k_div_n], k_mod_n);
@@ -122,15 +127,15 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
         k++;
     }
 
-    /* Constraints to ensure that B[N+k] = A[k+1] * (b** (2**(k+1)) - 1) +1    */
-    k = 1;   ell = ZKP_SERIALSIZE;
-    for(unsigned int i=2*ZKP_SERIALSIZE; i<3*ZKP_SERIALSIZE-1; i++) {
+    /* Constraints to ensure that B[N+1+k] = A[k+2] * (b** (2**(k+1)) - 1) +1    */
+    k = 2;   ell = N+1;
+    for(unsigned int i=2*N; i<3*N-1; i++) {
         k_div_n = k / ZKP_N;
         k_mod_n = k % ZKP_N;
         ell_div_n = ell / ZKP_N;
         ell_mod_n = ell % ZKP_N;
         unit_vector(U, k_mod_n);
-        x = b.pow_mod( CBigNum(2).pow(k), q) - CBigNum(1);
+        x = b.pow_mod( CBigNum(2).pow(k-1), q) - CBigNum(1);
         vectorTimesConstant(wA[i][k_div_n], U, x, q);
         unit_vector(U, ell_mod_n);
         vectorTimesConstant(wB[i][ell_div_n], U, CBigNum(-1), q);
@@ -138,15 +143,15 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
         k++; ell++;
     }
 
-    /* Constraints to ensure A[N] = A[0] * (b-1) + 1     */
-    unit_vector(wA[3*ZKP_SERIALSIZE-1][ZKP_SERIALSIZE/ZKP_N], ZKP_SERIALSIZE%ZKP_N);
-    unit_vector(U, 0);
-    vectorTimesConstant(wB[3*ZKP_SERIALSIZE-1][0], U, CBigNum(1)-b, q);
-    K[3*ZKP_SERIALSIZE-1] = b;
+    /* Constraints to ensure A[N+1] = A[1] * (b-1) + 1     */
+    unit_vector(wA[3*N-1][(N+1)/n], (N+1)%n);
+    unit_vector(U, 1);
+    vectorTimesConstant(wB[3*N-1][0], U, CBigNum(1)-b, q);
+    K[3*N-1] = b;
 
-    /* Constraints to ensure A[N + k] = C[N + k -1]     */
-    k = ZKP_SERIALSIZE+1; ell = ZKP_SERIALSIZE;
-    for(unsigned int i=3*ZKP_SERIALSIZE; i<4*ZKP_SERIALSIZE-3; i++) {
+    /* Constraints to ensure A[N+k+1] = C[N+k]     */
+    k = N+2; ell = N+1;
+    for(unsigned int i=3*N; i<4*N-2; i++) {
         k_div_n = k/ZKP_N;
         k_mod_n = k%ZKP_N;
         ell_div_n = ell/ZKP_N;
@@ -158,27 +163,60 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
         k++; ell++;
     }
 
-    /* Constraints to ensure A[final] = (a**S) * C[final-1]    */
-    k_div_n = (2*ZKP_SERIALSIZE-2) / ZKP_N;
-    k_mod_n = (2*ZKP_SERIALSIZE-2) % ZKP_N;
-    ell_div_n = (2*ZKP_SERIALSIZE-3) / ZKP_N;
-    ell_mod_n = (2*ZKP_SERIALSIZE-3) % ZKP_N;
-    unit_vector(wA[4*ZKP_SERIALSIZE-3][k_div_n], k_mod_n);
-//    unit_vector(U, ell_mod_n);
-//    x = CBigNum(-1).mul_mod(a.pow_mod(serialNumber, q), q);
-//    vectorTimesConstant(wC[4*ZKP_SERIALSIZE-3][ell_div_n], U, x, q);
-    K[4*ZKP_SERIALSIZE-3] = 0;
+    /* Constraints to ensure B[final] = (a**S)   */
+    k_div_n = (2*N) / n;
+    k_mod_n = (2*N) % n;
+    unit_vector(wB[4*N-2][k_div_n], k_mod_n);
 
-    /* Set wCoefficients */
-    wCoeffA.resize(4*ZKP_SERIALSIZE-2);
-    wCoeffB.resize(4*ZKP_SERIALSIZE-2);
-    for(unsigned int i=0; i<wCoeffA.size(); i++) {
-        wCoeffA[i] = CBigNum(0);
-        wCoeffB[i] = CBigNum(0);
-        for(int k=0; k<ZKP_N; k++) {
-            wCoeffA[i] = (wCoeffA[i] + wA[i][1][k]) % q;
-            wCoeffB[i] = (wCoeffB[i] + wB[i][1][k]) % q;
+}
+
+void ArithmeticCircuit::set_s_poly(const ZerocoinParams* params,
+            std::vector< std::vector< std::pair<int, CBigNum> > >& s_a1, std::vector< std::vector< std::pair<int, CBigNum> > >& s_a2,
+            std::vector< std::vector< std::pair<int, CBigNum> > >& s_b1, std::vector< std::vector< std::pair<int, CBigNum> > >& s_b2,
+            std::vector< std::vector< std::pair<int, CBigNum> > >& s_c1, std::vector< std::vector< std::pair<int, CBigNum> > >& s_c2)
+{
+    const int n = ZKP_N;
+
+    s_a1.clear();
+    s_a2.clear();
+    for(int k=0; k<n; k++) {
+        std::vector< std::pair<int, CBigNum> > temp1(0), temp2(0);
+        for(int i=0; i<(int)params->ZKP_wA.size(); i++) {
+            if (params->ZKP_wA[i][0][k] != CBigNum(0))
+                temp1.push_back( std::make_pair(i, params->ZKP_wA[i][0][k]) );
+            if (params->ZKP_wA[i][1][k] != CBigNum(0))
+                temp2.push_back( std::make_pair(i, params->ZKP_wA[i][1][k]) );
         }
+        s_a1.push_back(temp1);
+        s_a2.push_back(temp1);
+    }
+
+    s_b1.clear();
+    s_b2.clear();
+    for(int k=0; k<n; k++) {
+        std::vector< std::pair<int, CBigNum> > temp1(0), temp2(0);
+        for(int i=0; i<(int)params->ZKP_wB.size(); i++) {
+            if (params->ZKP_wB[i][0][k] != CBigNum(0))
+                temp1.push_back( std::make_pair(i, params->ZKP_wB[i][0][k]) );
+            if (params->ZKP_wB[i][1][k] != CBigNum(0))
+                temp2.push_back( std::make_pair(i, params->ZKP_wB[i][1][k]) );
+        }
+        s_b1.push_back(temp1);
+        s_b2.push_back(temp1);
+    }
+
+    s_c1.clear();
+    s_c2.clear();
+    for(int k=0; k<n; k++) {
+        std::vector< std::pair<int, CBigNum> > temp1(0), temp2(0);
+        for(int i=0; i<(int)params->ZKP_wC.size(); i++) {
+            if (params->ZKP_wC[i][0][k] != CBigNum(0))
+                temp1.push_back( std::make_pair(i, params->ZKP_wC[i][0][k]) );
+            if (params->ZKP_wC[i][1][k] != CBigNum(0))
+                temp2.push_back( std::make_pair(i, params->ZKP_wC[i][1][k]) );
+        }
+        s_c1.push_back(temp1);
+        s_c2.push_back(temp1);
     }
 
 }
@@ -201,12 +239,12 @@ void ArithmeticCircuit::setYPoly(const CBigNum& y)
      * the vector of monomials.
      */
     this->y = y;
-    set_YPowers();
+    set_YPowers2();
     set_YDash();
-    set_wABj();
-    set_wCj();
-    set_Kconst();
+    set_Kconst(YPowers, serialNumber);
 
+    //set_wABj();
+    //set_wCj();
 }
 
 CBigNum ArithmeticCircuit::sumWiresDotWs(const int i)
@@ -247,19 +285,41 @@ CBigNum ArithmeticCircuit::AiDotBiYDash(const int i)
     return res;
 }
 
-void ArithmeticCircuit::set_YPowers()
+void ArithmeticCircuit::set_YPowers(const int num)
+{
+    YPowers.clear();
+    CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
+    YPowers.push_back(y.pow_mod(CBigNum(4*ZKP_SERIALSIZE+ZKP_M+1), q));
+    for(int i=1; i<num; i++)
+        YPowers.push_back(y.mul_mod(YPowers[i-1], q));
+}
+
+void ArithmeticCircuit::set_YPowers2()
 {
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    YPowers[0] = y.pow_mod(CBigNum(4*ZKP_SERIALSIZE+ZKP_M+1), q);
-    for(unsigned int i=1; i<4*ZKP_SERIALSIZE-2; i++)
-        YPowers[i] = y.mul_mod(YPowers[i-1], q);
+
+    YPowers.clear();
+    YPowers.push_back(CBigNum(1));
+    CBigNum temp = CBigNum(1);
+    for(unsigned int i=0; i<8*ZKP_SERIALSIZE+ZKP_M+1; i++) {
+        temp = temp.mul_mod(y, q);
+        YPowers.push_back(temp);
+    }
+
+    y_vec_neg.clear();
+    CBigNum ym = y.pow_mod(-ZKP_M,q);
+    temp = CBigNum(1);
+    for(unsigned int i=0; i<ZKP_N+ZKP_PADS; i++) {
+        temp = temp.mul_mod(ym, q);
+        y_vec_neg.push_back(temp.mul_mod(2,q));
+    }
 }
 
 void ArithmeticCircuit::set_YDash()
 {
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
     for(unsigned int i=0; i<ZKP_N; i++)
-        YDash[i] = y.pow_mod(ZKP_M*CBigNum(i+1), q);
+        YDash[i] = YPowers[ZKP_M*(i+1)];
 }
 
 void ArithmeticCircuit::set_wABj()
@@ -309,13 +369,15 @@ void ArithmeticCircuit::set_wCj()
     }
 }
 
-void ArithmeticCircuit::set_Kconst()
+void ArithmeticCircuit::set_Kconst(CBN_vector& YPowers, const CBigNum serial)
 {
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
+    const CBigNum a = params->coinCommitmentGroup.g;
+
+    K.push_back(a.pow_mod(serial, q));
     Kconst = CBigNum(0);
-    for(unsigned int i=0; i<4*ZKP_SERIALSIZE-3; i++)
-        Kconst += K[i].mul_mod(YPowers[i], q);
-    Kconst = Kconst % q;
+    for(unsigned int i=0; i<K.size(); i++)
+        Kconst = (Kconst + K[i].mul_mod(YPowers[4*ZKP_SERIALSIZE+ZKP_M+1+i], q)) %  q;
 }
 
 // verifies correct assignment
