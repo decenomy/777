@@ -33,6 +33,7 @@ BOOST_AUTO_TEST_CASE(parameters_tests)
 
     std::cout << endl;
 }
+*/
 
 BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
 {
@@ -54,7 +55,6 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
 
     ArithmeticCircuit circuit(ZCParams);
     circuit.setWireValues(coin);
-    circuit.setConstraints(coin.getSerialNumber());
     circuit.setYPoly(Y);
 
     // If multiplication gates hold this should be true
@@ -84,19 +84,19 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
     // Checking that the expressions in Equation (1) of the paper hold
     std::cout << "- Testing the Arithmetic Constraints (eq. 1)..." << endl;
     for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++) {
-        BOOST_CHECK_MESSAGE( circuit.sumWiresDotWs(i) == circuit.K[i],
+        BOOST_CHECK_MESSAGE( circuit.sumWiresDotWs(i) == (circuit.K[i] % q),
                 "Circuit Specification:: Arithmetic Constraints Test failed at i=" << i << "\n" <<
                 "sumWiresDotWs(i) = " << circuit.sumWiresDotWs(i) << "\n" <<
                 "K[i] = " << circuit.K[i].ToString() << "\n");
     }
 
     // Checking that the expressions in Equation (2) of the paper hold
-    std::cout << "- Testing Polynomials Evaluate (eq. 2)..." << endl;
-    CBigNum sum = circuit.sumWiresDotWPoly();
-    BOOST_CHECK_MESSAGE( sum == circuit.Kconst,
-            "Circuit Specification:: Constraints Polynomial Test failed\n" <<
-            "sum = " << sum.ToString() << "\n" <<
-            "Kconst = " << circuit.Kconst << "\n");
+    //std::cout << "- Testing Polynomials Evaluate (eq. 2)..." << endl;
+    //CBigNum sum = circuit.sumWiresDotWPoly();
+    //BOOST_CHECK_MESSAGE( sum == circuit.Kconst,
+    //        "Circuit Specification:: Constraints Polynomial Test failed\n" <<
+    //        "sum = " << sum.ToString() << "\n" <<
+    //        "Kconst = " << circuit.Kconst << "\n");
 
     // New circuit with random assignment
     ArithmeticCircuit newCircuit(circuit);
@@ -124,13 +124,14 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
     }
 
     // Checking that the expressions in Equation (2) of the does not paper hold
-    std::cout << "- Testing Polynomials Evaluate (eq. 2) for wrong assignment..." << endl;
-    BOOST_CHECK_MESSAGE( newCircuit.sumWiresDotWPoly() != newCircuit.Kconst,
-            "Circuit Specification:: Constraints Polynomial Test passed with wrong assignment\n");
+    //std::cout << "- Testing Polynomials Evaluate (eq. 2) for wrong assignment..." << endl;
+    //BOOST_CHECK_MESSAGE( newCircuit.sumWiresDotWPoly() != newCircuit.Kconst,
+    //        "Circuit Specification:: Constraints Polynomial Test passed with wrong assignment\n");
 
     std::cout << endl;
 }
 
+/*
 // Evaluate tpolynomial at x
 CBigNum eval_tpoly(CBN_vector tpoly, CBN_vector xPowersPos, CBN_vector xPowersNeg, CBigNum q)
 {

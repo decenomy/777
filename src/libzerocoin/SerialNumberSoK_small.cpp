@@ -89,7 +89,6 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     // set arithmetic circuit wire values and constraints
     ArithmeticCircuit circuit(params);
     circuit.setWireValues(coin);
-    //circuit.setConstraints(coin.getSerialNumber());
 
     // Commit to the assignment of the circuit
     for(unsigned int i=0; i<m; i++) {

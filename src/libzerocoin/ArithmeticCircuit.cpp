@@ -18,15 +18,9 @@ ArithmeticCircuit::ArithmeticCircuit(const ZerocoinParams* p):
             A(ZKP_M, CBN_vector(ZKP_N)),
             B(ZKP_M, CBN_vector(ZKP_N)),
             C(ZKP_M, CBN_vector(ZKP_N)),
-            wA(p->ZKP_wA),
-            wB(p->ZKP_wB),
-            wC(p->ZKP_wC),
             K(p->ZKP_K),
             YPowers(0),
             YDash(ZKP_N),
-            wAj(ZKP_M, CBN_vector(ZKP_N)),
-            wBj(ZKP_M, CBN_vector(ZKP_N)),
-            wCj(ZKP_M, CBN_vector(ZKP_N)),
             y_vec_neg(0),
             params(p),
             r_bits(ZKP_SERIALSIZE, 0)
@@ -95,6 +89,11 @@ void ArithmeticCircuit::setPreConstraints(const ZerocoinParams* params,
      * -------------------------------------------------------------------------------------------
      * Matrices wA, wB, wC and vector K, specifying constraints that ensure that the circuit
      * is satisfied if and only if Cfinal = a^S b^v.
+     *
+     *     wA      constraints for the left input wires
+     *     wB      constraints for the right input wires
+     *     wC      constraints for the output wires
+     *     K       constraints vector
      *
      */
 
@@ -227,32 +226,15 @@ void ArithmeticCircuit::set_s_poly(const ZerocoinParams* params,
 
 }
 
-void ArithmeticCircuit::setConstraints(const CBigNum& serialNumber)
-{
-    const CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    const CBigNum a = params->coinCommitmentGroup.g;
-
-
-    CBN_vector U(ZKP_N);   // Unit vector
-    unit_vector(U, (2*ZKP_SERIALSIZE-3) % ZKP_N);
-    CBigNum x = CBigNum(-1).mul_mod(a.pow_mod(serialNumber, q), q);
-    vectorTimesConstant(wC[4*ZKP_SERIALSIZE-3][(2*ZKP_SERIALSIZE-3) / ZKP_N], U, x, q);
-}
-
 void ArithmeticCircuit::setYPoly(const CBigNum& y)
 {
     /* --------------------------------- **** w-POLYNOMIALS **** ---------------------------------
      * -------------------------------------------------------------------------------------------
-     * Matrices wAj, wBj, wCj, specifying  the vector polynomials and array YDash specifying
-     * the vector of monomials.
      */
     this->y = y;
-    set_YPowers2();
+    set_YPowers();
     set_YDash();
     set_Kconst(YPowers, serialNumber);
-
-    //set_wABj();
-    //set_wCj();
 }
 
 CBigNum ArithmeticCircuit::sumWiresDotWs(const int i)
@@ -260,26 +242,9 @@ CBigNum ArithmeticCircuit::sumWiresDotWs(const int i)
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
     CBigNum sum = CBigNum(0);
     for(unsigned int j=0; j<ZKP_M; j++) {
-        sum = (sum + dotProduct(A[j], wA[i][j], q)) % q;
-        sum = (sum + dotProduct(B[j], wB[i][j], q)) % q;
-        sum = (sum + dotProduct(C[j], wC[i][j], q)) % q;
-    }
-    return sum;
-}
-
-CBigNum ArithmeticCircuit::sumWiresDotWPoly()
-{
-    CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    CBigNum x;
-    CBigNum sum = CBigNum(0);
-    for(unsigned int i=0; i<ZKP_M; i++) {
-        x = AiDotBiYDash(i);
-        sum = (sum + x.mul_mod(y.pow_mod(i+1,q),q)) % q;
-    }
-    for(unsigned int i=0; i<ZKP_M; i++) {
-        sum = ( sum + dotProduct(A[i], wAj[i], q) ) % q;
-        sum = ( sum + dotProduct(B[i], wBj[i], q) ) % q;
-        sum = ( sum + dotProduct(C[i], wCj[i], q) ) % q;
+        sum = (sum + dotProduct(A[j], params->ZKP_wA[i][j], q)) % q;
+        sum = (sum + dotProduct(B[j], params->ZKP_wB[i][j], q)) % q;
+        sum = (sum + dotProduct(C[j], params->ZKP_wC[i][j], q)) % q;
     }
     return sum;
 }
@@ -293,16 +258,7 @@ CBigNum ArithmeticCircuit::AiDotBiYDash(const int i)
     return res;
 }
 
-void ArithmeticCircuit::set_YPowers(const int num)
-{
-    YPowers.clear();
-    CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    YPowers.push_back(y.pow_mod(CBigNum(4*ZKP_SERIALSIZE+ZKP_M+1), q));
-    for(int i=1; i<num; i++)
-        YPowers.push_back(y.mul_mod(YPowers[i-1], q));
-}
-
-void ArithmeticCircuit::set_YPowers2()
+void ArithmeticCircuit::set_YPowers()
 {
     CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
 
@@ -330,52 +286,6 @@ void ArithmeticCircuit::set_YDash()
         YDash[i] = YPowers[ZKP_M*(i+1)];
 }
 
-void ArithmeticCircuit::set_wABj()
-{
-    CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    CBigNum sumA, sumB;
-    for(unsigned int j=0; j<ZKP_M; j++) {
-        if (j==1) {
-            sumA = CBigNum(0);
-            sumB = CBigNum(0);
-            for(unsigned int i=0; i<wCoeffA.size(); i++) {
-                sumA = (sumA + wCoeffA[i].mul_mod(YPowers[i], q)) % q;
-                sumB = (sumB + wCoeffB[i].mul_mod(YPowers[i], q)) % q;
-            }
-            wAj[j][0] = sumA % q;
-            wBj[j][0] = sumB % q;
-            fill(wAj[j].begin()+1, wAj[j].end(), CBigNum(0));
-            fill(wBj[j].begin()+1, wBj[j].end(), CBigNum(0));
-            continue;
-        }
-        for(unsigned int k=0; k<ZKP_N; k++) {
-            sumA = CBigNum(0);
-            sumB = CBigNum(0);
-            for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++) {
-                sumA += wA[i][j][k].mul_mod(YPowers[i], q);
-                sumB += wB[i][j][k].mul_mod(YPowers[i], q);
-            }
-            wAj[j][k] = sumA % q;
-            wBj[j][k] = sumB % q;
-        }
-    }
-}
-
-
-void ArithmeticCircuit::set_wCj()
-{
-    CBigNum q = params->serialNumberSoKCommitmentGroup.groupOrder;
-    CBigNum sum;
-    CBigNum y2 = -y.pow_mod(2,q);
-    for(unsigned int k=0; k<ZKP_N; k++) {
-        sum = - YDash[k].mul_mod(y, q);
-        for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++)
-            sum += wC[i][0][k].mul_mod(YPowers[i], q);
-
-        wCj[0][k] = sum % q;
-        wCj[1][k] = YDash[k].mul_mod(y2, q);
-    }
-}
 
 void ArithmeticCircuit::set_Kconst(CBN_vector& YPowers, const CBigNum serial)
 {
@@ -410,7 +320,7 @@ void ArithmeticCircuit::check()
             throw std::runtime_error("ArithmeticCircuit::check() error: code 3");
         }
 
-    if (sumWiresDotWPoly() != Kconst)
-        throw std::runtime_error("ArithmeticCircuit::check() error: code 4");
+    //if (sumWiresDotWPoly() != Kconst)
+    //    throw std::runtime_error("ArithmeticCircuit::check() error: code 4");
 }
 
