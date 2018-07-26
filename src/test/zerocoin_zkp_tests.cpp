@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(parameters_tests)
 
     std::cout << endl;
 }
-*/
+
 
 BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
 {
@@ -131,7 +131,7 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
     std::cout << endl;
 }
 
-/*
+
 // Evaluate tpolynomial at x
 CBigNum eval_tpoly(CBN_vector tpoly, CBN_vector xPowersPos, CBN_vector xPowersNeg, CBigNum q)
 {
@@ -279,9 +279,9 @@ BOOST_AUTO_TEST_CASE(inner_product_argument_tests)
 
     std::cout << endl;
 }
-*/
 
-BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
+
+BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests_debug)
 {
     std::cout << "*** signature_of_knowledge_tests DEBUG ***" << endl;
     std::cout << "------------------------------------------" << endl;
@@ -333,131 +333,8 @@ BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
 
     std::cout << endl;
 }
+*/
 
-/*
-BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
-{
-    std::cout << "*** signature_of_knowledge_tests ***" << endl;
-    std::cout << "------------------------------------" << endl;
-
-    SelectParams(CBaseChainParams::MAIN);
-    ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
-    (void)ZCParams;
-
-    // create message hash
-    CHashWriter hasher(0,0);
-    hasher << std::string("Chancellor on brink of second bailout for banks");
-    uint256 msghash = hasher.GetHash();
-
-    // mint a coin
-    PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
-
-    // commit to this coin
-    const CBigNum newCoin_value = newCoin.getPublicCoin().getValue();
-    Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
-
-    std::cout << "- Creating the Signature of Knowledge..." << endl;
-
-    // create the signature of knowledge
-    SerialNumberSoK_small sigOfKnowledge(ZCParams, newCoin, commitment, msghash);
-
-    std::cout << "- Serializing the Signature of Knowledge..." << endl;
-
-    // serialize the SoK to a CDataStream object.
-    CDataStream serializedSoK(SER_NETWORK, PROTOCOL_VERSION);
-    serializedSoK << sigOfKnowledge;
-
-    std::cout << "- Unserializing the Signature of Knowledge..." << endl;
-
-    // unserialize the CDataStream object into a fresh SoK object
-    SerialNumberSoK_small newSigOfKnowledge(ZCParams);
-    serializedSoK >> newSigOfKnowledge;
-
-    std::cout << "- Verifying the Signature of Knowledge..." << endl;
-
-    // verify the signature of the received SoK
-    //bool res1 = newSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
-    bool res1 = newSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
-
-    BOOST_CHECK_MESSAGE(res1,"SerialNumbwerSoK_small:: Verification failed\n");
-
-    std::cout << "- Checking that Verify fails for a different msghash..." << endl;
-
-    // verify the signature on a random msghash
-    CBigNum random_num = CBigNum::randBignum(CBigNum(2).pow(256));
-    uint256 random_msghash = random_num.getuint256();
-
-    bool res2 = newSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), random_msghash);
-
-    BOOST_CHECK_MESSAGE(!res2,"SerialNumbwerSoK_small:: Verification passed for random msghash\n");
-
-    // if we made this far, all is good. Cheer the developer
-    if(res1 && !res2)
-        std::cout << "  [YES] : [SoK is Ok! You did it champ. Have a cigar.]" << endl;
-
-    std::cout << endl;
-}
-
-
-BOOST_AUTO_TEST_CASE(signature_of_knowledge_benchmark)
-{
-    std::cout << "*** signature_of_knowledge_benchmark ***" << endl;
-    std::cout << "----------------------------------------" << endl;
-
-    SelectParams(CBaseChainParams::MAIN);
-    ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
-    (void)ZCParams;
-
-    // create message hash
-    CHashWriter hasher(0,0);
-    hasher << std::string("Chancellor on brink of second bailout for banks");
-    uint256 msghash = hasher.GetHash();
-
-    // mint a coin
-    PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
-
-    // commit to this coin
-    const CBigNum newCoin_value = newCoin.getPublicCoin().getValue();
-    Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
-
-    // create the signature of knowledge (old)
-    clock_t start_time = clock();
-    SerialNumberSignatureOfKnowledge oldSigOfKnowledge(ZCParams, newCoin, commitment, msghash);
-    clock_t total_time = clock() - start_time;
-    double oldSok_time1 = total_time*1000.0/CLOCKS_PER_SEC;
-
-    // create the signature of knowledge (new)
-    start_time = clock();
-    SerialNumberSoK_small sigOfKnowledge(ZCParams, newCoin, commitment, msghash);
-    total_time = clock() - start_time;
-    double newSok_time1 = total_time*1000.0/CLOCKS_PER_SEC;
-
-    // verify the signature of knowledge (old)
-    start_time = clock();
-    oldSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
-    total_time = clock() - start_time;
-    double oldSok_time2 = total_time*1000.0/CLOCKS_PER_SEC;
-
-    // verify the signature of knowledge (new)
-    start_time = clock();
-    sigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
-    total_time = clock() - start_time;
-    double newSok_time2 = total_time*1000.0/CLOCKS_PER_SEC;
-
-    // serialize the SoKs to CDataStream objects.
-    CDataStream serializedSoK(SER_NETWORK, PROTOCOL_VERSION);
-    serializedSoK << sigOfKnowledge;
-    CDataStream serializedOldSoK(SER_NETWORK, PROTOCOL_VERSION);
-    serializedOldSoK << oldSigOfKnowledge;
-    std::cout << "- Size of the Serialized SoK (old): " << serializedOldSoK.size() << " bytes" << endl;
-    std::cout << "- Time to sign (old): " << oldSok_time1 << " msec" << endl;
-    std::cout << "- Time to verify (old): " << oldSok_time2 << " msec" << endl;
-    std::cout << "- Size of the Serialized SoK (new): " << serializedSoK.size() << " bytes" << endl;
-    std::cout << "- Time to sign (new): " << newSok_time1 << " msec" << endl;
-    std::cout << "- Time to verify (new): " << newSok_time2 << " msec" << endl;
-
-    std::cout << endl;
-}
 
 
 BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
@@ -496,16 +373,20 @@ BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
         // create k signatures of knowledge
         std::vector<SerialNumberSoK_small> siglist;
 
-//clock_t start_time = clock();
+clock_t start_time = clock();
 
         for(unsigned int i=0; i<k; i++) {
             SerialNumberSoK_small sigOfKnowledge(ZCParams, coinlist[i], commitmentlist[i], msghash);
             siglist.push_back(sigOfKnowledge);
         }
 
+clock_t total_time = clock() - start_time;
+double passed = total_time*1000.0/CLOCKS_PER_SEC;
+std::cout << "----->" << passed << " msec" << endl;
+
         std::cout << "- Packing and serializing the Signatures..." << endl;
 
-        // pack the signature of knowledge
+        // pack the signatures of knowledge
         std::vector<SerialNumberSoKProof> proofs;
         for(unsigned int i=0; i<k; i++) {
             SerialNumberSoKProof proof(siglist[i], coinlist[i].getSerialNumber(), commitmentlist[i].getCommitmentValue(), msghash);
@@ -518,7 +399,7 @@ BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
             serializedProofs[i] << proofs[i];
         }
 
-        std::cout << "- Unserializing the Signature of Knowledge..." << endl;
+        std::cout << "- Unserializing the Signatures of Knowledge..." << endl;
 
         // unserialize the CDataStream object into a fresh SoK object
         std::vector<SerialNumberSoKProof> newproofs(serializedProofs.size(), SerialNumberSoKProof(ZCParams));
@@ -527,14 +408,9 @@ BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
         }
 
 
-clock_t total_time = clock() - start_time;
-double passed = total_time*1000.0/CLOCKS_PER_SEC;
-std::cout << "----->" << passed << " msec" << endl;
-
-
         std::cout << "- Verifying the Signature of Knowledge..." << endl;
 
-//start_time = clock();
+start_time = clock();
 
         // verify the signature of the received SoK
         bool res1 = SerialNumberSoKProof::BatchVerify(newproofs);
@@ -553,5 +429,5 @@ std::cout << "----->" << passed << " msec" << endl;
 
     }
 }
-*/
+
 BOOST_AUTO_TEST_SUITE_END()

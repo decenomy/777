@@ -432,6 +432,8 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     CBigNum ny;
     CBigNum temp;
 
+    std::vector<SerialNumberSoKProof2> proofs2;
+
     for(unsigned int w=0; w<proofs.size(); w++)
     {
         msghash = proofs[w].msghash;
@@ -507,32 +509,11 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
             }
 
 
-    }
 
 
-    // ****************************************************************************
-    // *********************** STEP 2: Compute Challenges *************************
-    // ****************************************************************************
-
-    std::vector<SerialNumberSoKProof2> proofs2;
-
-    for(unsigned int w=0; w<proofs.size(); w++)
-    {
-        msghash = proofs[w].msghash;
-        S = proofs[w].coinSerialNumber;
-        y1 = proofs[w].valueOfCommitmentToCoin;
-        ComA = proofs[w].signature.ComA;
-        ComB = proofs[w].signature.ComB;
-        ComC = proofs[w].signature.ComC;
-        ComD = proofs[w].signature.ComD;
-        comRdash  = proofs[w].signature.comRdash;
-        rho = proofs[w].signature.rho;
-        polyComm = &proofs[w].signature.polyComm;
-        innerProduct = &proofs[w].signature.innerProduct;
-
-        // Restore y1 in ComC
-        CBN_vector ComC_(ComC);
-        ComC_.push_back(y1);
+        // ****************************************************************************
+        // *********************** STEP 2: Compute Challenges *************************
+        // ****************************************************************************
 
         CHashWriter1024 hasher(0,0);
         hasher << msghash << ComD.ToString();
@@ -593,6 +574,7 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
         SerialNumberSoKProof2 newProof(proofs[w].signature, S, y1,
                 xPowersPos, xPowersNeg, yPowers, yDash, ymPowers);
         proofs2.push_back(newProof);
+
     }
 
 
@@ -602,8 +584,38 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
     const ZerocoinParams *params;
 
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_a1;
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_a2;
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_b1;
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_b2;
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_c1;
+    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_c2;
+
+    int duo0;
+    CBigNum duo1;
+    CBN_vector xPowersPositive, xPowersNegative, yPowers;
+
+    CBN_vector test_vec(n, CBigNum(0));
+    CBigNum comTest = CBigNum(1);
+    CBigNum gamma;
+
     for(unsigned int w=0; w<proofs2.size(); w++)
     {
+        S = proofs2[w].coinSerialNumber;
+        y1 = proofs2[w].valueOfCommitmentToCoin;
+        ComA = proofs2[w].signature.ComA;
+        ComB = proofs2[w].signature.ComB;
+        ComC = proofs2[w].signature.ComC;
+        ComD = proofs2[w].signature.ComD;
+        comRdash  = proofs2[w].signature.comRdash;
+        rho = proofs2[w].signature.rho;
+        polyComm = &proofs2[w].signature.polyComm;
+        innerProduct = &proofs2[w].signature.innerProduct;
+
+        // Restore y1 in ComC
+        CBN_vector ComC_(ComC);
+        ComC_.push_back(y1);
+
         S = proofs2[w].coinSerialNumber;
         y1 = proofs2[w].valueOfCommitmentToCoin;
         params = proofs2[w].signature.params;
@@ -629,23 +641,12 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
         // append proof3
         proofs2[w].z = z;
-    }
 
 
-    // ****************************************************************************
-    // ***************************** STEP 4: Find ComR ****************************
-    // ****************************************************************************
 
-    for(unsigned int w=0; w<proofs2.size(); w++)
-    {
-        y1 = proofs2[w].valueOfCommitmentToCoin;
-        ComA = proofs2[w].signature.ComA;
-        ComB = proofs2[w].signature.ComB;
-        ComC = proofs2[w].signature.ComC;
-        ComD = proofs2[w].signature.ComD;
-        // Restore y1 in ComC
-        CBN_vector ComC_(ComC);
-        ComC_.push_back(y1);
+        // ****************************************************************************
+        // ***************************** STEP 4: Find ComR ****************************
+        // ****************************************************************************
 
         rho = proofs2[w].signature.rho;
 
@@ -660,27 +661,12 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
         // append proof4
         proofs2[w].ComR = ComR;
-    }
 
 
-    // ****************************************************************************
-    // *************************** STEP 5: Find s_vec_2 ***************************
-    // ****************************************************************************
+        // ****************************************************************************
+        // *************************** STEP 5: Find s_vec_2 ***************************
+        // ****************************************************************************
 
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_a1;
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_a2;
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_b1;
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_b2;
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_c1;
-    std::vector< std::vector< std::pair<int, CBigNum> > > s_poly_c2;
-
-    int duo0;
-    CBigNum duo1;
-    CBN_vector xPowersPositive, xPowersNegative, yPowers;
-
-    for(unsigned int w=0; w<proofs2.size(); w++)
-    {
-        params = proofs2[w].signature.params;
         s_poly_a1 = params->S_POLY_A1;
         s_poly_a2 = params->S_POLY_A2;
         s_poly_b1 = params->S_POLY_B1;
@@ -736,22 +722,15 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
             proofs2[w].s_vec_2[i] = proofs2[w].s_vec_2[i].mul_mod(2,q);
         }
 
-    }
 
 
-    // ****************************************************************************
-    // ************************** STEP 6: check ComRdash **************************
-    // ****************************************************************************
+        // ****************************************************************************
+        // ************************** STEP 6: check ComRdash **************************
+        // ****************************************************************************
 
-    CBN_vector test_vec(n, CBigNum(0));
-    CBigNum comTest = CBigNum(1);
-    CBigNum gamma;
-
-    for(unsigned int w=0; w<proofs2.size(); w++)
-    {
         gamma = CBigNum::randBignum(q);
         comRdash  = proofs2[w].signature.comRdash;
-        CBigNum ComR = proofs2[w].ComR;
+        ComR = proofs2[w].ComR;
 
         CBN_vector temp_v;
         for(int i=0; i<(int)proofs2[w].s_vec_2.size(); i++) {
@@ -762,7 +741,10 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
         comTest = comTest.mul_mod(
                         ((ComR.pow_mod(-1,p)).mul_mod(comRdash,p)).pow_mod(gamma,p),p);
+
+
     }
+
 
     CBigNum test = pedersenCommitment(proofs2[0].signature.params, test_vec, CBigNum(0));
 
