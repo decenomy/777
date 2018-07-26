@@ -51,11 +51,11 @@ struct preChallengeShifts {
 };
 
 const int ZKP_M = 2;
-const int ZKP_N = 510;
+const int ZKP_N = 512;
 const int ZKP_M1DASH = 3;
 const int ZKP_M2DASH = 5;
 const int ZKP_NDASH = 2;
-const int ZKP_PADS = 2;
+const int ZKP_PADS = 0;
 const std::vector<int> ZKP_MS = {2,2,2,2,2,2,2,2,2};
 const int ZKP_SERIALSIZE = 256;
 

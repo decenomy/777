@@ -23,6 +23,19 @@ inline void vectorTimesConstant(CBN_vector& kV, const CBN_vector V,
         kV[i] = V[i].mul_mod(k, modulus);
 }
 
+inline CBN_vector addVectors_mod(CBN_vector& v1, const CBN_vector& v2, const CBigNum modulus)
+{
+    if(v1.size() != v2.size())
+        throw std::runtime_error("different vector length in addVectors_mod");
+
+    CBN_vector sum(v1.size());
+
+    for(unsigned int i=0; i<v1.size(); i++)
+        sum[i] = (v1[i] + v2[i]) % modulus;
+
+    return sum;
+}
+
 inline CBN_vector vectorTimesConstant(const CBN_vector V,
         const CBigNum k, const CBigNum modulus)
 {

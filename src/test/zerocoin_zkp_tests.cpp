@@ -282,6 +282,60 @@ BOOST_AUTO_TEST_CASE(inner_product_argument_tests)
 
 BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
 {
+    std::cout << "*** signature_of_knowledge_tests DEBUG ***" << endl;
+    std::cout << "------------------------------------------" << endl;
+
+    SelectParams(CBaseChainParams::MAIN);
+    ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
+    (void)ZCParams;
+
+    // create message hash
+    CHashWriter hasher(0,0);
+    hasher << std::string("Chancellor on brink of second bailout for banks");
+    uint256 msghash = hasher.GetHash();
+
+    // mint a coin
+    PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
+
+    // commit to this coin
+    const CBigNum newCoin_value = newCoin.getPublicCoin().getValue();
+    Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
+
+
+    std::cout << "- Creating the Signature of Knowledge..." << endl;
+
+    // create the signature of knowledge
+    SerialNumberSoK_small sigOfKnowledge(ZCParams, newCoin, commitment, msghash);
+
+    std::cout << "- Serializing the Signature of Knowledge..." << endl;
+
+    // serialize the SoK to a CDataStream object.
+    CDataStream serializedSoK(SER_NETWORK, PROTOCOL_VERSION);
+    serializedSoK << sigOfKnowledge;
+
+    std::cout << "- Unserializing the Signature of Knowledge..." << endl;
+
+    // unserialize the CDataStream object into a fresh SoK object
+    SerialNumberSoK_small newSigOfKnowledge(ZCParams);
+    serializedSoK >> newSigOfKnowledge;
+
+    std::cout << "- Verifying the Signature of Knowledge..." << endl;
+
+    // verify the signature of the received SoK
+    bool res1 = newSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
+
+    BOOST_CHECK_MESSAGE(res1,"SerialNumbwerSoK_small:: Verification failed\n");
+
+    // if we made this far, all is good. Cheer the developer
+    if(res1)
+        std::cout << "  [YES] : [SoK is Ok! You did it champ. Have a cigar.]" << endl;
+
+    std::cout << endl;
+}
+
+/*
+BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
+{
     std::cout << "*** signature_of_knowledge_tests ***" << endl;
     std::cout << "------------------------------------" << endl;
 
@@ -343,7 +397,7 @@ BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests)
     std::cout << endl;
 }
 
-/*
+
 BOOST_AUTO_TEST_CASE(signature_of_knowledge_benchmark)
 {
     std::cout << "*** signature_of_knowledge_benchmark ***" << endl;
@@ -403,7 +457,7 @@ BOOST_AUTO_TEST_CASE(signature_of_knowledge_benchmark)
 
     std::cout << endl;
 }
-*/
+
 
 BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
 {
@@ -471,11 +525,11 @@ BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
             serializedProofs[i] >> newproofs[i];
         }
 
-/*
+
 clock_t total_time = clock() - start_time;
 double passed = total_time*1000.0/CLOCKS_PER_SEC;
 std::cout << "----->" << passed << " msec" << endl;
-*/
+
 
         std::cout << "- Verifying the Signature of Knowledge..." << endl;
 
@@ -489,14 +543,14 @@ std::cout << "----->" << passed << " msec" << endl;
         // if we made this far, all is good. Cheer the developer
         if(res1)
             std::cout << "  [YES] : [SoK is Ok! You did it champ. Have a cigar.]" << endl;
-/*
+
 total_time = clock() - start_time;
 passed = total_time*1000.0/CLOCKS_PER_SEC;
 std::cout << "----->" << passed << " msec" << endl;
-*/
+
         std::cout << endl;
 
     }
 }
-
+*/
 BOOST_AUTO_TEST_SUITE_END()

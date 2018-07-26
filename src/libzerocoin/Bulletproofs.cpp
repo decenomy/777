@@ -54,6 +54,7 @@ void Bulletproofs::Prove(const CBN_matrix ck_inner_g,
     int N1 = a_sets[0].size();
     CBigNum x;
     while (N1 > 1) {
+        hasher = CHashWriter1024(0,0);
         pair<CBigNum, CBigNum> cLcR = findcLcR(a_sets2, b_sets2);
         CBigNum cL = cLcR.first;
         CBigNum cR = cLcR.second;
@@ -109,7 +110,6 @@ void Bulletproofs::Prove(const CBN_matrix ck_inner_g,
 
     final_a = a_sets2;
     final_b = b_sets2;
-
 }
 
 

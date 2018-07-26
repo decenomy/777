@@ -134,7 +134,7 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     CBN_matrix rPolyNegative(1, CBN_vector(n, CBigNum(0)));
 
     for(int i=0; i<m; i++) {
-        rPolyPositive.push_back( vectorTimesConstant(circuit.A[i], y.pow_mod(-i-1,q), q) );
+        rPolyPositive.push_back( vectorTimesConstant(circuit.A[i], y.pow_mod(i+1,q), q) );
         rPolyNegative.push_back( circuit.B[i] );
     }
 
@@ -210,8 +210,8 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     temp1.clear();
     temp2.clear();
     for(unsigned int i=0; i<s_poly_c1.size(); i++) {
-        coef1 = - circuit.YPowers[2*(i+1)+1];
-        coef2 = - circuit.YPowers[2*(i+1)+2];
+        coef1 = (- circuit.YPowers[2*(i+1)+1]) % q;
+        coef2 = (- circuit.YPowers[2*(i+1)+2]) % q;
 
         for(unsigned int j=0; j<s_poly_c1[i].size(); j++) {
             duo0 = s_poly_c1[i][j].first;
@@ -231,7 +231,6 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
 
     sPolyNegative.push_back(temp1);
     sPolyNegative.push_back(temp2);
-
 
 
     // rDashPoly
@@ -255,6 +254,7 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
 
     fill(rDashPolyNegative[2*m+1].begin(), rDashPolyNegative[2*m+1].end(), CBigNum(0));
 
+
     // tPoly
     CBN_vector tPoly(7*m+3);
     CBigNum tcoef;
@@ -276,6 +276,7 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     if (tPoly[3*m] != (2*circuit.Kconst)%q)
         throw std::runtime_error("SerialNumberSoK_small - error: sanity check failed");
 
+
     tPoly[3*m] = CBigNum(0);
 
     // commit to the polynomial
@@ -286,12 +287,14 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     // *********************** STEP 4: Challenge Component ************************
     // ****************************************************************************
 
-    hasher << polyComm.U.ToString();
-    for(unsigned int i=0; i<m1dash; i++) hasher << polyComm.Tf[i].ToString();
-    for(unsigned int i=0; i<m1dash; i++) hasher << polyComm.Trho[i].ToString();
+    CHashWriter1024 hasher2(0,0);
+    hasher2 << polyComm.U.ToString();
+    for(unsigned int i=0; i<m1dash; i++) hasher2 << polyComm.Tf[i].ToString();
+    for(unsigned int i=0; i<m1dash; i++) hasher2 << polyComm.Trho[i].ToString();
 
     // get the challenge component x
-    CBigNum x = CBigNum(hasher.GetHash()) % q;
+    CBigNum x = CBigNum(hasher2.GetHash()) % q;
+
 
     // precomputation of x powers
     CBN_vector xPowersPos(m2dash*ndash+1);
@@ -315,26 +318,29 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     CBN_vector r_vec(n+pads, CBigNum(0));
 
     for(unsigned int j=0; j<n; j++){
-        for(unsigned int rcoef=0; rcoef<2*m+2; rcoef++) {
+        for(unsigned int rcoef=0; rcoef<rPolyNegative.size(); rcoef++) {
             r_vec[j] +=
                     rPolyPositive[rcoef][j].mul_mod(xPowersPos[rcoef],q) +
                     rPolyNegative[rcoef][j].mul_mod(xPowersNeg[rcoef],q);
             r_vec[j] %= q;
         }
+
     }
 
     CBN_vector s_vec(n+pads, CBigNum(0));
 
     for(unsigned int j=0; j<n; j++){
-        for(unsigned int scoef=0; scoef<2*m+2; scoef++) {
+        for(unsigned int scoef=0; scoef<sPolyNegative.size(); scoef++) {
             s_vec[j] +=
                     sPolyPositive[scoef][j].mul_mod(xPowersPos[scoef],q) +
                     sPolyNegative[scoef][j].mul_mod(xPowersNeg[scoef],q);
             s_vec[j] %= q;
         }
+
     }
 
     rho = f_delta.mul_mod(xPowersPos[2*m+1],q);
+
 
     for(unsigned int i=1; i<m+1; i++) {
         rho +=
@@ -343,6 +349,7 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
                 f_gamma[i-1].mul_mod(xPowersPos[m+i],q);
         rho %= q;
     }
+
 
     // ****************************************************************************
     // ********************** STEP 6: Inner Product Argument **********************
@@ -373,6 +380,7 @@ SerialNumberSoK_small::SerialNumberSoK_small(const ZerocoinParams* ZCp, const Pr
     CBigNum Pinner = ComR.mul_mod(comRdash, p);
 
     CBigNum z = dotProduct(r_vec, rdash_vec1, q);
+
 
     CBN_matrix ck_inner_g = ck_inner_gen(params);
 
@@ -425,19 +433,19 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     CBigNum ny;
     CBigNum temp;
 
-    for(unsigned int i=0; i<proofs.size(); i++)
+    for(unsigned int w=0; w<proofs.size(); w++)
     {
-        msghash = proofs[i].msghash;
-        S = proofs[i].coinSerialNumber;
-        y1 = proofs[i].valueOfCommitmentToCoin;
-        ComA = proofs[i].signature.ComA;
-        ComB = proofs[i].signature.ComB;
-        ComC = proofs[i].signature.ComC;
-        ComD = proofs[i].signature.ComD;
-        comRdash  = proofs[i].signature.comRdash;
-        rho = proofs[i].signature.rho;
-        polyComm = &proofs[i].signature.polyComm;
-        innerProduct = &proofs[i].signature.innerProduct;
+        msghash = proofs[w].msghash;
+        S = proofs[w].coinSerialNumber;
+        y1 = proofs[w].valueOfCommitmentToCoin;
+        ComA = proofs[w].signature.ComA;
+        ComB = proofs[w].signature.ComB;
+        ComC = proofs[w].signature.ComC;
+        ComD = proofs[w].signature.ComD;
+        comRdash  = proofs[w].signature.comRdash;
+        rho = proofs[w].signature.rho;
+        polyComm = &proofs[w].signature.polyComm;
+        innerProduct = &proofs[w].signature.innerProduct;
 
         // Restore y1 in ComC
         CBN_vector ComC_(ComC);
@@ -509,19 +517,19 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
     std::vector<SerialNumberSoKProof2> proofs2;
 
-    for(unsigned int i=0; i<proofs.size(); i++)
+    for(unsigned int w=0; w<proofs.size(); w++)
     {
-        msghash = proofs[i].msghash;
-        S = proofs[i].coinSerialNumber;
-        y1 = proofs[i].valueOfCommitmentToCoin;
-        ComA = proofs[i].signature.ComA;
-        ComB = proofs[i].signature.ComB;
-        ComC = proofs[i].signature.ComC;
-        ComD = proofs[i].signature.ComD;
-        comRdash  = proofs[i].signature.comRdash;
-        rho = proofs[i].signature.rho;
-        polyComm = &proofs[i].signature.polyComm;
-        innerProduct = &proofs[i].signature.innerProduct;
+        msghash = proofs[w].msghash;
+        S = proofs[w].coinSerialNumber;
+        y1 = proofs[w].valueOfCommitmentToCoin;
+        ComA = proofs[w].signature.ComA;
+        ComB = proofs[w].signature.ComB;
+        ComC = proofs[w].signature.ComC;
+        ComD = proofs[w].signature.ComD;
+        comRdash  = proofs[w].signature.comRdash;
+        rho = proofs[w].signature.rho;
+        polyComm = &proofs[w].signature.polyComm;
+        innerProduct = &proofs[w].signature.innerProduct;
 
         // Restore y1 in ComC
         CBN_vector ComC_(ComC);
@@ -536,12 +544,14 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
         // get the challenge component y
         CBigNum y = CBigNum(hasher.GetHash()) % q;
 
-        hasher << polyComm->U.ToString();
-        for(int i=0; i<m1dash; i++) hasher << polyComm->Tf[i].ToString();
-        for(int i=0; i<m1dash; i++) hasher << polyComm->Trho[i].ToString();
+        CHashWriter1024 hasher2(0,0);
+
+        hasher2 << polyComm->U.ToString();
+        for(int i=0; i<m1dash; i++) hasher2 << polyComm->Tf[i].ToString();
+        for(int i=0; i<m1dash; i++) hasher2 << polyComm->Trho[i].ToString();
 
         // get the challenge component x
-        CBigNum x = CBigNum(hasher.GetHash()) % q;
+        CBigNum x = CBigNum(hasher2.GetHash()) % q;
 
         // precomputation of x powers
         CBN_vector xPowersPos(m2dash*ndash+1);
@@ -581,7 +591,7 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
 
         // append the proof
-        SerialNumberSoKProof2 newProof(proofs[i].signature, S, y1,
+        SerialNumberSoKProof2 newProof(proofs[w].signature, S, y1,
                 xPowersPos, xPowersNeg, yPowers, yDash, ymPowers);
         proofs2.push_back(newProof);
     }
@@ -593,25 +603,25 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
 
     const ZerocoinParams *params;
 
-    for(unsigned int i=0; i<proofs2.size(); i++)
+    for(unsigned int w=0; w<proofs2.size(); w++)
     {
-        S = proofs2[i].coinSerialNumber;
-        y1 = proofs2[i].valueOfCommitmentToCoin;
-        params = proofs2[i].signature.params;
-        polyComm = &proofs2[i].signature.polyComm;
+        S = proofs2[w].coinSerialNumber;
+        y1 = proofs2[w].valueOfCommitmentToCoin;
+        params = proofs2[w].signature.params;
+        polyComm = &proofs2[w].signature.polyComm;
 
         // set arithmetic circuit
         ArithmeticCircuit circuit(proofs2[0].signature.params);
-        circuit.set_Kconst(proofs2[i].yPowers, S);
+        circuit.set_Kconst(proofs2[w].yPowers, S);
 
         // restore PolynomialCommitment object from commitments
         PolynomialCommitment polyCommitment(params, polyComm->Tf, polyComm->Trho, polyComm->U,
-                polyComm->tbar, polyComm->taubar, proofs2[i].xPowersPos, proofs2[i].xPowersNeg);
+                polyComm->tbar, polyComm->taubar, proofs2[w].xPowersPos, proofs2[w].xPowersNeg);
 
         // verify the polynomial commitment and save the evaluation in z
         CBigNum z;
         if(!polyCommitment.Verify(z)) {
-            std::cout << "Polynomial Commitment Verification failed for proof n. " << i << std::endl;
+            std::cout << "Polynomial Commitment Verification failed for proof n. " << w << std::endl;
             return false;
         }
 
@@ -619,7 +629,7 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
         z = (z + 2*circuit.Kconst) % q;
 
         // append proof3
-        proofs2[i].z = z;
+        proofs2[w].z = z;
     }
 
 
@@ -627,30 +637,30 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     // ***************************** STEP 4: Find ComR ****************************
     // ****************************************************************************
 
-    for(unsigned int i=0; i<proofs2.size(); i++)
+    for(unsigned int w=0; w<proofs2.size(); w++)
     {
-        y1 = proofs2[i].valueOfCommitmentToCoin;
-        ComA = proofs2[i].signature.ComA;
-        ComB = proofs2[i].signature.ComB;
-        ComC = proofs2[i].signature.ComC;
-        ComD = proofs2[i].signature.ComD;
+        y1 = proofs2[w].valueOfCommitmentToCoin;
+        ComA = proofs2[w].signature.ComA;
+        ComB = proofs2[w].signature.ComB;
+        ComC = proofs2[w].signature.ComC;
+        ComD = proofs2[w].signature.ComD;
         // Restore y1 in ComC
         CBN_vector ComC_(ComC);
         ComC_.push_back(y1);
 
-        rho = proofs2[i].signature.rho;
+        rho = proofs2[w].signature.rho;
 
         CBigNum ComR = pedersenCommitment(params, CBN_vector(1, CBigNum(0)), -rho);
-        ComR = ComR.mul_mod(ComD.pow_mod(proofs2[i].xPowersPos[2*m+1],p),p);
+        ComR = ComR.mul_mod(ComD.pow_mod(proofs2[w].xPowersPos[2*m+1],p),p);
 
         for(int i=1; i<m+1; i++) {
-            ComR = ComR.mul_mod(ComA[i-1].pow_mod(proofs2[i].xPowersPos[i].mul_mod(proofs2[i].yPowers[i],q),p),p);
-            ComR = ComR.mul_mod(ComB[i-1].pow_mod(proofs2[i].xPowersNeg[i],p),p);
-            ComR = ComR.mul_mod(ComC_[i-1].pow_mod(proofs2[i].xPowersPos[m+i],p),p);
+            ComR = ComR.mul_mod(ComA[i-1].pow_mod(proofs2[w].xPowersPos[i].mul_mod(proofs2[w].yPowers[i],q),p),p);
+            ComR = ComR.mul_mod(ComB[i-1].pow_mod(proofs2[w].xPowersNeg[i],p),p);
+            ComR = ComR.mul_mod(ComC_[i-1].pow_mod(proofs2[w].xPowersPos[m+i],p),p);
         }
 
         // append proof4
-        proofs2[i].ComR = ComR;
+        proofs2[w].ComR = ComR;
     }
 
 
@@ -669,62 +679,62 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     CBigNum duo1;
     CBN_vector xPowersPositive, xPowersNegative, yPowers;
 
-    for(unsigned int k=0; k<proofs2.size(); k++)
+    for(unsigned int w=0; w<proofs2.size(); w++)
     {
-        params = proofs2[k].signature.params;
+        params = proofs2[w].signature.params;
         s_poly_a1 = params->S_POLY_A1;
         s_poly_a2 = params->S_POLY_A2;
         s_poly_b1 = params->S_POLY_B1;
         s_poly_b2 = params->S_POLY_B2;
         s_poly_c1 = params->S_POLY_C1;
         s_poly_c2 = params->S_POLY_C2;
-        xPowersPositive = proofs2[k].xPowersPos;
-        xPowersNegative = proofs2[k].xPowersNeg;
-        yPowers = proofs2[k].yPowers;
+        xPowersPositive = proofs2[w].xPowersPos;
+        xPowersNegative = proofs2[w].xPowersNeg;
+        yPowers = proofs2[w].yPowers;
 
         for(int i=0; i<(int)s_poly_b1.size(); i++) {
 
             for(int j=0; j<(int)s_poly_b1[i].size(); j++) {
                 duo0 = s_poly_b1[i][j].first;
                 duo1 = s_poly_b1[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersPositive[1],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersPositive[1],q)) % q;
             }
 
             for(int j=0; j<(int)s_poly_b2[i].size(); j++) {
                 duo0 = s_poly_b2[i][j].first;
                 duo1 = s_poly_b2[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersPositive[2],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersPositive[2],q)) % q;
             }
 
             for(int j=0; j<(int)s_poly_a1[i].size(); j++) {
                 duo0 = s_poly_a1[i][j].first;
                 duo1 = s_poly_a1[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+4*N+m],q).mul_mod(xPowersNegative[1],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+4*N+m],q).mul_mod(xPowersNegative[1],q)) % q;
             }
 
             for(int j=0; j<(int)s_poly_a2[i].size(); j++) {
                 duo0 = s_poly_a2[i][j].first;
                 duo1 = s_poly_a2[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0-1+4*N+m],q).mul_mod(xPowersNegative[2],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0-1+4*N+m],q).mul_mod(xPowersNegative[2],q)) % q;
             }
 
-            proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] - yPowers[2*(i+1)+1].mul_mod(xPowersNegative[3],q)) % q;
-            proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] - yPowers[2*(i+1)+2].mul_mod(xPowersNegative[4],q)) % q;
+            proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] - yPowers[2*(i+1)+1].mul_mod(xPowersNegative[3],q)) % q;
+            proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] - yPowers[2*(i+1)+2].mul_mod(xPowersNegative[4],q)) % q;
 
             for(int j=0; j<(int)s_poly_c1[i].size(); j++) {
                 duo0 = s_poly_c1[i][j].first;
                 duo1 = s_poly_c1[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersNegative[3],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersNegative[3],q)) % q;
             }
 
             for(int j=0; j<(int)s_poly_c2[i].size(); j++) {
                 duo0 = s_poly_c2[i][j].first;
                 duo1 = s_poly_c2[i][j].second;
-                proofs2[k].s_vec_2[i] = (proofs2[k].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersNegative[4],q)) % q;
+                proofs2[w].s_vec_2[i] = (proofs2[w].s_vec_2[i] + duo1.mul_mod(yPowers[duo0+1+4*N+m],q).mul_mod(xPowersNegative[4],q)) % q;
             }
 
             // append proof5
-            proofs2[k].s_vec_2[i] = proofs2[k].s_vec_2[i].mul_mod(2,q);
+            proofs2[w].s_vec_2[i] = proofs2[w].s_vec_2[i].mul_mod(2,q);
         }
 
     }
@@ -738,11 +748,18 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     CBigNum comTest = CBigNum(1);
     CBigNum gamma;
 
-    for(unsigned int k=0; k<proofs2.size(); k++)
+    for(unsigned int w=0; w<proofs2.size(); w++)
     {
         gamma = CBigNum::randBignum(q);
-        comRdash  = proofs2[k].signature.comRdash;
-        CBigNum ComR = proofs2[k].ComR;
+        comRdash  = proofs2[w].signature.comRdash;
+        CBigNum ComR = proofs2[w].ComR;
+
+        CBN_vector temp_v;
+        for(int i=0; i<(int)proofs2[w].s_vec_2.size(); i++) {
+            temp_v.push_back(gamma.mul_mod(proofs2[w].s_vec_2[i],q).mul_mod(proofs2[w].ymPowers[i+1],q));
+        }
+
+        test_vec = addVectors_mod(test_vec, temp_v, q);
 
         comTest = comTest.mul_mod(
                         ((ComR.pow_mod(-1,p)).mul_mod(comRdash,p)).pow_mod(gamma,p),p);
@@ -787,9 +804,9 @@ bool SerialNumberSoKProof::BatchBulletproofs(const CBN_matrix ck_inner_g, std::v
     CBN_vector xlist;
     CBigNum pt1, pt2;
     CBigNum A, B, z;
-    for(unsigned int i=0; i<proofs.size(); i++)
+    for(unsigned int w=0; w<proofs.size(); w++)
     {
-        dp = proofs[i];
+        dp = proofs[w];
         A = dp.ComR;
         B = dp.signature.comRdash;
         z = dp.z;
@@ -813,6 +830,7 @@ bool SerialNumberSoKProof::BatchBulletproofs(const CBN_matrix ck_inner_g, std::v
             Ak = dp.signature.innerProduct.pi[0][i];
             Bk = dp.signature.innerProduct.pi[1][i];
 
+            hasher = CHashWriter1024(0,0);
             hasher << Ak.ToString() << Bk.ToString();
             x = CBigNum(hasher.GetHash()) % q;
 
@@ -826,6 +844,7 @@ bool SerialNumberSoKProof::BatchBulletproofs(const CBN_matrix ck_inner_g, std::v
 
         pt1 = P_inner.pow_mod(gamma,p);
         pt2 = u_inner.pow_mod(z.mul_mod(-gamma,q),p);
+
         Ptest = Ptest.mul_mod( pt1.mul_mod(pt2,p) ,p);
 
         fBE new_element;
@@ -834,6 +853,7 @@ bool SerialNumberSoKProof::BatchBulletproofs(const CBN_matrix ck_inner_g, std::v
         new_element.ymPowers = dp.ymPowers;
         new_element.a = dp.signature.innerProduct.final_a[0][0];
         new_element.b = dp.signature.innerProduct.final_b[0][0];
+
 
         forBigExpo.push_back(new_element);
     }
