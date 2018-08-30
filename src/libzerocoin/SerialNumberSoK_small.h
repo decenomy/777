@@ -37,6 +37,8 @@ namespace libzerocoin {
 
 class SerialNumberSoK_small {
 public:
+    /** Empty constructor */
+    SerialNumberSoK_small(){};
     SerialNumberSoK_small(const ZerocoinParams* ZCp);
 
     /** Creates a Signature of knowledge object that a commitment to a coin contains a coin with serial number x

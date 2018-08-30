@@ -18,19 +18,20 @@
 namespace libzerocoin
 {
     CoinSpend::CoinSpend(const ZerocoinParams* paramsCoin, const ZerocoinParams* paramsAcc, const PrivateCoin& coin, Accumulator& a, const uint32_t& checksum,
-                     const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType) : accChecksum(checksum),
+                     const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType, const uint8_t v) : accChecksum(checksum),
                                                                                   ptxHash(ptxHash),
-                                                                                  coinSerialNumber((coin.getSerialNumber())),
+                                                                                  version(v),
+                                                                                  coinSerialNumber(coin.getSerialNumber()),
                                                                                   accumulatorPoK(&paramsAcc->accumulatorParams),
-                                                                                  serialNumberSoK(paramsCoin),
                                                                                   commitmentPoK(&paramsCoin->serialNumberSoKCommitmentGroup,
                                                                                                 &paramsAcc->accumulatorParams.accumulatorPoKCommitmentGroup),
                                                                                   spendType(spendType)
 {
     denomination = coin.getPublicCoin().getDenomination();
-    version = coin.getVersion();
-    if (!static_cast<int>(version)) //todo: figure out why version does not make it here
-        version = 1;
+
+    if(version > V3_SMALL_SOK){
+        throw std::runtime_error("Invalid coinSpend version");
+    }
 
     // Sanity check: let's verify that the Witness is valid with respect to
     // the coin and Accumulator provided.
@@ -62,7 +63,13 @@ namespace libzerocoin
     // 4. Proves that the coin is correct w.r.t. serial number and hidden coin secret
     // (This proof is bound to the coin 'metadata', i.e., transaction hash)
     uint256 hashSig = signatureHash();
-    this->serialNumberSoK = SerialNumberSignatureOfKnowledge(paramsCoin, coin, fullCommitmentToCoinUnderSerialParams, hashSig);
+    if (version < V3_SMALL_SOK) {
+        this->serialNumberSoK =
+                SerialNumberSignatureOfKnowledge(paramsCoin, coin, fullCommitmentToCoinUnderSerialParams, hashSig);
+    } else {
+        this->smallSoK =
+                SerialNumberSoK_small(paramsCoin, coin, fullCommitmentToCoinUnderSerialParams, hashSig);
+    }
 
     // 5. Sign the transaction using the private key associated with the serial number
     if (version >= PrivateCoin::PUBKEY_VERSION) {
@@ -75,7 +82,8 @@ namespace libzerocoin
 bool CoinSpend::Verify(const Accumulator& a) const
 {
     // Double check that the version is the same as marked in the serial
-    if (ExtractVersionFromSerial(coinSerialNumber) != version) {
+    int serialVersion = ExtractVersionFromSerial(coinSerialNumber);
+    if (serialVersion != version && (serialVersion == 1 || version == 1)) {
         //cout << "CoinSpend::Verify: version does not match serial=" << (int)ExtractVersionFromSerial(coinSerialNumber) << " actual=" << (int)version << endl;
         return false;
     }
@@ -96,9 +104,16 @@ bool CoinSpend::Verify(const Accumulator& a) const
         return false;
     }
 
-    if (!serialNumberSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
-        //std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
-        return false;
+    if (version < V3_SMALL_SOK) {
+        if (!serialNumberSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
+            std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
+            return false;
+        }
+    } else{
+        if (!smallSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
+            std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
+            return false;
+        }
     }
 
     return true;

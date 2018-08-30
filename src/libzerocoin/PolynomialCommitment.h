@@ -20,6 +20,7 @@ namespace libzerocoin {
 
 class PolynomialCommitment {
 public:
+    PolynomialCommitment(){};
     PolynomialCommitment(const ZerocoinParams* ZCp);
     PolynomialCommitment(const ZerocoinParams* ZCp, const CBN_vector Tf, const CBN_vector Trho, const CBigNum U, const CBN_vector tbar, const CBigNum taubar, const CBN_vector xPowersPos, const CBN_vector xPowersNeg);
     void Commit(const CBN_vector tpolynomial);

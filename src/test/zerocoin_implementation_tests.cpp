@@ -145,7 +145,7 @@ BOOST_AUTO_TEST_CASE(checkzerocoinmint_test)
 
     BOOST_CHECK(fFoundMint);
 }
-
+//
 bool CheckZerocoinSpendNoDB(const CTransaction tx, string& strError)
 {
     //max needed non-mint outputs should be 2 - one for redemption address and a possible 2nd for change
@@ -295,7 +295,7 @@ BOOST_AUTO_TEST_CASE(checkzerocoinspend_test)
     //Get the checksum of the accumulator we use for the spend and also add it to our checksum map
     uint32_t nChecksum = GetChecksum(accumulator.getValue());
     //AddAccumulatorChecksum(nChecksum, accumulator.getValue(), true);
-    CoinSpend coinSpend(Params().Zerocoin_Params(true), Params().Zerocoin_Params(false), privateCoin, accumulator, nChecksum, witness, 0, SpendType::SPEND);
+    CoinSpend coinSpend(Params().Zerocoin_Params(true), Params().Zerocoin_Params(false), privateCoin, accumulator, nChecksum, witness, 0, SpendType::SPEND, 1);
     cout << coinSpend.ToString() << endl;
     BOOST_CHECK_MESSAGE(coinSpend.Verify(accumulator), "Coinspend construction failed to create valid proof");
 
@@ -404,6 +404,25 @@ BOOST_AUTO_TEST_CASE(checkzerocoinspend_test)
     BOOST_CHECK_MESSAGE(coinSpend_v2.HasValidSignature(), "coinspend_v2 does not have valid signature");
     BOOST_CHECK_MESSAGE(coinSpend_v2.getVersion() == 2, "coinspend_v2 version is wrong");
     BOOST_CHECK_MESSAGE(coinSpend_v2.getPubKey() == privateCoin_v2.getPubKey(), "pub keys do not match");
+
+    cout << "checking v3 spend\n";
+
+    CoinSpend coinSpend_v3(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), privateCoin_v2, accumulator_v2, nChecksum_v2, witness_v2, ptxHash, SpendType::SPEND, libzerocoin::CoinSpend::V3_SMALL_SOK);
+
+    BOOST_CHECK_MESSAGE(coinSpend_v3.HasValidSerial(Params().Zerocoin_Params(false)), "coinspend_v3 does not have a valid serial");
+    BOOST_CHECK_MESSAGE(coinSpend_v3.Verify(accumulator_v2), "coinspend_v3 failed to verify");
+    BOOST_CHECK_MESSAGE(coinSpend_v3.HasValidSignature(), "coinspend_v3 does not have valid signature");
+    BOOST_CHECK_MESSAGE(coinSpend_v3.getVersion() == 3, "coinspend_v3 version is wrong");
+    BOOST_CHECK_MESSAGE(coinSpend_v3.getPubKey() == privateCoin_v2.getPubKey(), "pub keys do not match");
+
+    CDataStream s3(SER_NETWORK, PROTOCOL_VERSION);
+    try {
+    s3 << coinSpend_v3;
+    } catch (...) {
+        BOOST_CHECK(false);
+    }
+    CoinSpend coinSpendV3(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), s3);
+    BOOST_CHECK(coinSpendV3.getVersion() == 3);
 }
 
 BOOST_AUTO_TEST_CASE(setup_exceptions_test)

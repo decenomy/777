@@ -20,6 +20,7 @@ namespace libzerocoin {
 
 class Bulletproofs {
 public:
+    Bulletproofs(){};
     Bulletproofs(const ZerocoinParams* ZCp): pi(2, CBN_vector()), params(ZCp) {};
 
     void Prove(const CBN_matrix ck_inner_g, const CBigNum P_inner_prod, const CBigNum z, const CBN_matrix a_sets, const CBN_matrix b_sets, const CBigNum y);
