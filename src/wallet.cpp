@@ -4636,7 +4636,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
 
     try {
         libzerocoin::CoinSpend spend(paramsCoin, paramsAccumulator, privateCoin, accumulator, nChecksum, witness, hashTxOut,
-                                     spendType);
+                                     spendType, libzerocoin::CoinSpend::V3_SMALL_SOK);
         LogPrintf("%s\n", spend.ToString());
 
         if (!spend.Verify(accumulator)) {
@@ -4646,7 +4646,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
 
             libzerocoin::CoinSpend spend2(Params().Zerocoin_Params(true), paramsAccumulator, privateCoin, accumulator,
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND);
-            LogPrintf("*** spend2 valid=%d\n", spend2.Verify(accumulator));
+            LogPrintf("*** spend3 valid=%d\n", spend2.Verify(accumulator));
             return false;
         }
 

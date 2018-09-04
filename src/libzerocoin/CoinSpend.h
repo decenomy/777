@@ -120,6 +120,12 @@ public:
     CPubKey getPubKey() const { return pubkey; }
     SpendType getSpendType() const { return spendType; }
     std::vector<unsigned char> getSignature() const { return vchSig; }
+    uint256 getHashSig() {
+        if (hashSig.IsNull()){
+            hashSig = signatureHash();
+        }
+        return hashSig;
+    }
 
     bool Verify(const Accumulator& a) const;
     bool HasValidSerial(ZerocoinParams* params) const;
@@ -188,6 +194,9 @@ private:
     CPubKey pubkey;
     std::vector<unsigned char> vchSig;
     SpendType spendType;
+
+    // Cached hashSig
+    uint256 hashSig;
 
     template <typename Stream>
     void init(const ZerocoinParams* paramsV2, Stream& strm){

@@ -62,7 +62,7 @@ namespace libzerocoin
 
     // 4. Proves that the coin is correct w.r.t. serial number and hidden coin secret
     // (This proof is bound to the coin 'metadata', i.e., transaction hash)
-    uint256 hashSig = signatureHash();
+    hashSig = signatureHash();
     if (version < V3_SMALL_SOK) {
         this->serialNumberSoK =
                 SerialNumberSignatureOfKnowledge(paramsCoin, coin, fullCommitmentToCoinUnderSerialParams, hashSig);
