@@ -88,7 +88,7 @@ public:
 	 * @throw ZerocoinException if the process fails
 	 */
     CoinSpend(const ZerocoinParams* paramsCoin, const ZerocoinParams* paramsAcc, const PrivateCoin& coin, Accumulator& a, const uint32_t& checksum,
-              const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType, const uint8_t version = 2);
+              const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType, const uint8_t version = (uint8_t) V3_SMALL_SOK);
 
     /** Returns the serial number of the coin spend by this proof.
 	 *

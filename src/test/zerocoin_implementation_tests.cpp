@@ -397,7 +397,7 @@ BOOST_AUTO_TEST_CASE(checkzerocoinspend_test)
     uint32_t nChecksum_v2 = GetChecksum(accumulator_v2.getValue());
     //AddAccumulatorChecksum(nChecksum_v2, accumulator_v2.getValue(), true);
     uint256 ptxHash = CBigNum::RandKBitBigum(256).getuint256();
-    CoinSpend coinSpend_v2(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), privateCoin_v2, accumulator_v2, nChecksum_v2, witness_v2, ptxHash, SpendType::SPEND);
+    CoinSpend coinSpend_v2(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), privateCoin_v2, accumulator_v2, nChecksum_v2, witness_v2, ptxHash, SpendType::SPEND, 2);
 
     BOOST_CHECK_MESSAGE(coinSpend_v2.HasValidSerial(Params().Zerocoin_Params(false)), "coinspend_v2 does not have a valid serial");
     BOOST_CHECK_MESSAGE(coinSpend_v2.Verify(accumulator_v2), "coinspend_v2 failed to verify");
@@ -407,7 +407,7 @@ BOOST_AUTO_TEST_CASE(checkzerocoinspend_test)
 
     cout << "checking v3 spend\n";
 
-    CoinSpend coinSpend_v3(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), privateCoin_v2, accumulator_v2, nChecksum_v2, witness_v2, ptxHash, SpendType::SPEND, libzerocoin::CoinSpend::V3_SMALL_SOK);
+    CoinSpend coinSpend_v3(Params().Zerocoin_Params(false), Params().Zerocoin_Params(false), privateCoin_v2, accumulator_v2, nChecksum_v2, witness_v2, ptxHash, SpendType::SPEND);
 
     BOOST_CHECK_MESSAGE(coinSpend_v3.HasValidSerial(Params().Zerocoin_Params(false)), "coinspend_v3 does not have a valid serial");
     BOOST_CHECK_MESSAGE(coinSpend_v3.Verify(accumulator_v2), "coinspend_v3 failed to verify");

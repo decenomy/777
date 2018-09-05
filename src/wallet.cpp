@@ -4635,8 +4635,9 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         return error("%s: could not find checksum used for spend\n", __func__);
 
     try {
-        libzerocoin::CoinSpend spend(paramsCoin, paramsAccumulator, privateCoin, accumulator, nChecksum, witness, hashTxOut,
-                                     spendType, libzerocoin::CoinSpend::V3_SMALL_SOK);
+        libzerocoin::CoinSpend spend(
+                paramsCoin, paramsAccumulator, privateCoin, accumulator,
+                nChecksum, witness, hashTxOut, spendType);
         LogPrintf("%s\n", spend.ToString());
 
         if (!spend.Verify(accumulator)) {
@@ -4644,9 +4645,15 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             //return false;
             LogPrintf("** spend.verify failed, trying with different params\n");
 
+<<<<<<< Upstream, based on upstream/master
             libzerocoin::CoinSpend spend2(Params().Zerocoin_Params(true), paramsAccumulator, privateCoin, accumulator,
 <<<<<<< Upstream, based on upstream/master
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND);
+=======
+            libzerocoin::CoinSpend spend2(
+                    Params().Zerocoin_Params(true), paramsAccumulator, privateCoin, accumulator,
+                    nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND);
+>>>>>>> 1f80b7d fix default version magic number
             LogPrintf("*** spend3 valid=%d\n", spend2.Verify(accumulator));
 =======
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND, libzerocoin::CoinSpend::V3_SMALL_SOK);
