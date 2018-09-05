@@ -4650,8 +4650,12 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             LogPrintf("*** spend3 valid=%d\n", spend2.Verify(accumulator));
 =======
                                           nChecksum, witness, hashTxOut, libzerocoin::SpendType::SPEND, libzerocoin::CoinSpend::V3_SMALL_SOK);
+<<<<<<< Upstream, based on upstream/master
             LogPrintf("*** spend2 valid=%d\n", spend2.Verify(accumulator));
 >>>>>>> 543b52f CoinSpend v3 activated
+=======
+            LogPrintf("*** spend3 valid=%d\n", spend2.Verify(accumulator));
+>>>>>>> 7cf678a small SoK batch verify
             return false;
         }
 
