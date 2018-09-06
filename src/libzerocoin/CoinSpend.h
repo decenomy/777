@@ -127,7 +127,7 @@ public:
         return hashSig;
     }
 
-    bool Verify(const Accumulator& a) const;
+    bool Verify(const Accumulator& a, bool verifySoK = true) const;
     bool HasValidSerial(ZerocoinParams* params) const;
     bool HasValidSignature() const;
     CBigNum CalculateValidSerial(ZerocoinParams* params);

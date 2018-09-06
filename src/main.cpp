@@ -928,7 +928,7 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
     return true;
 }
 
-bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidationState& state, std::vector<libzerocoin::SerialNumberSoKProof>* proofs)
+bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidationState& state, std::vector<libzerocoin::SerialNumberSoKProof>& proofs)
 {
     //max needed non-mint outputs should be 2 - one for redemption address and a possible 2nd for change
     if (tx.vout.size() > 2) {
@@ -982,21 +982,21 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
                 uint32_t nChecksum = newSpend.getAccumulatorChecksum();
                 return state.DoS(100, error("%s: Zerocoinspend could not find accumulator associated with checksum %s", __func__, HexStr(BEGIN(nChecksum), END(nChecksum))));
             }
+            // Batch verify flag
+            bool sokVerify = newSpend.getVersion() < libzerocoin::CoinSpend::V3_SMALL_SOK;
 
-            if(newSpend.getVersion() < libzerocoin::CoinSpend::V3_SMALL_SOK || proofs == NULL) {
+            Accumulator accumulator(
+                    Params().Zerocoin_Params(chainActive.Height() < Params().Zerocoin_Block_V2_Start()),
+                    newSpend.getDenomination(), bnAccumulatorValue);
 
-                Accumulator accumulator(
-                        Params().Zerocoin_Params(chainActive.Height() < Params().Zerocoin_Block_V2_Start()),
-                        newSpend.getDenomination(), bnAccumulatorValue);
+            //Check that the coin has been accumulated
+            if (!newSpend.Verify(accumulator, sokVerify))
+                return state.DoS(100, error("CheckZerocoinSpend(): zerocoin spend did not verify"));
 
-                //Check that the coin has been accumulated
-                if (!newSpend.Verify(accumulator))
-                    return state.DoS(100, error("CheckZerocoinSpend(): zerocoin spend did not verify"));
-
-            } else {
-                std::cout << "Adding proof to list" << std::endl;
-                SerialNumberSoKProof proof(newSpend.getSmallSoK(), newSpend.getCoinSerialNumber(), newSpend.getSerialComm(), newSpend.getHashSig());
-                proofs->push_back(proof);
+            if (!sokVerify) {
+                SerialNumberSoKProof proof(newSpend.getSmallSoK(), newSpend.getCoinSerialNumber(),
+                                           newSpend.getSerialComm(), newSpend.getHashSig());
+                proofs.push_back(proof);
             }
         }
 
@@ -1017,7 +1017,23 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
     return fValidated;
 }
 
-bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state, std::vector<libzerocoin::SerialNumberSoKProof>* proof)
+bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state){
+    //std::cout << "Single tx verify" << std::endl;
+    std::vector<SerialNumberSoKProof> proofs;
+    if(CheckTransaction(tx, fZerocoinActive, fRejectBadUTXO, state, proofs)) {
+        // Now verify the batched spends
+        if (!proofs.empty()) {
+            if (!SerialNumberSoKProof::BatchVerify(proofs)) {
+                std::cout << "Batch verify failed for a single tx" << std::endl;
+                return error("CheckBlock() : CheckTransactions failed -- BatchVerify");
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state, std::vector<libzerocoin::SerialNumberSoKProof>& proof)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -4120,7 +4136,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     vector<CBigNum> vBlockSerials;
     std::vector<SerialNumberSoKProof> proofs;
     for (const CTransaction& tx : block.vtx) {
-        if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_Block_EnforceSerialRange(), state, &proofs))
+        if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_Block_EnforceSerialRange(), state, proofs))
             return error("CheckBlock() : CheckTransaction failed");
 
         // double check that there are no double spent zPIV spends in this block
@@ -4140,6 +4156,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     // Now verify the batched spends
     if (!proofs.empty()){
         if(!SerialNumberSoKProof::BatchVerify(proofs)){
+            std::cout << "Batch verify failed" << std::endl;
             return error("CheckBlock() : CheckTransactions failed -- BatchVerify");
         }
     }

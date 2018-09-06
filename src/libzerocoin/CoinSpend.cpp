@@ -79,7 +79,7 @@ namespace libzerocoin
     }
 }
 
-bool CoinSpend::Verify(const Accumulator& a) const
+bool CoinSpend::Verify(const Accumulator& a, bool verifySoK) const
 {
     // Double check that the version is the same as marked in the serial
     int serialVersion = ExtractVersionFromSerial(coinSerialNumber);
@@ -104,15 +104,17 @@ bool CoinSpend::Verify(const Accumulator& a) const
         return false;
     }
 
-    if (version < V3_SMALL_SOK) {
-        if (!serialNumberSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
-            std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
-            return false;
-        }
-    } else{
-        if (!smallSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
-            std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
-            return false;
+    if (verifySoK) {
+        if (version < V3_SMALL_SOK) {
+            if (!serialNumberSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
+                std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
+                return false;
+            }
+        } else {
+            if (!smallSoK.Verify(coinSerialNumber, serialCommitmentToCoinValue, signatureHash())) {
+                std::cout << "CoinsSpend::Verify: serialNumberSoK failed. sighash:" << signatureHash().GetHex() << "\n";
+                return false;
+            }
         }
     }
 
