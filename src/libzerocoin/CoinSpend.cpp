@@ -20,11 +20,11 @@ namespace libzerocoin
     CoinSpend::CoinSpend(const ZerocoinParams* paramsCoin, const ZerocoinParams* paramsAcc, const PrivateCoin& coin, Accumulator& a, const uint32_t& checksum,
                      const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType, const uint8_t v) : accChecksum(checksum),
                                                                                   ptxHash(ptxHash),
-                                                                                  version(v),
                                                                                   coinSerialNumber(coin.getSerialNumber()),
                                                                                   accumulatorPoK(&paramsAcc->accumulatorParams),
                                                                                   commitmentPoK(&paramsCoin->serialNumberSoKCommitmentGroup,
                                                                                                 &paramsAcc->accumulatorParams.accumulatorPoKCommitmentGroup),
+                                                                                  version(v),
                                                                                   spendType(spendType)
 {
     denomination = coin.getPublicCoin().getDenomination();
