@@ -1,7 +1,7 @@
 #include "chainparams.h"
 #include "libzerocoin/ArithmeticCircuit.h"
 #include "libzerocoin/PolynomialCommitment.h"
-#include "libzerocoin/InnerProductArgument.h"
+#include "libzerocoin/Bulletproofs.h"
 #include "libzerocoin/SerialNumberSoK_small.h"
 #include "libzerocoin/SerialNumberSignatureOfKnowledge.h"
 #include <boost/test/unit_test.hpp>
