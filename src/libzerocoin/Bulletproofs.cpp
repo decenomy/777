@@ -1,14 +1,7 @@
-/**
-* @file       Bulletproofs.cpp
-*
-* @brief      InnerProductArgument class for the Zerocoin library.
-*
-* @author     Mary Maller, Jonathan Bootle and Gian Piero Dionisio
-* @date       May 2018
-*
-* @copyright  Copyright 2018 The PIVX Developers
-* @license    This project is released under the MIT license.
-**/
+// Copyright (c) 2018 The PIVX developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "hash.h"
 #include "Bulletproofs.h"
 #include <algorithm>

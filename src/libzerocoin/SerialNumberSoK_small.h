@@ -1,14 +1,6 @@
-/**
-* @file       SerialNumberSoK_small.h
-*
-* @brief      SerialNumberSoK_small class for the Zerocoin library.
-*
-* @author     Mary Maller, Jonathan Bootle and Gian Piero Dionisio
-* @date       April 2018
-*
-* @copyright  Copyright 2018 The PIVX Developers
-* @license    This project is released under the MIT license.
-**/
+// Copyright (c) 2018 The PIVX developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef SERIALNUMBERPROOFSMALL_H_
 #define SERIALNUMBERPROOFSMALL_H_
