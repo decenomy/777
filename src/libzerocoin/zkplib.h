@@ -115,7 +115,7 @@ inline std::pair<CBN_matrix, CBN_matrix> ck_inner_gen(
     return make_pair(ck_inner_g, ck_inner_h);
 }
 
-// Initialize sets for inner product - for barching
+// Initialize sets for inner product - for batching
 inline CBN_matrix ck_inner_gen(const ZerocoinParams* ZCp)
 {
     const IntegerGroupParams* SoKgroup = &(ZCp->serialNumberSoKCommitmentGroup);

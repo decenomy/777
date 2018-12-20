@@ -11,34 +11,149 @@
 
 using namespace libzerocoin;
 
-BOOST_AUTO_TEST_SUITE(zerocoin_zkp_tests)
+#define COLOR_STR_NORMAL  "\033[0m"
+#define COLOR_BOLD        "\033[1m"
+#define COLOR_STR_GREEN   "\033[32m"
+#define COLOR_STR_RED     "\033[31m"
+#define COLOR_CYAN        "\033[0;36m"
+#define COLOR_MAGENTA     "\u001b[35m"
 
-/*
-BOOST_AUTO_TEST_CASE(parameters_tests)
+std::string colorNormal(COLOR_STR_NORMAL);
+std::string colorBold(COLOR_BOLD);
+std::string colorGreen(COLOR_STR_GREEN);
+std::string colorRed(COLOR_STR_RED);
+std::string colorCyan(COLOR_CYAN);
+std::string colorMagenta(COLOR_MAGENTA);
+
+// Global test counters
+uint32_t    zNumTests        = 0;
+uint32_t    zSuccessfulTests = 0;
+
+std::string Pass(bool fReverseTest = false)
 {
-    std::cout << endl;
-    std::cout << "*** parameters_tests ***" << endl;
-    std::cout << "------------------------" << endl;
+    return fReverseTest ? "[FAIL (good)]" : "[PASS]";
+}
+
+std::string Fail(bool fReverseTest = false)
+{
+    return fReverseTest ? "[PASS (when it shouldn't!)]" : "[FAIL]";
+}
+
+// Parameters ----------------------------------------------------------------------------------------
+
+bool Test_generators(IntegerGroupParams SoKGroup)
+{
+    zNumTests++;
+    std::cout << "- Testing generators...";
+    for(unsigned int i=0; i<512; i++) {
+        if ( SoKGroup.gis[i].pow_mod(SoKGroup.groupOrder,SoKGroup.modulus) != CBigNum(1)) {
+            std::cout << colorRed << Fail() << std::endl;
+            std::cout << "gis[" << i << "] ** q != 1" << colorNormal << std::endl;
+            return false;
+        }
+    }
+    std::cout << colorGreen << Pass()  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
+}
+
+
+bool parameters_tests()
+{
+    std::cout << colorBold << "*** parameters_tests ***" << std::endl;
+    std::cout << "------------------------" << colorNormal << std::endl;
+
+    bool finalResult = true;
 
     SelectParams(CBaseChainParams::MAIN);
     ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
     (void)ZCParams;
 
-    std::cout << "- Testing generators..." << endl;
-    for(unsigned int i=0; i<512; i++)
-        BOOST_CHECK_MESSAGE( ZCParams->serialNumberSoKCommitmentGroup.gis[i].pow_mod(
-                ZCParams->serialNumberSoKCommitmentGroup.groupOrder,
-                ZCParams->serialNumberSoKCommitmentGroup.modulus) == CBigNum(1),
-                "Generator gis[i] error for i=" << i << "\n");
+    finalResult = finalResult && Test_generators(ZCParams->serialNumberSoKCommitmentGroup);
+    std::cout << std::endl;
 
-    std::cout << endl;
+    return finalResult;
+}
+
+// ---------------------------------------------------------------------------------------------------
+// Arithmetic Circuit --------------------------------------------------------------------------------
+bool Test_multGates(ArithmeticCircuit ac, CBigNum q)
+{
+    zNumTests++;
+    // If multiplication gates hold this should be true
+    std::cout << "- Testing A times B equals C...";
+    for(unsigned int i=0; i<ZKP_M; i++) for(unsigned int j=0; j<ZKP_N; j++) {
+        if(ac.A[i][j].mul_mod(ac.B[i][j], q) != ac.C[i][j]) {
+            std::cout << colorRed << Fail() << std::endl;
+            std::cout << "Hadamard Test failed at i=" << i << ", j=" << j << colorNormal << std::endl;
+            return false;
+        }
+    }
+
+    std::cout << colorGreen << Pass()  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
+}
+
+bool Test_cfinalLog(ArithmeticCircuit ac, CBigNum q, CBigNum a, CBigNum b, bool fReverseTest = false)
+{
+    zNumTests++;
+    // If circuit correctly evaluates (a^serial)*(b^randomness) this should be true
+    std::cout << "- Testing C_final equals Logarithm";
+    if (fReverseTest)
+        std::cout << colorMagenta << " with wrong assignment" << colorNormal;
+    std::cout << "...";
+    CBigNum logarithm =
+            a.pow_mod(ac.getSerialNumber(),q).mul_mod(
+            b.pow_mod(ac.getRandomness(),q),q);
+    CBigNum Cfinal = ac.C[ZKP_M-1][0];
+    bool test = (logarithm == Cfinal);
+    if (test == fReverseTest) {
+        std::cout << colorRed << Fail(fReverseTest) << colorNormal << std::endl;
+        return false;
+    }
+
+    std::cout << colorGreen << Pass(fReverseTest)  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
+}
+
+bool Test_arithConstraints(ArithmeticCircuit ac, CBigNum q, bool fReverseTest = false)
+{
+    zNumTests++;
+    // Checking that the expressions in Equation (2) of the paper hold
+    std::cout << "- Testing the Arithmetic Constraints (eq. 2)";
+    if (fReverseTest)
+        std::cout << colorMagenta << " with wrong assignment" << colorNormal;
+    std::cout << "...";
+    bool test = true;
+    unsigned int last_index = 0;
+    for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++) {
+        if (ac.sumWiresDotWs(i) != ac.K[i] % q) {
+            test = false;
+            last_index = i;
+            break;
+        }
+    }
+
+    if (test == fReverseTest) {
+        std::cout << colorRed << Fail(fReverseTest) << std::endl;
+        std::cout << "Arithmetic Constraints Test failed at i=" << last_index << colorNormal << std::endl;
+        return false;
+    }
+
+    std::cout << colorGreen << Pass(fReverseTest)  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
 }
 
 
-BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
+bool arithmetic_circuit_tests()
 {
-    std::cout << "*** arithmetic_circuit_tests ***" << endl;
-    std::cout << "--------------------------------" << endl;
+    std::cout << colorBold << "*** arithmetic_circuit_tests ***" << std::endl;
+    std::cout << "--------------------------------" << colorNormal << std::endl;
+
+    bool finalResult = true;
 
     SelectParams(CBaseChainParams::MAIN);
     ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
@@ -57,46 +172,13 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
     circuit.setWireValues(coin);
     circuit.setYPoly(Y);
 
-    // If multiplication gates hold this should be true
-    std::cout << "- Testing A times B equals C..." << endl;
-    for(unsigned int i=0; i<ZKP_M; i++) for(unsigned int j=0; j<ZKP_N; j++) {
-        BOOST_CHECK_MESSAGE(
-                circuit.A[i][j].mul_mod(circuit.B[i][j], q) == circuit.C[i][j],
-                "Circuit Specification:: Hadamard Test failed\n" <<
-                "(i=" << i << ", j=" << j << ")\n" <<
-                "A[i][j]=" << circuit.A[i][j] << "\n" <<
-                "B[i][j]=" << circuit.B[i][j] << "\n" <<
-                "C[i][j]=" << circuit.C[i][j] << "\n");
-    }
+    finalResult = finalResult && Test_multGates(circuit, q);
+    finalResult = finalResult && Test_cfinalLog(circuit, q, a, b);
+    finalResult = finalResult && Test_arithConstraints(circuit, q);
 
-    // If circuit correctly evaluates (a^serial)*(b^randomness) this should be true
-    std::cout << "- Testing C_final equals Logarithm..." << endl;
-    CBigNum logarithm =
-            a.pow_mod(circuit.getSerialNumber(),q).mul_mod(
-            b.pow_mod(circuit.getRandomness(),q),q);
-    CBigNum Cfinal = circuit.C[ZKP_M-1][0];
-    BOOST_CHECK_MESSAGE( logarithm == Cfinal,
-            "Circuit Specification:: Correctness Test failed\n" <<
-            "logarithm = " << logarithm.ToString() << "\n" <<
-            "Cfinal = " << Cfinal.ToString() << "\n");
-
-
-    // Checking that the expressions in Equation (1) of the paper hold
-    std::cout << "- Testing the Arithmetic Constraints (eq. 1)..." << endl;
-    for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++) {
-        BOOST_CHECK_MESSAGE( circuit.sumWiresDotWs(i) == (circuit.K[i] % q),
-                "Circuit Specification:: Arithmetic Constraints Test failed at i=" << i << "\n" <<
-                "sumWiresDotWs(i) = " << circuit.sumWiresDotWs(i) << "\n" <<
-                "K[i] = " << circuit.K[i].ToString() << "\n");
-    }
-
-    // Checking that the expressions in Equation (2) of the paper hold
-    //std::cout << "- Testing Polynomials Evaluate (eq. 2)..." << endl;
-    //CBigNum sum = circuit.sumWiresDotWPoly();
-    //BOOST_CHECK_MESSAGE( sum == circuit.Kconst,
-    //        "Circuit Specification:: Constraints Polynomial Test failed\n" <<
-    //        "sum = " << sum.ToString() << "\n" <<
-    //        "Kconst = " << circuit.Kconst << "\n");
+    // !TODO: rewrite this test case.
+    // Checking that the expressions in Equation (3) of the paper hold
+    // (circuit.sumWiresDotWPoly() == circuit.Kconst)
 
     // New circuit with random assignment
     ArithmeticCircuit newCircuit(circuit);
@@ -108,29 +190,16 @@ BOOST_AUTO_TEST_CASE(arithmetic_circuit_tests)
     }
 
     // If circuit correctly evaluates (a^serial)*(b^randomness) we have a problem
-    std::cout << "- Testing C_final != Logarithm for wrong assignment..." << endl;
-    logarithm =
-            a.pow_mod(newCircuit.getSerialNumber(),q).mul_mod(
-            b.pow_mod(newCircuit.getRandomness(),q),q);
-    Cfinal = newCircuit.C[ZKP_M-1][0];
-    BOOST_CHECK_MESSAGE( logarithm != Cfinal,
-            "Circuit Specification:: Correctness Test passed for wrong assignment\n");
+    finalResult = finalResult && Test_cfinalLog(newCircuit, q, a, b, true);
+    finalResult = finalResult && Test_arithConstraints(newCircuit, q, true);
 
-    // Checking that the expressions in Equation (1) of the paper does not hold
-    std::cout << "- Testing the Arithmetic Constraints (eq. 1) for wrong assignment..." << endl;
-    for(unsigned int i=0; i<4*ZKP_SERIALSIZE-2; i++) {
-        BOOST_CHECK_MESSAGE( newCircuit.sumWiresDotWs(i) != newCircuit.K[i],
-                "Circuit Specification:: Arithmetic Constraints Test passed at i=" << i << " with wrong assignment");
-    }
+    std::cout << std::endl;
 
-    // Checking that the expressions in Equation (2) of the does not paper hold
-    //std::cout << "- Testing Polynomials Evaluate (eq. 2) for wrong assignment..." << endl;
-    //BOOST_CHECK_MESSAGE( newCircuit.sumWiresDotWPoly() != newCircuit.Kconst,
-    //        "Circuit Specification:: Constraints Polynomial Test passed with wrong assignment\n");
-
-    std::cout << endl;
+    return finalResult;
 }
 
+// ---------------------------------------------------------------------------------------------------
+// Polynomial Commitment -----------------------------------------------------------------------------
 
 // Evaluate tpolynomial at x
 CBigNum eval_tpoly(CBN_vector tpoly, CBN_vector xPowersPos, CBN_vector xPowersNeg, CBigNum q)
@@ -143,10 +212,49 @@ CBigNum eval_tpoly(CBN_vector tpoly, CBN_vector xPowersPos, CBN_vector xPowersNe
     return sum;
 }
 
-BOOST_AUTO_TEST_CASE(polynomial_commitment_tests)
+bool Test_polyVerify1(PolynomialCommitment pc, CBigNum &val, bool fReverseTest = false)
 {
-    std::cout << "*** polynomial_commitment_tests ***" << endl;
-    std::cout << "-----------------------------------" << endl;
+    zNumTests++;
+    // Poly-Verify: For honest prover, verifier should be satisfied
+    std::cout << "- Testing PolyVerify";
+    if (fReverseTest)
+        std::cout << colorMagenta << " for dishonest prover" << colorNormal;
+    std::cout << "...";
+    // val = t(x) if proofs checks out
+    bool test = (pc.Verify(val));
+    if (test == fReverseTest) {
+        std::cout << colorRed << Fail(fReverseTest) << colorNormal << std::endl;
+        return false;
+    }
+
+    std::cout << colorGreen << Pass(fReverseTest)  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
+}
+
+bool Test_polyVerify2(CBigNum val, CBN_vector tpoly,
+        CBN_vector xpos, CBN_vector xneg, CBigNum q)
+{
+    zNumTests++;
+    // Poly-Verify: For honest prover, verifier is able to compute t(x)
+    std::cout << "- Testing t(x) == dotProduct(tbar,xPowersPos)...";
+    CBigNum tx = eval_tpoly(tpoly, xpos, xneg, q);
+    if (val != tx) {
+        std::cout << colorRed << Fail() << colorNormal << std::endl;
+        return false;
+    }
+
+    std::cout << colorGreen << Pass()  << colorNormal << std::endl;
+    zSuccessfulTests++;
+    return true;
+}
+
+bool polynomial_commitment_tests()
+{
+    std::cout << colorBold << "*** polynomial_commitment_tests ***" << std::endl;
+    std::cout << "-----------------------------------" << colorNormal << std::endl;
+
+    bool finalResult = true;
 
     SelectParams(CBaseChainParams::MAIN);
     ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
@@ -178,20 +286,10 @@ BOOST_AUTO_TEST_CASE(polynomial_commitment_tests)
     polyCommitment.Commit(tpoly);
     polyCommitment.Eval(xPowersPositive, xPowersNegative);
 
-
-    // Poly-Verify: For honest prover, verifier should be satisfied
-    std::cout << "- Testing PolyVerify for honest prover..." << endl;
-    CBigNum val;    // val = t(x) if proofs checks out
-    BOOST_CHECK_MESSAGE( polyCommitment.Verify(val),
-            "Polynomial Commitment:: PoliVerify returned FALSE.\n");
-
-    // Poly-Verify: For honest prover, verifier is able to compute t(x)
-    std::cout << "- Testing t(x) == dotProduct(tbar,xPowersPos)..." << endl;
-    CBigNum tx = eval_tpoly(tpoly, xPowersPositive, xPowersNegative, q);
-    BOOST_CHECK_MESSAGE( val == tx,
-            "Polynomial Commitment:: Verifier computed wrong t(x) value.\n" <<
-            "t(x) = " << tx.ToString() << "\n" <<
-            "<tbar, [1,...,x^n]> = " << val.ToString() << "\n");
+    // Polynomial  evaluation
+    CBigNum val;
+    finalResult = finalResult && Test_polyVerify1(polyCommitment, val);
+    finalResult = finalResult && Test_polyVerify2(val, tpoly, xPowersPositive, xPowersNegative, q);
 
     // Create copies of the polynomial commitment and mess things up
     PolynomialCommitment newPolyComm1(polyCommitment);
@@ -202,21 +300,24 @@ BOOST_AUTO_TEST_CASE(polynomial_commitment_tests)
     random_vector_mod(newPolyComm3.Trho, q);
 
     // Poly-Verify: For dishonest prover, verifier should fail the test
-    std::cout << "- Testing PolyVerify for dishonest prover..." << endl;
-    BOOST_CHECK_MESSAGE( !newPolyComm1.Verify(val),
-            "Polynomial Commitment:: PoliVerify returned TRUE[1] for dishonest prover.\n");
-    BOOST_CHECK_MESSAGE( !newPolyComm2.Verify(val),
-            "Polynomial Commitment:: PoliVerify returned TRUE[2] for dishonest prover.\n");
-    BOOST_CHECK_MESSAGE( !newPolyComm3.Verify(val),
-            "Polynomial Commitment:: PoliVerify returned TRUE[3] for dishonest prover.\n");
+    finalResult = finalResult && Test_polyVerify1(newPolyComm1, val, true);
+    finalResult = finalResult && Test_polyVerify1(newPolyComm2, val, true);
+    finalResult = finalResult && Test_polyVerify1(newPolyComm3, val, true);
 
-    std::cout << endl;
+    std::cout << std::endl;
+
+    return finalResult;
 }
 
+// ---------------------------------------------------------------------------------------------------
+// Inner Product Argument ----------------------------------------------------------------------------
+
+// !TODO: Adapt to bulletproofs class
+/*
 BOOST_AUTO_TEST_CASE(inner_product_argument_tests)
 {
-    std::cout << "*** inner_product_argument_tests ***" << endl;
-    std::cout << "------------------------------------" << endl;
+    std::cout << "*** inner_product_argument_tests ***" << std::endl;
+    std::cout << "------------------------------------" << std::endl;
 
     SelectParams(CBaseChainParams::MAIN);
     ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
@@ -261,13 +362,13 @@ BOOST_AUTO_TEST_CASE(inner_product_argument_tests)
     while( random_z == dotProduct(a_sets, b_sets, q) ) random_z = CBigNum::randBignum(q);
 
     // innerProductVerify
-    std::cout << "- Testing innerProductVerify..." << endl;
+    std::cout << "- Testing innerProductVerify..." << std::endl;
     bool res = innerProduct.Verify(ZCParams, y, A, B, z);
 
     BOOST_CHECK_MESSAGE(res,"InnerProduct:: Verification failed\n");
 
     // Inner product z != <a, b>  (z = 0, z = 1, z = random)
-    std::cout << "- Testing innerProductVerify for dishonest prover..." << endl;
+    std::cout << "- Testing innerProductVerify for dishonest prover..." << std::endl;
 
     BOOST_CHECK_MESSAGE( !innerProduct.Verify(ZCParams, y, A, B, CBigNum(0)),
             "InnerProduct:: Verification returned TRUE[1] for dishonest prover\n");
@@ -277,157 +378,214 @@ BOOST_AUTO_TEST_CASE(inner_product_argument_tests)
             "InnerProduct:: Verification returned TRUE[3] for dishonest prover\n");
 
 
-    std::cout << endl;
-}
-
-
-BOOST_AUTO_TEST_CASE(signature_of_knowledge_tests_debug)
-{
-    std::cout << "*** signature_of_knowledge_tests DEBUG ***" << endl;
-    std::cout << "------------------------------------------" << endl;
-
-    SelectParams(CBaseChainParams::MAIN);
-    ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
-    (void)ZCParams;
-
-    // create message hash
-    CHashWriter hasher(0,0);
-    hasher << std::string("Chancellor on brink of second bailout for banks");
-    uint256 msghash = hasher.GetHash();
-
-    // mint a coin
-    PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
-
-    // commit to this coin
-    const CBigNum newCoin_value = newCoin.getPublicCoin().getValue();
-    Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
-
-
-    std::cout << "- Creating the Signature of Knowledge..." << endl;
-
-    // create the signature of knowledge
-    SerialNumberSoK_small sigOfKnowledge(ZCParams, newCoin, commitment, msghash);
-
-    std::cout << "- Serializing the Signature of Knowledge..." << endl;
-
-    // serialize the SoK to a CDataStream object.
-    CDataStream serializedSoK(SER_NETWORK, PROTOCOL_VERSION);
-    serializedSoK << sigOfKnowledge;
-
-    std::cout << "- Unserializing the Signature of Knowledge..." << endl;
-
-    // unserialize the CDataStream object into a fresh SoK object
-    SerialNumberSoK_small newSigOfKnowledge(ZCParams);
-    serializedSoK >> newSigOfKnowledge;
-
-    std::cout << "- Verifying the Signature of Knowledge..." << endl;
-
-    // verify the signature of the received SoK
-    bool res1 = newSigOfKnowledge.Verify(newCoin.getSerialNumber(), commitment.getCommitmentValue(), msghash);
-
-    BOOST_CHECK_MESSAGE(res1,"SerialNumbwerSoK_small:: Verification failed\n");
-
-    // if we made this far, all is good. Cheer the developer
-    if(res1)
-        std::cout << "  [YES] : [SoK is Ok! You did it champ. Have a cigar.]" << endl;
-
-    std::cout << endl;
+    std::cout << std::endl;
 }
 */
 
+// ---------------------------------------------------------------------------------------------------
+// Signature Of Knowledge ----------------------------------------------------------------------------
 
-
-BOOST_AUTO_TEST_CASE(batch_signature_of_knowledge_tests)
+void printTime(clock_t start_time)
 {
-    std::cout << "*** batch_signature_of_knowledge_tests ***" << endl;
-    std::cout << "------------------------------------------" << endl;
+    clock_t total_time = clock() - start_time;
+    double passed = total_time*1000.0/CLOCKS_PER_SEC;
+    std::cout << colorCyan << "\t(" << passed << " msec)"  << colorNormal << std::endl;
+}
+
+bool Test_batchVerify(std::vector<SerialNumberSoKProof> proofs, bool fReverseTest = false)
+{
+    zNumTests++;
+    // verify the signature of the received SoKs
+    std::cout << "- Verifying the Signatures of Knowledge";
+    if (fReverseTest)
+        std::cout << colorMagenta << " for dishonest prover" << colorNormal;
+    std::cout << "...";
+
+    if (SerialNumberSoKProof::BatchVerify(proofs) == fReverseTest) {
+        std::cout << colorRed << Fail(fReverseTest) << colorNormal;
+        return false;
+    }
+
+    std::cout << colorGreen << Pass(fReverseTest) << colorNormal;
+    zSuccessfulTests++;
+    return true;
+}
+
+
+bool batch_signature_of_knowledge_tests(unsigned int start, unsigned int end, unsigned int step)
+{
+    if (end < start || step < 1) {
+        std::cout << "wrong range for batch_signature_of_knowledge_tests";
+        return false;
+    }
+
+    std::cout << colorBold <<  "*** batch_signature_of_knowledge_tests ***" << std::endl;
+    std::cout << "------------------------------------------" << colorNormal <<  std::endl;
+    std::cout << "starting size of the list: " << start << std::endl;
+    std::cout << "ending size of the list: " << end << std::endl;
+    std::cout << "step increment: " << step << std::endl;
+
+    bool finalResult = true;
 
     SelectParams(CBaseChainParams::MAIN);
     ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
     (void)ZCParams;
 
-    // create message hash
-    CHashWriter hasher(0,0);
-    hasher << std::string("Chancellor on brink of second bailout for banks");
-    uint256 msghash = hasher.GetHash();
-
-    for(unsigned int k=1; k<=20; k++) {
+    for(unsigned int k=start; k<=end; k=k+step) {
+        // create k random message hashes
+        std::vector<uint256> msghashList;
+        for(unsigned int i=0; i<k; i++) {
+            CBigNum rbn = CBigNum::randBignum(256);
+            msghashList.push_back(rbn.getuint256());
+        }
 
         // mint k coins
-        std::vector<PrivateCoin> coinlist;
+        std::vector<PrivateCoin> coinList;
         for(unsigned int i=0; i<k; i++) {
             PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
-            coinlist.push_back(newCoin);
+            coinList.push_back(newCoin);
         }
 
         // commit to these coins
-        std::vector<Commitment> commitmentlist;
+        std::vector<Commitment> commitmentList;
         for(unsigned int i=0; i<k; i++) {
-            const CBigNum newCoin_value = coinlist[i].getPublicCoin().getValue();
+            const CBigNum newCoin_value = coinList[i].getPublicCoin().getValue();
             Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
-            commitmentlist.push_back(commitment);
+            commitmentList.push_back(commitment);
         }
 
-        std::cout << "- Creating array of " << k << " Signatures of Knowledge..." << endl;
+        // WRONG (random) assignments
+        // random messages
+        std::vector<uint256> msghashList2;
+        for(unsigned int i=0; i<k; i++) {
+            CBigNum rbn = CBigNum::randBignum(256);
+            msghashList2.push_back(rbn.getuint256());
+        }
+        // random coins
+        std::vector<PrivateCoin> coinList2;
+        for(unsigned int i=0; i<k; i++) {
+            PrivateCoin newCoin(ZCParams, CoinDenomination::ZQ_ONE);
+            coinList2.push_back(newCoin);
+        }
+        // commit to these coins
+        std::vector<Commitment> commitmentList2;
+        for(unsigned int i=0; i<k; i++) {
+            const CBigNum newCoin_value = coinList2[i].getPublicCoin().getValue();
+            Commitment commitment(&(ZCParams->serialNumberSoKCommitmentGroup), newCoin_value);
+            commitmentList2.push_back(commitment);
+        }
+
+
+
+        std::cout << "- Creating array of " << k << " Signatures of Knowledge...";
 
         // create k signatures of knowledge
-        std::vector<SerialNumberSoK_small> siglist;
+        std::vector<SerialNumberSoK_small> sigList;
 
-clock_t start_time = clock();
+        clock_t start_time = clock();
 
         for(unsigned int i=0; i<k; i++) {
-            SerialNumberSoK_small sigOfKnowledge(ZCParams, coinlist[i], commitmentlist[i], msghash);
-            siglist.push_back(sigOfKnowledge);
+            SerialNumberSoK_small sigOfKnowledge(ZCParams, coinList[i], commitmentList[i], msghashList[i]);
+            sigList.push_back(sigOfKnowledge);
         }
 
-clock_t total_time = clock() - start_time;
-double passed = total_time*1000.0/CLOCKS_PER_SEC;
-std::cout << "----->" << passed << " msec" << endl;
+        printTime(start_time);
+        start_time = clock();
+        std::cout << "- Packing and serializing the Signatures..." << std::endl;
 
-        std::cout << "- Packing and serializing the Signatures..." << endl;
-
-        // pack the signatures of knowledge
+        // pack the signatures of knowledge (honest prover)
         std::vector<SerialNumberSoKProof> proofs;
         for(unsigned int i=0; i<k; i++) {
-            SerialNumberSoKProof proof(siglist[i], coinlist[i].getSerialNumber(), commitmentlist[i].getCommitmentValue(), msghash);
+            SerialNumberSoKProof proof(sigList[i], coinList[i].getSerialNumber(),
+                    commitmentList[i].getCommitmentValue(), msghashList[i]);
             proofs.push_back(proof);
+        }
+
+        // pack the signatures of knowledge (wrong msghash)
+        std::vector<SerialNumberSoKProof> proofs2;
+        for(unsigned int i=0; i<k; i++) {
+            SerialNumberSoKProof proof(sigList[i], coinList[i].getSerialNumber(),
+                    commitmentList[i].getCommitmentValue(), msghashList2[i]);
+            proofs2.push_back(proof);
+        }
+
+        // pack the signatures of knowledge (wrong commitment)
+        std::vector<SerialNumberSoKProof> proofs3;
+        for(unsigned int i=0; i<k; i++) {
+            SerialNumberSoKProof proof(sigList[i], coinList[i].getSerialNumber(),
+                    commitmentList2[i].getCommitmentValue(), msghashList[i]);
+            proofs3.push_back(proof);
+        }
+
+        // pack the signatures of knowledge (wrong coin and commitment)
+        std::vector<SerialNumberSoKProof> proofs4;
+        for(unsigned int i=0; i<k; i++) {
+            SerialNumberSoKProof proof(sigList[i], coinList2[i].getSerialNumber(),
+                    commitmentList2[i].getCommitmentValue(), msghashList[i]);
+            proofs4.push_back(proof);
         }
 
         // serialize the proofs to a CDataStream object.
         std::vector<CDataStream> serializedProofs(proofs.size(), CDataStream(SER_NETWORK, PROTOCOL_VERSION));
+        std::vector<CDataStream> serializedProofs2(proofs2.size(), CDataStream(SER_NETWORK, PROTOCOL_VERSION));
+        std::vector<CDataStream> serializedProofs3(proofs3.size(), CDataStream(SER_NETWORK, PROTOCOL_VERSION));
+        std::vector<CDataStream> serializedProofs4(proofs4.size(), CDataStream(SER_NETWORK, PROTOCOL_VERSION));
+
         for(unsigned int i=0; i<serializedProofs.size(); i++) {
             serializedProofs[i] << proofs[i];
+            serializedProofs2[i] << proofs2[i];
+            serializedProofs3[i] << proofs3[i];
+            serializedProofs4[i] << proofs4[i];
         }
 
-        std::cout << "- Unserializing the Signatures of Knowledge..." << endl;
+        std::cout << "- Unserializing the Signatures of Knowledge..." << std::endl;
 
         // unserialize the CDataStream object into a fresh SoK object
         std::vector<SerialNumberSoKProof> newproofs(serializedProofs.size(), SerialNumberSoKProof(ZCParams));
+        std::vector<SerialNumberSoKProof> newproofs2(serializedProofs.size(), SerialNumberSoKProof(ZCParams));
+        std::vector<SerialNumberSoKProof> newproofs3(serializedProofs.size(), SerialNumberSoKProof(ZCParams));
+        std::vector<SerialNumberSoKProof> newproofs4(serializedProofs.size(), SerialNumberSoKProof(ZCParams));
+
         for(unsigned int i=0; i<serializedProofs.size(); i++) {
             serializedProofs[i] >> newproofs[i];
+            serializedProofs2[i] >> newproofs2[i];
+            serializedProofs3[i] >> newproofs3[i];
+            serializedProofs4[i] >> newproofs4[i];
         }
 
+        start_time = clock();
 
-        std::cout << "- Verifying the Signature of Knowledge..." << endl;
-
-start_time = clock();
-
-        // verify the signature of the received SoK
-        bool res1 = SerialNumberSoKProof::BatchVerify(newproofs);
-
-        BOOST_CHECK_MESSAGE(res1,"SerialNumbwerSoK_small:: Verification failed\n");
-
-        // if we made this far, all is good. Cheer the developer
-        if(res1)
-            std::cout << "  [YES] : [SoK is Ok! You did it champ. Have a cigar.]" << endl;
-
-total_time = clock() - start_time;
-passed = total_time*1000.0/CLOCKS_PER_SEC;
-std::cout << "----->" << passed << " msec" << endl;
-
-        std::cout << endl;
+        finalResult = finalResult && Test_batchVerify(newproofs);
+        printTime(start_time);
+        start_time = clock();
+        finalResult = finalResult && Test_batchVerify(newproofs2, true);
+        printTime(start_time);
+        start_time = clock();
+        finalResult = finalResult && Test_batchVerify(newproofs3, true);
+        printTime(start_time);
+        start_time = clock();
+        finalResult = finalResult && Test_batchVerify(newproofs4, true);
+        printTime(start_time);
 
     }
+    std::cout << std::endl;
+    return finalResult;
+}
+
+BOOST_AUTO_TEST_SUITE(zerocoin_zkp_tests)
+
+BOOST_AUTO_TEST_CASE(bulletproofs_tests)
+{
+    std::cout << std::endl;
+    BOOST_CHECK(parameters_tests());
+    BOOST_CHECK(arithmetic_circuit_tests());
+    BOOST_CHECK(polynomial_commitment_tests());
+    BOOST_CHECK(batch_signature_of_knowledge_tests(2, 6, 2));
+
+    std::cout << std::endl << colorCyan << zSuccessfulTests;
+    std::cout << colorNormal << " out of ";
+    std::cout << colorCyan << zNumTests;
+    std::cout << colorNormal << " tests passed." << std::endl << std::endl;
 }
 
 BOOST_AUTO_TEST_SUITE_END()

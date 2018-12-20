@@ -747,9 +747,7 @@ bool SerialNumberSoKProof::BatchVerify(std::vector<SerialNumberSoKProof> &proofs
     CBigNum test = pedersenCommitment(proofs2[0].signature.params, test_vec, CBigNum(0));
 
     if(test != comTest) {
-        cout << "\ndifferent test and comTest" << endl;
-        cout << "test = " << test.ToString() << endl;
-        cout << "comTest = " << comTest.ToString() << endl;
+        LogPrintf("BatchVerify failed: different test and comTest\n");
         return false;
     }
 
