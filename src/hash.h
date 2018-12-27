@@ -461,14 +461,14 @@ public:
     // invalidates the object
     std::vector<unsigned char> GetHash()
     {
-        unsigned char buf_l[ctx.OUTPUT_SIZE];
-        unsigned char buf_r[ctx.OUTPUT_SIZE];
-        std::vector<unsigned char> buf(2*ctx.OUTPUT_SIZE);
+        unsigned char buf_l[CSHA512::OUTPUT_SIZE];
+        unsigned char buf_r[CSHA512::OUTPUT_SIZE];
+        std::vector<unsigned char> buf(2*CSHA512::OUTPUT_SIZE);
         ctx.Finalize(buf_l, buf_r);
-        for(unsigned int i=0; i<ctx.OUTPUT_SIZE; i++)
+        for(unsigned int i=0; i<CSHA512::OUTPUT_SIZE; i++)
             buf[i] = buf_l[i];
-        for(unsigned int i=ctx.OUTPUT_SIZE; i<2*ctx.OUTPUT_SIZE; i++)
-            buf[i] = buf_r[i-ctx.OUTPUT_SIZE];
+        for(unsigned int i=CSHA512::OUTPUT_SIZE; i<2*CSHA512::OUTPUT_SIZE; i++)
+            buf[i] = buf_r[i-CSHA512::OUTPUT_SIZE];
         return buf;
     }
 
