@@ -108,7 +108,9 @@ CBaseChainParams::Network NetworkIdFromCommandLine()
         return CBaseChainParams::MAX_NETWORK_TYPES;
     if (fRegTest)
         return CBaseChainParams::REGTEST;
-    return CBaseChainParams::TESTNET;
+    if (fTestNet)
+        return CBaseChainParams::TESTNET;
+    return CBaseChainParams::MAIN;
 }
 
 bool SelectBaseParamsFromCommandLine()
