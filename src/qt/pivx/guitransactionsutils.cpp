@@ -1,6 +1,6 @@
-//
-// Created by furszy on 2019-10-04.
-//
+// Copyright (c) 2019 The PIVX developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/pivx/guitransactionsutils.h"
 #include "bitcoinunits.h"
@@ -50,7 +50,7 @@ namespace GuiTransactionsUtils {
                 if (!fPrepare)
                     fAskForUnlock = true;
                 else
-                    msgParams.first = parent->translate("Error: The wallet was unlocked only to anonymize coins.");
+                    msgParams.first = parent->translate("Error: The wallet is unlocked for staking only. Fully unlock the wallet to send the transaction.");
                 break;
 
             case WalletModel::InsaneFee:

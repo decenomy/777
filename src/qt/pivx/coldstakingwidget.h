@@ -88,6 +88,8 @@ private:
     QAction *btnOwnerContact = nullptr;
     QSpacerItem *spacerDiv = nullptr;
 
+    bool isInDelegation = true;
+
     ContactsDropdown *menuContacts = nullptr;
     TooltipMenu* menu = nullptr;
     TooltipMenu* menuAddresses = nullptr;
@@ -111,6 +113,7 @@ private:
     void tryRefreshDelegations();
     bool refreshDelegations();
     void onLabelClicked(QString dialogTitle, const QModelIndex &index, const bool& isMyColdStakingAddresses);
+    void updateStakingTotalLabel();
 };
 
 #endif // COLDSTAKINGWIDGET_H

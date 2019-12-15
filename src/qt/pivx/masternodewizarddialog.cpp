@@ -10,6 +10,7 @@
 #include "activemasternode.h"
 #include <QFile>
 #include <QIntValidator>
+#include <QHostAddress>
 #include <QRegExpValidator>
 
 MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *parent) :
@@ -62,7 +63,7 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     initCssEditLine(ui->lineEditPort);
     ui->stackedWidget->setCurrentIndex(pos);
     ui->lineEditPort->setValidator(new QIntValidator(0, 9999999, ui->lineEditPort));
-    if(walletModel->isTestnet()){
+    if(walletModel->isTestNetwork()){
         ui->lineEditPort->setEnabled(false);
         ui->lineEditPort->setText("51474");
     } else {
@@ -89,6 +90,11 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     connect(ui->btnBack, SIGNAL(clicked()), this, SLOT(onBackClicked()));
 }
 
+void MasterNodeWizardDialog::showEvent(QShowEvent *event)
+{
+    if (ui->btnNext) ui->btnNext->setFocus();
+}
+
 void MasterNodeWizardDialog::onNextClicked(){
     switch(pos){
         case 0:{
@@ -98,8 +104,8 @@ void MasterNodeWizardDialog::onNextClicked(){
             ui->pushName1->setChecked(true);
             icConfirm1->setVisible(true);
             ui->pushNumber3->setChecked(true);
-
             ui->btnBack->setVisible(true);
+            ui->lineEditName->setFocus();
             break;
         }
         case 1:{
@@ -118,6 +124,7 @@ void MasterNodeWizardDialog::onNextClicked(){
             icConfirm3->setVisible(true);
             ui->pushNumber4->setChecked(true);
             ui->btnBack->setVisible(true);
+            ui->lineEditIpAddress->setFocus();
             break;
         }
         case 2:{
@@ -284,6 +291,13 @@ bool MasterNodeWizardDialog::createMN(){
                 }
                 std::string indexOutStr = std::to_string(indexOut);
 
+                // Check IP address type
+                QHostAddress hostAddress(addressStr);
+                QAbstractSocket::NetworkLayerProtocol layerProtocol = hostAddress.protocol();
+                if (layerProtocol == QAbstractSocket::IPv6Protocol) {
+                    ipAddress = "["+ipAddress+"]";
+                }
+
                 boost::filesystem::path pathConfigFile("masternode_temp.conf");
                 if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
                 FILE* configFile = fopen(pathConfigFile.string().c_str(), "w");
@@ -320,6 +334,7 @@ void MasterNodeWizardDialog::onBackClicked(){
     switch(pos){
         case 0:{
             ui->stackedWidget->setCurrentIndex(0);
+            ui->btnNext->setFocus();
             ui->pushNumber1->setChecked(true);
             ui->pushNumber4->setChecked(false);
             ui->pushNumber3->setChecked(false);
@@ -332,6 +347,7 @@ void MasterNodeWizardDialog::onBackClicked(){
         }
         case 1:{
             ui->stackedWidget->setCurrentIndex(1);
+            ui->lineEditName->setFocus();
             ui->pushNumber4->setChecked(false);
             ui->pushNumber3->setChecked(true);
             ui->pushName4->setChecked(false);

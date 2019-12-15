@@ -247,16 +247,15 @@ SettingsConsoleWidget::SettingsConsoleWidget(PIVXGUI* _window, QWidget *parent) 
     this->setStyleSheet(parent->styleSheet());
 
     // Containers
-    ui->left->setProperty("cssClass", "container");
+    setCssProperty({ui->left, ui->messagesWidget}, "container");
     ui->left->setContentsMargins(10,10,10,10);
-    ui->messagesWidget->setProperty("cssClass", "container");
 
     // Title
     ui->labelTitle->setText(tr("Console"));
     setCssTitleScreen(ui->labelTitle);
 
     // Console container
-    ui->consoleWidget->setProperty("cssClass", "container-square");
+    setCssProperty(ui->consoleWidget, "container-square");
     setShadow(ui->consoleWidget);
 
     // Edit
@@ -368,6 +367,11 @@ void SettingsConsoleWidget::loadClientModel() {
         // clear the lineEdit after activating from QCompleter
         autoCompleter->popup()->installEventFilter(this);
     }
+}
+
+void SettingsConsoleWidget::showEvent(QShowEvent *event)
+{
+    if (ui->lineEdit) ui->lineEdit->setFocus();
 }
 
 static QString categoryClass(int category)

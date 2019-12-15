@@ -58,8 +58,8 @@ WalletModel::~WalletModel()
     unsubscribeFromCoreSignals();
 }
 
-bool WalletModel::isTestnet() const {
-    return Params().NetworkID() == CBaseChainParams::TESTNET;
+bool WalletModel::isTestNetwork() const {
+    return Params().NetworkID() == CBaseChainParams::TESTNET || Params().NetworkID() == CBaseChainParams::REGTEST;
 }
 
 bool WalletModel::isColdStakingNetworkelyEnabled() const {
@@ -80,6 +80,11 @@ CAmount WalletModel::getBalance(const CCoinControl* coinControl) const
     }
 
     return wallet->GetBalance();
+}
+
+CAmount WalletModel::getMinColdStakingAmount() const
+{
+    return Params().GetMinColdStakingAmount();
 }
 
 CAmount WalletModel::getUnconfirmedBalance() const
@@ -306,7 +311,7 @@ bool WalletModel::validateStakingAddress(const QString& address) {
     if (validateAddress(address)) {
         // check for staking only addresses
         QChar firstLetter = address.at(0).toLower();
-        if (isTestnet() && firstLetter == 'w')
+        if (isTestNetwork() && firstLetter == 'w')
             return true;
 
         // mainnet check
@@ -431,7 +436,16 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             return TransactionCreationFailed;
         }
 
-        bool fCreated = wallet->CreateTransaction(vecSend, *newTx, *keyChange, nFeeRequired, strFailReason, coinControl, recipients[0].inputType, recipients[0].useSwiftTX);
+        bool fCreated = wallet->CreateTransaction(vecSend,
+                                                  *newTx,
+                                                  *keyChange,
+                                                  nFeeRequired,
+                                                  strFailReason,
+                                                  coinControl,
+                                                  recipients[0].inputType,
+                                                  recipients[0].useSwiftTX,
+                                                  0,
+                                                  true);
         transaction.setTransactionFee(nFeeRequired);
 
         if (recipients[0].useSwiftTX && newTx->GetValueOut() > sporkManager.GetSporkValue(SPORK_5_MAX_VALUE) * COIN) {
@@ -677,6 +691,17 @@ bool WalletModel::setWalletLocked(bool locked, const SecureString& passPhrase, b
         // Unlock
         return wallet->Unlock(passPhrase, anonymizeOnly);
     }
+}
+
+bool WalletModel::lockForStakingOnly(const SecureString& passPhrase)
+{
+    if (!wallet->IsLocked()) {
+        wallet->fWalletUnlockAnonymizeOnly = true;
+        return true;
+    } else {
+        setWalletLocked(false, passPhrase, true);
+    }
+    return false;
 }
 
 bool WalletModel::isAnonymizeOnlyUnlocked()
@@ -983,7 +1008,8 @@ void WalletModel::listCoins(std::map<QString, std::vector<COutput> >& mapCoins) 
         int nDepth = wallet->mapWallet[outpoint.hash].GetDepthAndMempool(fConflicted);
         if (nDepth < 0 || fConflicted) continue;
         COutput out(&wallet->mapWallet[outpoint.hash], outpoint.n, nDepth, true);
-        if (outpoint.n < out.tx->vout.size() && wallet->IsMine(out.tx->vout[outpoint.n]) == ISMINE_SPENDABLE)
+        if (outpoint.n < out.tx->vout.size() &&
+                (wallet->IsMine(out.tx->vout[outpoint.n]) & ISMINE_SPENDABLE_ALL) != ISMINE_NO)
             vCoins.push_back(out);
     }
 

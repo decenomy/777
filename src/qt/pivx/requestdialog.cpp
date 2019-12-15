@@ -5,7 +5,6 @@
 #include "qt/pivx/requestdialog.h"
 #include "qt/pivx/forms/ui_requestdialog.h"
 #include <QListView>
-#include <QDoubleValidator>
 
 #include "qt/pivx/qtutils.h"
 #include "guiutil.h"
@@ -44,10 +43,7 @@ RequestDialog::RequestDialog(QWidget *parent) :
     setCssProperty(ui->labelSubtitleAmount, "text-title2-dialog");
     ui->lineEditAmount->setPlaceholderText("0.00 PIV");
     setCssEditLineDialog(ui->lineEditAmount, true);
-
-    QDoubleValidator *doubleValidator = new QDoubleValidator(0, 9999999, 7, this);
-    doubleValidator->setNotation(QDoubleValidator::StandardNotation);
-    ui->lineEditAmount->setValidator(doubleValidator);
+    GUIUtil::setupAmountWidget(ui->lineEditAmount, this);
 
     // Description
     ui->labelSubtitleDescription->setText(tr("Description (optional)"));
@@ -88,6 +84,7 @@ void RequestDialog::setPaymentRequest(bool isPaymentRequest) {
     if (!this->isPaymentRequest) {
         ui->labelMessage->setText(tr("Creates an address to receive coin delegations and be able to stake them."));
         ui->labelTitle->setText(tr("New Cold Staking Address"));
+        ui->labelSubtitleAmount->setText(tr("Amount (optional)"));
     }
 }
 
@@ -99,14 +96,12 @@ void RequestDialog::onNextClicked(){
         //Amount
         int displayUnit = walletModel->getOptionsModel()->getDisplayUnit();
         bool isValueValid = true;
-        CAmount value = GUIUtil::parseValue(
-                ui->lineEditAmount->text(),
-                displayUnit,
-                &isValueValid
-        );
+        CAmount value = (ui->lineEditAmount->text().isEmpty() ?
+                            0 :
+                            GUIUtil::parseValue(ui->lineEditAmount->text(), displayUnit, &isValueValid)
+                        );
 
         if (!this->isPaymentRequest) {
-
             // Add specific checks for cold staking address creation
             if (labelStr.isEmpty()) {
                 inform("Address label cannot be empty");
@@ -169,6 +164,11 @@ void RequestDialog::onCopyUriClicked(){
         res = 1;
         accept();
     }
+}
+
+void RequestDialog::showEvent(QShowEvent *event)
+{
+    if (ui->lineEditAmount) ui->lineEditAmount->setFocus();
 }
 
 void RequestDialog::updateQr(QString str){

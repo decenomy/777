@@ -155,6 +155,7 @@ SettingsWidget::SettingsWidget(PIVXGUI* parent) :
     connect(settingsMainOptionsWidget, &SettingsMainOptionsWidget::message, this, &SettingsWidget::message);
     connect(settingsDisplayOptionsWidget, &SettingsDisplayOptionsWidget::message, this, &SettingsWidget::message);
     connect(settingsWalletOptionsWidget, &SettingsWalletOptionsWidget::message, this, &SettingsWidget::message);
+    connect(settingsInformationWidget, &SettingsInformationWidget::message,this, &SettingsWidget::message);
 
     /* Widget-to-option mapper */
     mapper = new QDataWidgetMapper(this);
@@ -188,6 +189,7 @@ void SettingsWidget::loadWalletModel(){
     this->settingsSingMessageWidgets->setWalletModel(this->walletModel);
     this->settingsBitToolWidget->setWalletModel(this->walletModel);
     this->settingsMultisendWidget->setWalletModel(this->walletModel);
+    this->settingsDisplayOptionsWidget->setWalletModel(this->walletModel);
 }
 
 void SettingsWidget::onResetAction(){
