@@ -102,7 +102,7 @@ PrivacyWidget::PrivacyWidget(PIVXGUI* parent) :
     ui->layoutDenom->setVisible(false);
 
     // List
-    ui->labelListHistory->setText(tr("Last Zerocoin Movements"));
+    ui->labelListHistory->setText(tr("Last zPIV Movements"));
     setCssProperty(ui->labelListHistory, "text-title");
 
     //ui->emptyContainer->setVisible(false);
@@ -131,7 +131,7 @@ PrivacyWidget::PrivacyWidget(PIVXGUI* parent) :
     ui->btnRescanMints->setTitleClassAndText("btn-title-grey", "Rescan Mints");
     ui->btnRescanMints->setSubTitleClassAndText("text-subtitle", "Find mints in the blockchain.");
 
-    ui->btnResetZerocoin->setTitleClassAndText("btn-title-grey", "Reset Zerocoin");
+    ui->btnResetZerocoin->setTitleClassAndText("btn-title-grey", "Reset Spent zPIV");
     ui->btnResetZerocoin->setSubTitleClassAndText("text-subtitle", "Reset zerocoin database.");
 
     connect(ui->btnTotalzPIV, SIGNAL(clicked()), this, SLOT(onTotalZpivClicked()));
@@ -158,6 +158,9 @@ PrivacyWidget::PrivacyWidget(PIVXGUI* parent) :
     ui->listView->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listView->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->listView->setLayoutMode(QListView::LayoutMode::Batched);
+    ui->listView->setBatchSize(30);
+    ui->listView->setUniformItemSizes(true);
 }
 
 void PrivacyWidget::loadWalletModel(){
@@ -336,7 +339,7 @@ void PrivacyWidget::onRescanMintsClicked(){
 }
 
 void PrivacyWidget::onResetZeroClicked(){
-    if (ask(tr("Reset Spent Zerocoins"),
+    if (ask(tr("Reset Spent zPIV"),
         tr("Your zerocoin spends are going to be scanned from the blockchain from scratch"))
     ){
         std::string strResetMintResult = walletModel->resetSpentZerocoin();

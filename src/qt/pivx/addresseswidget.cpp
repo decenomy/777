@@ -94,6 +94,7 @@ AddressesWidget::AddressesWidget(PIVXGUI* parent) :
     ui->listAddresses->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listAddresses->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listAddresses->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->listAddresses->setUniformItemSizes(true);
 
     //Empty List
     ui->emptyContainer->setVisible(false);
@@ -112,7 +113,7 @@ AddressesWidget::AddressesWidget(PIVXGUI* parent) :
     setCssEditLine(ui->lineEditName, true);
 
     // Address
-    ui->labelAddress->setText(tr("Enter a PIVX address"));
+    ui->labelAddress->setText(tr("Enter PIVX address"));
     setCssProperty(ui->labelAddress, "text-title");
     ui->lineEditAddress->setPlaceholderText("e.g. D7VFR83SQbiezrW72hjc…");
     setCssEditLine(ui->lineEditAddress, true);

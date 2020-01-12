@@ -66,12 +66,15 @@ CCriticalSection cs_main;
 
 BlockMap mapBlockIndex;
 std::map<uint256, uint256> mapProofOfStake;
-std::map<unsigned int, unsigned int> mapHashedBlocks;
 CChain chainActive;
 CBlockIndex* pindexBestHeader = NULL;
 int64_t nTimeBestReceived = 0;
-CWaitableCriticalSection csBestBlock;
-CConditionVariable cvBlockChange;
+
+// Best block section
+CWaitableCriticalSection g_best_block_mutex;
+std::condition_variable g_best_block_cv;
+uint256 g_best_block;
+
 int nScriptCheckThreads = 0;
 bool fImporting = false;
 bool fReindex = false;
@@ -81,7 +84,6 @@ bool fCheckBlockIndex = false;
 bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
-bool fClearSpendCache = false;
 
 /* If the tip is older than this (in seconds), the node is considered to be in initial block download. */
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
@@ -2417,11 +2419,11 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
     if (!pindexBestInvalid || pindexNew->nChainWork > pindexBestInvalid->nChainWork)
         pindexBestInvalid = pindexNew;
 
-    LogPrintf("InvalidChainFound: invalid block=%s  height=%d  log2_work=%.8g  date=%s\n",
+    LogPrintf("InvalidChainFound: invalid block=%s  height=%d  log2_work=%.16f  date=%s\n",
         pindexNew->GetBlockHash().ToString(), pindexNew->nHeight,
         log(pindexNew->nChainWork.getdouble()) / log(2.0), DateTimeStrFormat("%Y-%m-%d %H:%M:%S",
                                                                pindexNew->GetBlockTime()));
-    LogPrintf("InvalidChainFound:  current best=%s  height=%d  log2_work=%.8g  date=%s\n",
+    LogPrintf("InvalidChainFound:  current best=%s  height=%d  log2_work=%.16f  date=%s\n",
         chainActive.Tip()->GetBlockHash().ToString(), chainActive.Height(), log(chainActive.Tip()->nChainWork.getdouble()) / log(2.0),
         DateTimeStrFormat("%Y-%m-%d %H:%M:%S", chainActive.Tip()->GetBlockTime()));
     CheckForkWarningConditions();
@@ -3574,26 +3576,20 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    /* Zerocoin minting is disabled
-     *
-#ifdef ENABLE_WALLET
-    // If turned on AutoZeromint will automatically convert PIV to zPIV
-    if (pwalletMain && pwalletMain->isZeromintEnabled())
-        pwalletMain->AutoZeromint();
-#endif // ENABLE_WALLET
-    *
-    */
-
     // New best block
     nTimeBestReceived = GetTime();
     mempool.AddTransactionsUpdated(1);
 
-    LogPrintf("UpdateTip: new best=%s  height=%d version=%d  log2_work=%.8g  tx=%lu  date=%s progress=%f  cache=%u\n",
-        chainActive.Tip()->GetBlockHash().ToString(), chainActive.Height(), chainActive.Tip()->nVersion, log(chainActive.Tip()->nChainWork.getdouble()) / log(2.0), (unsigned long)chainActive.Tip()->nChainTx,
-        DateTimeStrFormat("%Y-%m-%d %H:%M:%S", chainActive.Tip()->GetBlockTime()),
-        Checkpoints::GuessVerificationProgress(chainActive.Tip()), (unsigned int)pcoinsTip->GetCacheSize());
+    {
+        WaitableLock lock(g_best_block_mutex);
+        g_best_block = pindexNew->GetBlockHash();
+        g_best_block_cv.notify_all();
+    }
 
-    cvBlockChange.notify_all();
+    LogPrintf("UpdateTip: new best=%s  height=%d version=%d  log2_work=%.16f  tx=%lu  date=%s progress=%f  cache=%u\n",
+              chainActive.Tip()->GetBlockHash().ToString(), chainActive.Height(), chainActive.Tip()->nVersion, log(chainActive.Tip()->nChainWork.getdouble()) / log(2.0), (unsigned long)chainActive.Tip()->nChainTx,
+              DateTimeStrFormat("%Y-%m-%d %H:%M:%S", chainActive.Tip()->GetBlockTime()),
+              Checkpoints::GuessVerificationProgress(chainActive.Tip()), (unsigned int)pcoinsTip->GetCacheSize());
 
     // Check the version of the last 100 blocks to see if we need to upgrade:
     static bool fWarned = false;
@@ -4347,7 +4343,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
             return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight"),
             REJECT_INVALID, "block-version");
     } else {
-        if (block.nVersion >= Params().Zerocoin_HeaderVersion())
+        if (block.nVersion >= Params().Zerocoin_HeaderVersion() && Params().NetworkID() != CBaseChainParams::REGTEST)
             return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight"),
             REJECT_INVALID, "block-version");
     }
@@ -4908,14 +4904,14 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                     }
                 }
                 if(tx.IsCoinStake()) continue;
-                if(hasPIVInputs)
+                if(hasPIVInputs) {
                     // Check if coinstake input is double spent inside the same block
-                    for (const CTxIn& pivIn : pivInputs){
-                        if(pivIn.prevout == in.prevout){
+                    for (const CTxIn& pivIn : pivInputs)
+                        if(pivIn.prevout == in.prevout)
                             // double spent coinstake input inside block
                             return error("%s: double spent coinstake input inside block", __func__);
-                        }
-                    }
+                }
+
             }
         }
         inBlockSerials.clear();
@@ -4944,25 +4940,21 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                     return error("%s: forked chain longer than maximum reorg limit", __func__);
                 }
 
-                // Loop through every input from said block
-                for (const CTransaction &t : bl.vtx) {
-                    for (const CTxIn &in: t.vin) {
+                // Loop through every tx of this block
+                for (const CTransaction& t : bl.vtx) {
+                    // Loop through every input of this tx
+                    for (const CTxIn& in: t.vin) {
+                        // If this input is a zerocoin spend, and the coinstake has zerocoin inputs
+                        // then store the serials for later check
+                        if(hasZPIVInputs && in.IsZerocoinSpend())
+                            vBlockSerials.push_back(TxInToZerocoinSpend(in).getCoinSerialNumber());
+
                         // Loop through every input of the staking tx
-                        for (const CTxIn &stakeIn : pivInputs) {
-                            // if it's already spent
-
-                            // First regular staking check
-                            if (hasPIVInputs) {
-                                if (stakeIn.prevout == in.prevout) {
-                                    return state.DoS(100, error("%s: input already spent on a previous block",
-                                                                __func__));
-                                }
-
-                                // Second, if there is zPoS staking then store the serials for later check
-                                if(in.IsZerocoinSpend()){
-                                    vBlockSerials.push_back(TxInToZerocoinSpend(in).getCoinSerialNumber());
-                                }
-                            }
+                        if (hasPIVInputs) {
+                            for (const CTxIn& stakeIn : pivInputs)
+                                // check if the tx input is double spending any coinstake input
+                                if (stakeIn.prevout == in.prevout)
+                                    return state.DoS(100, error("%s: input already spent on a previous block", __func__));
                         }
                     }
                 }
@@ -4979,7 +4971,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
             splitHeight = prev->nHeight;
 
             // Now that this loop if completed. Check if we have zPIV inputs.
-            if(hasZPIVInputs){
+            if(hasZPIVInputs) {
                 for (const CTxIn& zPivInput : zPIVInputs) {
                     libzerocoin::CoinSpend spend = TxInToZerocoinSpend(zPivInput);
 
@@ -4993,7 +4985,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
 
                     // Now check if the serial exists before the chain split.
                     int nHeightTx = 0;
-                    if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx)){
+                    if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx)) {
                         // if the height is nHeightTx > chainSplit means that the spent occurred after the chain split
                         if(nHeightTx <= splitHeight)
                             return state.DoS(100, error("%s: serial double spent on main chain", __func__));

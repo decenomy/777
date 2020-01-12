@@ -48,7 +48,6 @@ extern bool bSpendZeroConfChange;
 extern bool bdisableSystemnotifications;
 extern bool fSendFreeTransactions;
 extern bool fPayAtLeastCustomFee;
-extern bool fGlobalUnlockSpendCache; // Bool used for letting the precomputing thread know that zpivspends need to use the cs_spendcache
 
 //! -paytxfee default
 static const CAmount DEFAULT_TRANSACTION_FEE = 0;
@@ -148,6 +147,28 @@ public:
     }
 };
 
+/** Record info about last kernel stake operation (time and chainTip)**/
+class CStakerStatus {
+private:
+    const CBlockIndex* tipLastStakeAttempt = nullptr;
+    int64_t timeLastStakeAttempt;
+public:
+    const CBlockIndex* GetLastTip() const { return tipLastStakeAttempt; }
+    uint256 GetLastHash() const
+    {
+        return (tipLastStakeAttempt == nullptr ? 0 : tipLastStakeAttempt->GetBlockHash());
+    }
+    int64_t GetLastTime() const { return timeLastStakeAttempt; }
+    void SetLastTip(const CBlockIndex* lastTip) { tipLastStakeAttempt = lastTip; }
+    void SetLastTime(const uint64_t lastTime) { timeLastStakeAttempt = lastTime; }
+    void SetNull()
+    {
+        SetLastTip(nullptr);
+        SetLastTime(0);
+    }
+    bool IsActive() { return (timeLastStakeAttempt + 30) >= GetTime(); }
+};
+
 /**
  * A CWallet is an extension of a keystore, which also maintains a set of transactions and balances,
  * and provides the ability to create new transactions.
@@ -189,7 +210,7 @@ public:
     static const int STAKE_SPLIT_THRESHOLD = 2000;
 
     bool MintableCoins();
-    bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount, int blockHeight, bool fPrecompute = false);
+    bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount, int blockHeight);
     bool IsCollateralAmount(CAmount nInputAmount) const;
 
     // Zerocoin additions
@@ -209,7 +230,7 @@ public:
             bool isPublicSpend = true);
 
     bool CheckCoinSpend(libzerocoin::CoinSpend& spend, libzerocoin::Accumulator& accumulator, CZerocoinSpendReceipt& receipt);
-    bool MintToTxIn(CZerocoinMint zerocoinSelected, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr, bool publicCoinSpend = true);
+    bool MintToTxIn(CZerocoinMint zerocoinSelected, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr, bool isPublicSpend = true);
     bool MintsToInputVector(std::map<CBigNum, CZerocoinMint>& mapMintsSelected, const uint256& hashTxOut, std::vector<CTxIn>& vin,
                             CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr);
     // Public coin spend input creation
@@ -279,6 +300,7 @@ public:
     // Stake Settings
     uint64_t nStakeSplitThreshold;
     int nStakeSetUpdateTime;
+    CStakerStatus* pStakerStatus = nullptr;
 
     //MultiSend
     std::vector<std::pair<std::string, int> > vMultiSend;
@@ -324,8 +346,6 @@ public:
     const CWalletTx* GetWalletTx(const uint256& hash) const;
 
     std::vector<CWalletTx> getWalletTxs();
-
-    void PrecomputeSpends();
 
     //! check whether we are allowed to upgrade (or already support) to the named feature
     bool CanSupportFeature(enum WalletFeature wf);
@@ -452,7 +472,7 @@ public:
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey, std::string strCommand = "tx");
     bool AddAccountingEntry(const CAccountingEntry&, CWalletDB & pwalletdb);
     int GenerateObfuscationOutputs(int nTotalValue, std::vector<CTxOut>& vout);
-    bool CreateCoinStake(const CKeyStore& keystore, const CBlockIndex* pindexPrev, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, int64_t& nTxNewTime);
+    bool CreateCoinStake(const CKeyStore& keystore, const CBlockIndex* pindexPrev, unsigned int nBits, CMutableTransaction& txNew, int64_t& nTxNewTime);
     bool MultiSend();
     void AutoCombineDust();
     void AutoZeromint();
@@ -843,6 +863,7 @@ public:
     bool IsEquivalentTo(const CWalletTx& tx) const;
 
     bool IsTrusted() const;
+    bool IsTrusted(int& nDepth, bool& fConflicted) const;
 
     bool WriteToDisk(CWalletDB *pwalletdb);
 
@@ -1026,7 +1047,5 @@ public:
 private:
     std::vector<char> _ssExtra;
 };
-
-void ThreadPrecomputeSpends();
 
 #endif // BITCOIN_WALLET_H

@@ -60,7 +60,7 @@ SendWidget::SendWidget(PIVXGUI* parent) :
     setCssProperty(ui->labelSubtitle2, "text-subtitle");
 
     /* Address */
-    ui->labelSubtitleAddress->setText(tr("Enter a PIVX address or contact label"));
+    ui->labelSubtitleAddress->setText(tr("PIVX address or contact label"));
     setCssProperty(ui->labelSubtitleAddress, "text-title");
 
 
@@ -344,7 +344,7 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients){
     prepareStatus = walletModel->prepareTransaction(currentTransaction, CoinControlDialog::coinControl);
 
     // process prepareStatus and on error generate message shown to user
-    GuiTransactionsUtils::ProcessSendCoinsReturn(
+    GuiTransactionsUtils::ProcessSendCoinsReturnAndInform(
             this,
             prepareStatus,
             walletModel,
@@ -373,7 +373,7 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients){
         // now send the prepared transaction
         WalletModel::SendCoinsReturn sendStatus = dialog->getStatus();
         // process sendStatus and on error generate message shown to user
-        GuiTransactionsUtils::ProcessSendCoinsReturn(
+        GuiTransactionsUtils::ProcessSendCoinsReturnAndInform(
                 this,
                 sendStatus,
                 walletModel
@@ -500,7 +500,9 @@ void SendWidget::updateEntryLabels(QList<SendCoinsRecipient> recipients){
             if(label.compare(labelOld) != 0) {
                 CTxDestination dest = CBitcoinAddress(rec.address.toStdString()).Get();
                 if (!walletModel->updateAddressBookLabels(dest, label.toStdString(),
-                                                          this->walletModel->isMine(dest) ? "receive" : "send")) {
+                                                          this->walletModel->isMine(dest) ?
+                                                                  AddressBook::AddressBookPurpose::RECEIVE :
+                                                                  AddressBook::AddressBookPurpose::SEND)) {
                     // Label update failed
                     emit message("", tr("Address label update failed for address: %1").arg(rec.address), CClientUIInterface::MSG_ERROR);
                     return;
@@ -733,7 +735,8 @@ void SendWidget::onContactMultiClicked(){
             if (label == dialog->getLabel()) {
                 return;
             }
-            if (walletModel->updateAddressBookLabels(pivAdd.Get(), dialog->getLabel().toStdString(), "send")) {
+            if (walletModel->updateAddressBookLabels(pivAdd.Get(), dialog->getLabel().toStdString(),
+                    AddressBook::AddressBookPurpose::SEND)) {
                 inform(tr("New Contact Stored"));
             } else {
                 inform(tr("Error Storing Contact"));
