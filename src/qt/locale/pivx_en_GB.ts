@@ -148,6 +148,10 @@
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -878,47 +882,7 @@
         <source>Address</source>
         <translation>Address</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>The recipient address is not valid, please recheck.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>The amount to pay must be larger than 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>The amount exceeds your balance.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>The total exceeds your balance when the %1 transaction fee is included.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Duplicate address found, can only send to each address once per send operation.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Transaction creation failed!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Error: The wallet was unlocked only to anonymise coins.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>A fee %1 times higher than %2 per kB is considered an insanely high fee.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Error: The wallet was unlocked only to anonymise coins. Unlock cancelled.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -928,6 +892,10 @@
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1452,6 +1420,10 @@ Address: %4
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
     </context>
 <context>
     <name>ProposalFrame</name>
@@ -1461,10 +1433,6 @@ Address: %4
     <message>
         <source>Amount</source>
         <translation>Amount</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Enter a PIVX address (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2072,6 +2040,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Clear</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Enter passphrase</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>The entered passphrase is invalid.</translation>
     </message>
@@ -2243,6 +2215,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Active</source>

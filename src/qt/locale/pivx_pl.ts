@@ -215,8 +215,8 @@
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Brak aktywnego Master Node</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -247,10 +247,6 @@
         <translation>np. John Doe</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Wpisz adres PIVX</translation>
-    </message>
-    <message>
         <source>SAVE</source>
         <translation>ZAPISZ</translation>
     </message>
@@ -270,7 +266,35 @@
         <source>New Contact Stored</source>
         <translation>Zapisano nowy kontakt</translation>
     </message>
-    </context>
+    <message>
+        <source>Error Storing Contact</source>
+        <translation>Błąd podczas zapisywania kontaktu</translation>
+    </message>
+    <message>
+        <source>Contact edited</source>
+        <translation>Kontakt edytowany</translation>
+    </message>
+    <message>
+        <source>Contact edit failed</source>
+        <translation>Edycja kontaktu nie powiodła się</translation>
+    </message>
+    <message>
+        <source>Delete Contact</source>
+        <translation>Usuń kontakt</translation>
+    </message>
+    <message>
+        <source>Contact Deleted</source>
+        <translation>Kontakt został usunięty</translation>
+    </message>
+    <message>
+        <source>Error deleting a contact</source>
+        <translation>Błąd podczas usuwania kontaktu</translation>
+    </message>
+    <message>
+        <source>Address copied</source>
+        <translation>Adres skopiowany</translation>
+    </message>
+</context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
@@ -299,6 +323,12 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Ta operacja wymaga twojego hasła, by odblokować portfel</translation>
     </message>
     <message>
+        <source>Unlock wallet
+for staking</source>
+        <translation>Odblokuj portfel
+do stakingu</translation>
+    </message>
+    <message>
         <source>Unlock wallet</source>
         <translation>Odblokuj portfel</translation>
     </message>
@@ -321,6 +351,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Confirm wallet encryption</source>
         <translation>Potwierdź szyfrowanie portfela</translation>
+    </message>
+    <message>
+        <source>ENCRYPT</source>
+        <translation>SZYFROWANIE</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -431,7 +465,27 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <source>Form</source>
         <translation>Forma</translation>
     </message>
-    </context>
+    <message>
+        <source>Savings</source>
+        <translation>oszczędności</translation>
+    </message>
+    <message>
+        <source>0,00 PIV</source>
+        <translation>0,00 PIV</translation>
+    </message>
+    <message>
+        <source>address</source>
+        <translation>adres</translation>
+    </message>
+    <message>
+        <source>Not Staking</source>
+        <translation>brak Stakingu</translation>
+    </message>
+    <message>
+        <source>Own delegation</source>
+        <translation>Delegacja własna</translation>
+    </message>
+</context>
 <context>
     <name>ClientModel</name>
     <message>
@@ -486,12 +540,28 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Ilość</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
         <source>PushButton</source>
         <translation>Naciśnij przycisk</translation>
     </message>
     <message>
+        <source>0.00 PIV</source>
+        <translation>0.00 PIV</translation>
+    </message>
+    <message>
         <source>0</source>
         <translation>0</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation>Zaznacz wszystko</translation>
+    </message>
+    <message>
+        <source>Toggle lock state</source>
+        <translation>Zablokuj</translation>
     </message>
     <message>
         <source>Received with label</source>
@@ -500,6 +570,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Received with address</source>
         <translation>Otrzymano z adresem</translation>
+    </message>
+    <message>
+        <source>After Fee: </source>
+        <translation>Po opłacie:</translation>
     </message>
     <message>
         <source>OK</source>
@@ -568,6 +642,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Copy change</source>
         <translation>Kopiuj resztę</translation>
+    </message>
+    <message>
+        <source>Unselect all</source>
+        <translation>Odznacz wszystko</translation>
     </message>
     <message>
         <source>Please switch to "List mode" to use this function.</source>
@@ -673,8 +751,16 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
         <source>PushButton</source>
         <translation>Naciśnij przycisk</translation>
+    </message>
+    <message>
+        <source>PIV:</source>
+        <translation>PIV:</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -713,6 +799,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Potwierdzenia</translation>
     </message>
     <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
+    </message>
+    <message>
         <source>Bytes:</source>
         <translation>Bajty:</translation>
     </message>
@@ -723,6 +813,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Change:</source>
         <translation>Reszta:</translation>
+    </message>
+    <message>
+        <source>After Fee: </source>
+        <translation>Po opłacie:</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -740,12 +834,44 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Forma</translation>
     </message>
     <message>
+        <source>Title</source>
+        <translation>Tytuł</translation>
+    </message>
+    <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>List of delegated balance by address</source>
+        <translation>Lista przekazanych sald według adresu</translation>
+    </message>
+    <message>
+        <source>No balance delegated</source>
+        <translation>Brak salda delegowanego</translation>
+    </message>
+    <message>
+        <source>Cold Staking</source>
+        <translation>Cold Staking</translation>
+    </message>
+    <message>
+        <source>Staker</source>
+        <translation>Staker</translation>
+    </message>
+    <message>
+        <source>Delegation</source>
+        <translation>Delegacja</translation>
+    </message>
+    <message>
+        <source>Delegate</source>
+        <translation>Deleguj</translation>
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation>Wyczyść wszystko</translation>
+    </message>
+    <message>
+        <source>Address copied</source>
+        <translation>Adres skopiowany</translation>
     </message>
     </context>
 <context>
@@ -772,10 +898,6 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Warning</source>
         <translation>Ostrzeżenie</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -817,6 +939,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Forma</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
     </message>
@@ -832,8 +958,40 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Forma</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
+        <source>5000</source>
+        <translation>5000</translation>
+    </message>
+    <message>
+        <source>100</source>
+        <translation>100</translation>
+    </message>
+    <message>
+        <source>10</source>
+        <translation>10</translation>
+    </message>
+    <message>
+        <source>1000</source>
+        <translation>1000</translation>
+    </message>
+    <message>
+        <source>50</source>
+        <translation>50</translation>
+    </message>
+    <message>
+        <source>500</source>
+        <translation>500</translation>
+    </message>
+    <message>
+        <source>5</source>
+        <translation>5</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation>1</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1114,6 +1272,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>1</source>
+        <translation>1</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
@@ -1129,47 +1291,7 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <source>OK</source>
         <translation>OK</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Adres odbiorcy jest nieprawidłowy, proszę ponownie sprawdzić.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Kwota do zapłaty musi być większa niż 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Kwota przekracza saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Suma przekracza saldo po uwzględnieniu opłaty transakcyjnej %1.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Znaleziono zduplikowany adres, można wysłać tylko do każdego adresu raz na operację wysyłania.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Tworzenie transakcji nie powiodło się!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transakcja została odrzucona! Może się tak zdarzyć, jeśli część monet w portfelu już została wydana, na przykład jeśli użyto kopii pliku wallet.dat, a monety zostały wydane w kopii, ale nie zostały oznaczone jako wydane.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Błąd: portfel został odblokowany tylko w celu anonimizacji monet.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Opłata %1 razy wyższa niż %2 za kB jest uważana za niesamowicie wysoką opłatę.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Błąd: portfel został odblokowany tylko w celu anonimizacji monet. Odblokownie anulowanie.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -1181,12 +1303,8 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Brak aktywnego Master Node</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1209,6 +1327,10 @@ Użyj hasła składającego się z dziesięciu lub więcej losowych znaków lub 
     <message>
         <source>Form</source>
         <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Savings</source>
+        <translation>oszczędności</translation>
     </message>
     <message>
         <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
@@ -1736,6 +1858,10 @@ Adres: %4
         <translation>Forma</translation>
     </message>
     <message>
+        <source>Title</source>
+        <translation>Tytuł</translation>
+    </message>
+    <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
     </message>
@@ -1744,8 +1870,8 @@ Adres: %4
         <translation>Naciśnij przycisk</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Brak aktywnego Master Node</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     </context>
 <context>
@@ -1822,10 +1948,6 @@ Adres: %4
     <message>
         <source>Amount</source>
         <translation>Ilość</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Wprowadź adres PIVX (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2302,8 +2424,8 @@ Adres: %4
         <translation>Dialog</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
     </message>
     <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -2327,6 +2449,10 @@ Adres: %4
     <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>Address copied</source>
+        <translation>Adres skopiowany</translation>
     </message>
     </context>
 <context>
@@ -2402,8 +2528,8 @@ Adres: %4
         <translation>Dialog</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -2419,6 +2545,10 @@ Adres: %4
     <message>
         <source>Form</source>
         <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -2442,6 +2572,10 @@ Adres: %4
     <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Podaj adres</translation>
     </message>
     </context>
 <context>
@@ -2490,7 +2624,11 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
         <source>New Contact Stored</source>
         <translation>Zapisano nowy kontakt</translation>
     </message>
-    </context>
+    <message>
+        <source>Error Storing Contact</source>
+        <translation>Błąd podczas zapisywania kontaktu</translation>
+    </message>
+</context>
 <context>
     <name>SettingsBackupWallet</name>
     <message>
@@ -2500,10 +2638,6 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
     <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -2537,8 +2671,16 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
         <translation>Wyczyść</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Wpisz adres PIVX</translation>
+        <source>Enter address</source>
+        <translation>Podaj adres</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Wpisz hasło</translation>
+    </message>
+    <message>
+        <source>ENCRYPT</source>
+        <translation>SZYFROWANIE</translation>
     </message>
     <message>
         <source>The entered passphrase is invalid. </source>
@@ -2627,10 +2769,6 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
-    </message>
-    <message>
         <source>Decimal digits</source>
         <translation>Liczby dziesiętne</translation>
     </message>
@@ -2660,6 +2798,18 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
     <message>
         <source>PushButton</source>
         <translation>Naciśnij przycisk</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <source>5</source>
+        <translation>5</translation>
+    </message>
+    <message>
+        <source>10</source>
+        <translation>10</translation>
     </message>
     </context>
 <context>
@@ -2704,6 +2854,10 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
         <translation>TekstZakładka</translation>
     </message>
     <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
+    </message>
+    <message>
         <source>SAVE</source>
         <translation>ZAPISZ</translation>
     </message>
@@ -2713,6 +2867,10 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
     <message>
         <source>Form</source>
         <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -2738,8 +2896,12 @@ Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do 
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Brak aktywnego Master Node</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2783,16 +2945,16 @@ Sprawdź adres i spróbuj ponownie.</translation>
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Wyczyść</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>Wiadomość</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Podaj adres</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -2866,8 +3028,8 @@ Sprawdź adres i spróbuj ponownie.</translation>
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2899,10 +3061,6 @@ Sprawdź adres i spróbuj ponownie.</translation>
     <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -3414,6 +3572,10 @@ Sprawdź adres i spróbuj ponownie.</translation>
         <translation>Forma</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
@@ -3475,10 +3637,6 @@ Sprawdź adres i spróbuj ponownie.</translation>
         <translation>TekstZakładka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Naciśnij przycisk</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
     </message>
@@ -3490,8 +3648,8 @@ Sprawdź adres i spróbuj ponownie.</translation>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
+        <source>1</source>
+        <translation>1</translation>
     </message>
     <message>
         <source>Welcome</source>
@@ -3722,10 +3880,6 @@ Sprawdź adres i spróbuj ponownie.</translation>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Ustaw maksymalny rozmiar transakcji o wysokim priorytecie / niskich opłatach w bajtach (domyślnie: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of included blocks to precompute per cycle. (minimum: %d) (maximum: %d) (default: %d)</source>
-        <translation>Ustaw liczbę dołączonych bloków do wstępnego obliczenia cyklu. (minimum: %d) (maksimum: %d) (domyślnie: %d)</translation>
     </message>
     <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
@@ -3962,10 +4116,6 @@ Sprawdź adres i spróbuj ponownie.</translation>
     <message>
         <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
         <translation>Włącz automatyczne Zerocoin minting (0-100, domyślnie: %u)</translation>
-    </message>
-    <message>
-        <source>Enable precomputation of zPIV spends and stakes (0-1, default %u)</source>
-        <translation>Włącz wstępne obliczanie wydatków i stawek zPIV (0-1, domyślnie %u)</translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>

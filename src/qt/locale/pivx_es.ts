@@ -215,8 +215,8 @@
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>No hay ningún nodo Maestro activo todavía.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>p.ej. John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Introduzca una dirección PIVX</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -857,24 +853,8 @@ para staking</translation>
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
-        <source>Owner Address (optional, if empty a new address will be created)</source>
-        <translation>Dirección del propietario (opcional, si está vacía se creará una nueva dirección)</translation>
-    </message>
-    <message>
         <source>List of delegated balance by address</source>
         <translation>Lista de saldos delegados por dirección</translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation>Total</translation>
-    </message>
-    <message>
-        <source>Unconfirmed balance will not be shown</source>
-        <translation>No se mostrará el saldo no confirmado</translation>
     </message>
     <message>
         <source>No balance delegated</source>
@@ -893,29 +873,12 @@ para staking</translation>
         <translation>Delegación </translation>
     </message>
     <message>
-        <source>You can delegate your PIVs and let a hot node (24/7 online node)
-stake in your behalf, keeping the keys in a secure place offline.</source>
-        <translation>Puedes delegar tus PIVs y dejar que un nodo de acceso directo (24/7 nodo en línea) Haga Stake en tu nombre, manteniendo las llaves en un lugar seguro fuera de línea.</translation>
-    </message>
-    <message>
-        <source>Add owner address</source>
-        <translation>Añadir dirección del propietario</translation>
-    </message>
-    <message>
-        <source>Delegate or Accept PIV delegation</source>
-        <translation>Delegar o aceptar la delegación de PIV</translation>
-    </message>
-    <message>
         <source>Delegate</source>
         <translation>Delegado</translation>
     </message>
     <message>
         <source>Clear All</source>
         <translation>Borrar todo</translation>
-    </message>
-    <message>
-        <source>Add the staking address</source>
-        <translation>Añadir la dirección de hacer Stake</translation>
     </message>
     <message>
         <source>Delegated balance history</source>
@@ -944,10 +907,6 @@ stake in your behalf, keeping the keys in a secure place offline.</source>
     <message>
         <source>Invalid entry</source>
         <translation>Entrada inválida</translation>
-    </message>
-    <message>
-        <source>Invalid entry, minimum delegable amount is 10 PIV</source>
-        <translation>Entrada no válida, la cantidad mínima para delegar es de 10 PIV</translation>
     </message>
     <message>
         <source>Owner address invalid</source>
@@ -1020,7 +979,7 @@ el dispositivo que contiene la dirección del propietario.
     <message>
         <source>Copy owner
 address</source>
-        <translation>Copiar dirección
+        <translation>Copiar dirección 
 del propietario </translation>
     </message>
     <message>
@@ -1100,10 +1059,6 @@ del propietario </translation>
     <message>
         <source>No transactions</source>
         <translation>Sin transacciones</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1275,10 +1230,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
     <message>
         <source>Transaction Details</source>
         <translation>Detalles de Transacción</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1659,10 +1610,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>Dirección</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Crear Nuevo Controlador de Master Node</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Para crear un Masternode de PIVX debes desponer 10.000 PIVX (la unidad de PIVX) a la red (sin embargo, estas monedas siguen siendo tuyas y nunca saldrán de tu posesión). Puedes desactivar el nodo y desbloquear las monedas en cualquier momento.</translation>
     </message>
@@ -1671,16 +1618,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>Asegúrate de tener esta cantidad de monedas.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Establecer el nombre del Master Node</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Una transacción de 10,000 PIV se hará a una nueva dirección vacía en tu billetera.  La dirección está etiquetada bajo el nombre de masternode. </translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Configurar la IP y el puerto del Nodo Maestro</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1689,10 +1628,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
     <message>
         <source>Enter IP address</source>
         <translation>Ingresa la dirección IP</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Ingresa el Puerto</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1727,10 +1662,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>Número de puerto inválido</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Preparar el masternode fallido.</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Archivo masternode.conf no válido</translation>
     </message>
@@ -1739,56 +1670,12 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>Error al analizar el archivo masternode.conf</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Índice de salida de colaterales no válido</translation>
-    </message>
-    <message>
         <source>Master node created!</source>
         <translation>¡Masternodo creado!</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>El archivo masternode.conf no existe</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>La dirección de destino no es válida, por favor compruébelo de nuevo.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>La cantidad a pagar debe ser mayor de 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>La cantidad excede su saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>El total excede su saldo si contamos la comisión de %1 .</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Hemos encontrado una dirección duplicada, sólo podemos enviar a cada dirección una vez por envío.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>¡Fallo al crear la transacción!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>¡La transacción fue rechazada! Esto puede ocurrir si alguna de sus monedas ya se gastó con anterioridad, por ejemplo, si estuvo usted usando una copia de su monedero wallet.dat y gastó allí monedas pero no las marcó como gastadas aquí.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Error: El monedero se desbloqueó sólo para anonimizar monedas.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Una comisión %1 veces más alta que %2 por kB se considera exageradamente alta.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Error: El monedero ya fue desbloqueado para anonimizar monedas. El desbloqueo total se ha cancelado.</translation>
     </message>
 </context>
 <context>
@@ -1802,12 +1689,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>No hay ningún nodo Maestro activo todavía.</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1919,10 +1802,6 @@ Are you sure?</source>
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Información del Masternode </translation>
-    </message>
-    <message>
         <source>Public Key:</source>
         <translation>Clave Pública: </translation>
     </message>
@@ -1958,11 +1837,7 @@ Are you sure?</source>
         <source>MISSING</source>
         <translation>FALTAN</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Exportar datos para ejecutar el masternode en un servidor remoto</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
@@ -2543,8 +2418,8 @@ Dirección: %4
         <translation>Presionar el botón</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>No hay ningún nodo Maestro activo todavía.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Privacy</source>
@@ -2566,10 +2441,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Mint new zPIV or convert back to PIV</source>
         <translation>Acuñar nuevo zPIV o convertir de nuevo a PIV</translation>
-    </message>
-    <message>
-        <source>Last Zerocoin Movements</source>
-        <translation>Últimos movimientos de Zerocoin</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -2636,10 +2507,6 @@ transaction history, making transactions untraceable </source>
         <translation>Tus acuñamientos de zerocoins van a ser escaneados desde cero en la blockchain</translation>
     </message>
     <message>
-        <source>Reset Spent Zerocoins</source>
-        <translation>Restablecer los Zerocoins usados</translation>
-    </message>
-    <message>
         <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
         <translation>Tus zerocoins usados van a ser escaneados desde cero en la blockchain</translation>
     </message>
@@ -2673,7 +2540,7 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>A proposal URL can be used for phishing, scams and computer viruses. Open this link only if you trust the following URL.
 </source>
-        <translation>Una dirección URL propuesta puede ser usada para suplantación de identidad, estafas y virus informáticos. Abre este enlace solo si confías en la siguiente URL
+        <translation>Una dirección URL propuesta puede ser usada para suplantación de identidad, estafas y virus informáticos. Abre este enlace solo si confías en la siguiente URL. 
 </translation>
     </message>
     <message>
@@ -2722,10 +2589,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Amount</source>
         <translation>Cantidad</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Introduzca una dirección PIVX (p.e. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3214,10 +3077,6 @@ transaction history, making transactions untraceable </source>
         <translation>Detalles de Transacción</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
@@ -3277,8 +3136,8 @@ transaction history, making transactions untraceable </source>
         <translation>Error al generar la dirección</translation>
     </message>
     <message>
-        <source>Change Label</source>
-        <translation>Cambiar etiqueta</translation>
+        <source>Edit Label</source>
+        <translation>Editar etiqueta</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -3391,24 +3250,12 @@ transaction history, making transactions untraceable </source>
         <translation>SOLICITUD</translation>
     </message>
     <message>
-        <source>Instead of only sharing a PIVX address, you can create a Payment Request message which bundles up more information than is contained in just a PIVX address.</source>
-        <translation>En lugar de compartir únicamente una dirección de PIVX, puedes crear un mensaje de Solicitud de Pago que agrupe más información de la que contiene sólo una dirección de PIVX.</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
     <message>
-        <source>Enter a label to be saved within the address</source>
-        <translation>Introduce una etiqueta para guardar dentro de la dirección</translation>
-    </message>
-    <message>
         <source>Description (optional)</source>
         <translation>Descripción (opcional)</translation>
-    </message>
-    <message>
-        <source>Add description </source>
-        <translation>Añadir descripción</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3426,7 +3273,7 @@ transaction history, making transactions untraceable </source>
         <source>New Cold Staking Address</source>
         <translation>Nueva dirección de Cold Staking</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3436,10 +3283,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Transaction Details</source>
         <translation>Detalles de Transacción</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
     </message>
     <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
@@ -3536,14 +3379,10 @@ transaction history, making transactions untraceable </source>
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Añadir dirección</translation>
+        <source>Enter address</source>
+        <translation>Ingresa la dirección</translation>
     </message>
-    <message>
-        <source>Add description</source>
-        <translation>Añadir descripción</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendWidget</name>
     <message>
@@ -3557,10 +3396,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Select coin type to spend</source>
         <translation>Selecciona el tipo de moneda a usar</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Introduzca una dirección PIVX o una etiqueta de contacto</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -3766,22 +3601,12 @@ O mint las denominaciones más altas (por lo tanto, se necesitan menos datos) o 
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>Backup Wallet </source>
         <translation>Billetera de Respaldo</translation>
     </message>
     <message>
         <source>Change Wallet Passphrase</source>
         <translation>Cambiar la Frase de la Contraseña de la Billetera</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe doing regular backups, store your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) from another device.</source>
-        <translation>Mantén tu billetera segura haciendo copias de seguridad regulares, almacena tu archivo de copia de seguridad externamente.
-Esta opción crea un archivo wallet.dat que se puede utilizar para recuperar todo el saldo (transacciones y direcciones) de otro dispositivo.</translation>
     </message>
     <message>
         <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
@@ -3792,10 +3617,6 @@ Recuerda anotarla y guardarla de forma segura, de lo contrario podrías perder e
     <message>
         <source>Where</source>
         <translation>Donde</translation>
-    </message>
-    <message>
-        <source>Set a folder location</source>
-        <translation>Establecer una ubicación de carpeta</translation>
     </message>
     <message>
         <source>Backup</source>
@@ -3893,16 +3714,12 @@ Recuerda anotarla y guardarla de forma segura, de lo contrario podrías perder e
         <translation>CLAVE DESCIFRADA</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Introduzca una dirección PIVX</translation>
+        <source>Enter address</source>
+        <translation>Ingresa la dirección</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Añadir dirección</translation>
-    </message>
-    <message>
-        <source>Write a message</source>
-        <translation>Escribe un mensaje</translation>
+        <source>Enter passphrase</source>
+        <translation>Introduzca la contraseña</translation>
     </message>
     <message>
         <source>Encrypted Key</source>
@@ -4049,10 +3866,6 @@ Verifica que tengas instalado un editor de texto predeterminado.</translation>
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Reestablecer a valores predeterminados</translation>
     </message>
@@ -4149,14 +3962,6 @@ Verifica que tengas instalado un editor de texto predeterminado.</translation>
         <translation>8) ¿A dónde debo ir si necesito apoyo?</translation>
     </message>
     <message>
-        <source>9) What is a Master Node?</source>
-        <translation>9) ¿Qué es un Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Master Node Controller?</source>
-        <translation>10) ¿Qué es un controlador de Masternode?</translation>
-    </message>
-    <message>
         <source>1</source>
         <translation>1</translation>
     </message>
@@ -4181,7 +3986,7 @@ Verifica que tengas instalado un editor de texto predeterminado.</translation>
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-PIVX es una forma de dinero digital en línea que utiliza la tecnología blockchain que se puede transferir a nivel global, de forma instantánea  y con tarifas casi nulas. PIVX incorpora un sistema de seguridad y privacidad líder en el mercado y es también la primera criptomoneda PoS (Proof of Stake) que implementa el sistema de Stake de ZeroCoin(zPIV) y Zerocoin.
+PIVX es una forma de dinero digital en línea que utiliza la tecnología blockchain que se puede transferir a nivel global, de forma instantánea  y con tarifas casi nulas. PIVX incorpora un sistema de seguridad y privacidad líder en el mercado y es también la primera criptomoneda PoS (Proof of Stake) que implementa el sistema de Stake de ZeroCoin(zPIV) y Zerocoin. 
 &lt;/p&gt;&lt;p align="justify"&gt;
  PIVX utiliza un algoritmo de consenso de Prueba de Stake (PoS), que permite a todos los propietarios de PIVX participar en la obtención de recompensas de los nuevos bloques generados mientras aseguran la red con billeteras de nodo completo , así como también ejecutan Masternodos para crear y votar las propuestas.
 . &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -4206,7 +4011,7 @@ PIVX es una forma de dinero digital en línea que utiliza la tecnología blockch
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Los PIVX recién recibidos requieren 6 confirmaciones en la red para ser elegibles para gastos que pueden tomar ~6 minutos.
+Los PIVX recién recibidos requieren 6 confirmaciones en la red para ser elegibles para gastos que pueden tomar ~6 minutos.  
 &lt;/p&gt;&lt;p align="justify"&gt;
 Tu cartera PIVX también necesita estar completamente sincronizada para que pueda  ver y gastar el saldos en la red.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -4233,7 +4038,7 @@ Tu cartera PIVX también necesita estar completamente sincronizada para que pued
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt; 
 zPIV es un método opcional centrado en la privacidad de monedas en la Blockchain PIVX. Básicamente, todas sus transacciones no pueden ser rastreadas en ningún explorador de bloques. Puedes leer más sobre los aspectos técnicos en el
  &lt;a style='color: #b088ff' href='https://PIVX.org/zpiv/'&gt;
-"Documentación Técnica de PIVX Zerocoin (zPIV) ". &lt;/a&gt;.
+"Documentación Técnica de PIVX Zerocoin (zPIV) ". &lt;/a&gt;. 
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
     </message>
@@ -4332,95 +4137,16 @@ Si quieres más zPIV necesitarás acuñar tu saldo en la pestaña "Privacidad".
         <translation>¿Cómo hago stake PIV/zPIV?</translation>
     </message>
     <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake PIVX:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of PIVX with a minimum of 101 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (pivx-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zPIV:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zPIV balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Para hacer stake PIVX:
-&lt;/p&gt;&lt;/p&gt;
-&lt;ol&gt;&lt;li&gt;
-Asegúrate de que tu billetera esté completamente sincronizada y de que esté utilizando la última versión.
-&lt;li&gt;
-Asegúrate de que tu billetera esté completamente sincronizada y de que esté utilizando la última versión.
-&lt;li&gt;Tu billetera debe permanecer en línea y estar desbloqueada para propósitos de anonimato y de stake.
-&lt;li&gt;
-Una vez que se siguen todos estos pasos, se debe habilitar el stake.
-&lt;li&gt;
- Puedes ver el estado del stake en la billetera pasando el ratón sobre el icono del paquete en la fila de la parte superior izquierda de la interfaz de la billetera. El paquete se iluminará y mostrará el mensaje "Stake Activado" para indicar que está hecho el stake. Usando la interfaz de línea de comandos (pivx-cli); el comando &lt;i&gt;getstakingstatus&lt;/i&gt; confirmará que el stake está activo.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-Para hacer stake zPIV:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-Asegúrate de que tu billetera esté completamente sincronizada y de que esté utilizando la última versión.
-&lt;li&gt;Tu saldo zPIV recién acuñado o existente debe tener un mínimo de 200 confirmaciones.
-&lt;li&gt;Tu billetera debe permanecer en línea y estar desbloqueada para propósitos de anonimato y de stake.
-El stake debe estar ahora habilitado.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>What is a Masternode?</source>
+        <translation>¿Qué es un Masternode?</translation>
     </message>
     <message>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <source>Where I should go if I need support?</source>
-        <translation>¿A dónde debo dirigirme si necesito ayuda? </translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Tenemos canales de ayuda en la mayoría de nuestros grupos de chat oficiales, por ejemplo
-&lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-#support en nuestro Discord&lt;/a&gt;.
-Si prefieres enviar una solicitud, una puede ser
-&lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-nuestro sitio de apoyo Freshdesk&lt;/a&gt;.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
-    </message>
-    <message>
         <source>9</source>
         <translation>9</translation>
-    </message>
-    <message>
-        <source>What is a Master Node?</source>
-        <translation>¿Qué es un Master Node?</translation>
     </message>
     <message>
         <source>
@@ -4486,7 +4212,7 @@ Por la prestación de estos servicios, a los Masternodes también se les paga un
 propietarios de Masternodes menos sus costes de funcionamiento.
 &lt;/p&gt;&lt;p align="justify"&gt;
 
-Ventajas de los Masternodes:
+Ventajas de los Masternodes: 
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
 &lt;li&gt;Participar en el gobierno de PIVX&lt;/li&gt;
@@ -4496,7 +4222,7 @@ Ventajas de los Masternodes:
 &lt;/ul&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 
-Requisitos:
+Requisitos: 
 &lt;/p&gt;
 &lt;p align="justify"&gt;&lt;ul&gt;
 &lt;li&gt;10.000 PIV por cada instancia de Masternode&lt;/li&gt;
@@ -4509,14 +4235,6 @@ Requisitos:
     <message>
         <source>10</source>
         <translation>10</translation>
-    </message>
-    <message>
-        <source>What is a Master Node Controller?</source>
-        <translation>¿Qué es un Controlador de Masternode?</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PIV collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Una billetera de Controlador de Masternode es donde los 10,000 PIV colaterales pueden residir durante una configuración de Masternode de Controlador-Remoto. Es una billetera que puede activar la/s billetera/s remota/s de masternode y te permite mantener tus monedas colaterales fuera de línea mientras el masternode remoto permanece en línea.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -4562,16 +4280,8 @@ Requisitos:
         <translation>Agente de Usuario:</translation>
     </message>
     <message>
-        <source>Using BerkeleyDB version:</source>
-        <translation>Usando la versión de BerkeleyDB: </translation>
-    </message>
-    <message>
         <source>Datadir: </source>
         <translation>Datadir:</translation>
-    </message>
-    <message>
-        <source>Startup Time:  </source>
-        <translation>Tiempo de Inicio:</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4582,28 +4292,12 @@ Requisitos:
         <translation>Nombre:</translation>
     </message>
     <message>
-        <source>Number Connections:</source>
-        <translation>Conexiones Numéricas:</translation>
-    </message>
-    <message>
         <source>Blockchain</source>
         <translation>Blockchain</translation>
     </message>
     <message>
-        <source>Current Number of Blocks:</source>
-        <translation>Número Actual de Bloques:</translation>
-    </message>
-    <message>
-        <source>Last Block Time:</source>
-        <translation>Tiempo del bloque pasado</translation>
-    </message>
-    <message>
         <source>Memory Pool</source>
         <translation>Pool de Memoria</translation>
-    </message>
-    <message>
-        <source>Current Number of Transactions:</source>
-        <translation>Número Actual de Transacciones:</translation>
     </message>
     <message>
         <source>Main</source>
@@ -4742,14 +4436,6 @@ Are you sure?
         <translation>Nuevo destinatario para multisend</translation>
     </message>
     <message>
-        <source>Label (optional)</source>
-        <translation>Etiqueta (opcional)</translation>
-    </message>
-    <message>
-        <source>Enter a label to add this address in your address book</source>
-        <translation>Introduce una etiqueta para añadir esta dirección en tu libreta de direcciones</translation>
-    </message>
-    <message>
         <source>Percentage</source>
         <translation>Porcentaje</translation>
     </message>
@@ -4765,8 +4451,8 @@ Are you sure?
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>No hay ningún nodo Maestro activo todavía.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -4872,24 +4558,12 @@ Marque una o ambas casillas de verificación para enviar recompensas de stake y/
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Limpiar</translation>
     </message>
     <message>
         <source>Sign/Verify Message</source>
         <translation>Firmar/Verificar Mensaje</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Introduce una dirección PIVX o una etiqueta de contacto</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Añadir dirección</translation>
     </message>
     <message>
         <source>Sign</source>
@@ -4908,8 +4582,8 @@ Marque una o ambas casillas de verificación para enviar recompensas de stake y/
         <translation>Mensaje</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Escribe un mensaje</translation>
+        <source>Enter address</source>
+        <translation>Ingresa la dirección</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -5015,10 +4689,6 @@ Marque una o ambas casillas de verificación para enviar recompensas de stake y/
         <translation>Descartar los cambios</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Monedero</translation>
     </message>
@@ -5084,10 +4754,6 @@ Marque una o ambas casillas de verificación para enviar recompensas de stake y/
     <message>
         <source>TextLabel</source>
         <translation>EtiquetaDeTexto</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
     </message>
     <message>
         <source>Wallet Repair</source>
@@ -5728,10 +5394,6 @@ Are you sure?
         <translation>Cold Stake de PIV</translation>
     </message>
     <message>
-        <source>PIV Stake in behalf of</source>
-        <translation>Stake de PIV en nombre de </translation>
-    </message>
-    <message>
         <source>Stake delegation</source>
         <translation>Delegación de Stake</translation>
     </message>
@@ -6000,10 +5662,6 @@ Are you sure?
         <translation>EtiquetaDeTexto</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Presionar el botón</translation>
-    </message>
-    <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
         <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
     </message>
@@ -6018,10 +5676,6 @@ Are you sure?
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Diálogo</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -6327,10 +5981,6 @@ PIVX Core Wallet</translation>
         <translation>Define tamaño máximo de transacción alta prioridad/baja comisión en bytes (predeterminado: %d)</translation>
     </message>
     <message>
-        <source>Set the number of included blocks to precompute per cycle. (minimum: %d) (maximum: %d) (default: %d)</source>
-        <translation>Configurar el número de bloques incluidos para precalcular por ciclo. (minimum: %d) (maximum: %d) (default: %d)</translation>
-    </message>
-    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Define el número de hilos para el script de verificación (%u a %d, 0 = auto, &lt;0 = dejar esa cantidad de núcleos libres, predeterminado: %d)</translation>
     </message>
@@ -6581,10 +6231,6 @@ PIVX Core Wallet</translation>
     <message>
         <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
         <translation>Habilitar creación automática de Zerocoin (0-1, por defecto: %u)</translation>
-    </message>
-    <message>
-        <source>Enable precomputation of zPIV spends and stakes (0-1, default %u)</source>
-        <translation>Habilitar el cálculo previo de los gastos y los stakes de zPIV (0-1, default %u)</translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
@@ -7081,10 +6727,6 @@ PIVX Core Wallet</translation>
     <message>
         <source>Use block spam filter (default: %u)</source>
         <translation>Usar el filtro de spam del bloque (default: %u)</translation>
-    </message>
-    <message>
-        <source>could not get lock on cs_spendcache</source>
-        <translation>no se pudo bloquear cs_spendcache</translation>
     </message>
     <message>
         <source>isValid(): Invalid -proxy address or hostname: '%s'</source>

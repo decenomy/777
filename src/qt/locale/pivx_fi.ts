@@ -626,27 +626,7 @@
         <source>Address</source>
         <translation>Osoite</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Vastaanottava osoite ei ole kunnollinen, tarkista</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Määrä ylittää saldosi.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Maksun luonti epäonnistui!</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Virhe: Lompakko avattiin vain kolikoiden anonymisointiin</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Virhe: Lompakko avattiin vain kolikoiden anonymisointiin. Avaus peruutettu.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -1272,6 +1252,10 @@
     <message>
         <source>Clear</source>
         <translation>Tyhjennä</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Syötä salausavaimesi</translation>
     </message>
     <message>
         <source>The entered passphrase is invalid. </source>

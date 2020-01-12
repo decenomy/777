@@ -215,8 +215,8 @@
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
+        <source>N/A</source>
+        <translation>NB</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>bv. Jan Jansen</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Voeg een PIVX adres toe</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -857,24 +853,8 @@ voor bewijs van Inzet</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Owner Address (optional, if empty a new address will be created)</source>
-        <translation>Eigenaarsadres (optioneel, indien leeg zal er een nieuw adres aangemaakt worden)</translation>
-    </message>
-    <message>
         <source>List of delegated balance by address</source>
         <translation>Lijst van gedelegeerde balans gesorteerd op adres</translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation>Totaal</translation>
-    </message>
-    <message>
-        <source>Unconfirmed balance will not be shown</source>
-        <translation>Onbevestigde saldi zal niet getoond worden</translation>
     </message>
     <message>
         <source>No balance delegated</source>
@@ -893,30 +873,12 @@ voor bewijs van Inzet</translation>
         <translation>Delegatie</translation>
     </message>
     <message>
-        <source>You can delegate your PIVs and let a hot node (24/7 online node)
-stake in your behalf, keeping the keys in a secure place offline.</source>
-        <translation>Je kan jouw PIVs delegeren en een hot node (24/7 online node)
-laten staken in jouw naam, waardoor de sleutels in een veilige offline opslag bewaard worden.</translation>
-    </message>
-    <message>
-        <source>Add owner address</source>
-        <translation>Eigenaarsadres toevoegen</translation>
-    </message>
-    <message>
-        <source>Delegate or Accept PIV delegation</source>
-        <translation>Delegeer of Accepteer PIV delegatie</translation>
-    </message>
-    <message>
         <source>Delegate</source>
         <translation>Delegeer</translation>
     </message>
     <message>
         <source>Clear All</source>
         <translation>Alles wissen</translation>
-    </message>
-    <message>
-        <source>Add the staking address</source>
-        <translation>Staking-adres toevoegen</translation>
     </message>
     <message>
         <source>Delegated balance history</source>
@@ -945,10 +907,6 @@ laten staken in jouw naam, waardoor de sleutels in een veilige offline opslag be
     <message>
         <source>Invalid entry</source>
         <translation>Ongeldige invoer</translation>
-    </message>
-    <message>
-        <source>Invalid entry, minimum delegable amount is 10 PIV</source>
-        <translation>Ongeldige invoer, de minimum gedelegeerde hoeveelheid is 10 PIV</translation>
     </message>
     <message>
         <source>Owner address invalid</source>
@@ -1100,10 +1058,6 @@ address</source>
     <message>
         <source>No transactions</source>
         <translation>Geen transacties</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1276,10 +1230,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
     <message>
         <source>Transaction Details</source>
         <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1660,10 +1610,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Adres</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Creëer een Nieuwe Masternode Controller</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Om een PIVX Masternode te maken moet u 10.000 PIV (de eenheid van PIVX) aan het netwerk wijden (deze munten zijn echter nog steeds van u en zullen nooit uw bezit verlaten). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;U kunt de node op elk gewenst moment deactiveren en de munten ontgrendelen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1672,16 +1618,8 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Zorg ervoor dat je deze hoeveelheid munten hebt.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Masternode's Naam instellen</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Een transactie van 10,000 PIV zal gemaakt worden&lt;/p&gt;&lt;p&gt;naar een nieuw leeg adres in uw portemonnee.&lt;/p&gt;&lt;p&gt;Het adres is gelabeld onder de masternode's naam.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Masternode's IP en poort instellen</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1690,10 +1628,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
     <message>
         <source>Enter IP address</source>
         <translation>Voer IP-adres in</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Voer Poort In</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1728,10 +1662,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Ongeldige poortnummer</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Voorbereiden masternode mislukt..</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Invalide masternode.conf file</translation>
     </message>
@@ -1740,56 +1670,12 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Fout opgelopen bij het parsen van het masternode.conf bestand</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Ongeldige Collaterale Outputindex</translation>
-    </message>
-    <message>
         <source>Master node created!</source>
         <translation>Masternode aangemaakt!</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>masternode.conf bestand bestaat niet</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Het ontvangstadres is niet geldig, controleer deze.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Het te betalen bedrag moet groter zijn dan 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Het bedrag overschrijdt uw saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Het totaal overschrijdt uw saldo wanneer de transactievergoeding %1 is inbegrepen.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Dubbel adres gevonden, kan alleen per keer per verzendoperatie naar elk adres versturen.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Transactie creatie mislukt!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>De transactie is afgewezen! Dit kan gebeuren als sommige munten in je portemonnee al waren uitgegeven, zoals als je een kopie van de wallet.dat en munten in de kopie waren besteed maar niet gemarkeerd zoals hier besteed.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Een vergoeding %1 keer hoger dan %2 per kB wordt beschouwd als een zwaar hoge vergoeding.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren. Ontgrendelen geannuleerd.</translation>
     </message>
 </context>
 <context>
@@ -1803,12 +1689,8 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <source>N/A</source>
+        <translation>NB</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1923,10 +1805,6 @@ Weet je het zeker?</translation>
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Masternode Informatie</translation>
-    </message>
-    <message>
         <source>Public Key:</source>
         <translation>Publieke Sleutel:</translation>
     </message>
@@ -1962,11 +1840,7 @@ Weet je het zeker?</translation>
         <source>MISSING</source>
         <translation>ONTBREKEND</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Exporteer data om de Masternode uit te voeren op een externe server</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
@@ -2547,8 +2421,8 @@ Adres: %4
         <translation>Druk Knop</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
+        <source>N/A</source>
+        <translation>NB</translation>
     </message>
     <message>
         <source>Privacy</source>
@@ -2571,10 +2445,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Mint new zPIV or convert back to PIV</source>
         <translation>Munt nieuwe zPIV of converteer deze terug in PIV</translation>
-    </message>
-    <message>
-        <source>Last Zerocoin Movements</source>
-        <translation>Laatste Zerocoin Bewegingen</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -2639,10 +2509,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
         <translation>Uw zerocoin muntingen zullen van de blockchain vanaf nul worden gescanned</translation>
-    </message>
-    <message>
-        <source>Reset Spent Zerocoins</source>
-        <translation>Bestede Zerocoins Resetten</translation>
     </message>
     <message>
         <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
@@ -2727,10 +2593,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Amount</source>
         <translation>Bedrag</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Voer een PIVX adres in (b.v. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3219,10 +3081,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Transactie details</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
@@ -3282,8 +3140,8 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Genereren van adres misgelopen</translation>
     </message>
     <message>
-        <source>Change Label</source>
-        <translation>Wijzig Label</translation>
+        <source>Edit Label</source>
+        <translation>Label wijzigen</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -3396,24 +3254,12 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>VERZOEK</translation>
     </message>
     <message>
-        <source>Instead of only sharing a PIVX address, you can create a Payment Request message which bundles up more information than is contained in just a PIVX address.</source>
-        <translation>In plaats van een PIVX-adres te delen, kunt u een bericht voor een betalingsverzoek maken dat meer informatie bundelt dan alleen in een PIVX-adres.</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Label</translation>
     </message>
     <message>
-        <source>Enter a label to be saved within the address</source>
-        <translation>Voer een label in dat bij het adres moet worden opgeslagen</translation>
-    </message>
-    <message>
         <source>Description (optional)</source>
         <translation>Omschrijving (optioneel)</translation>
-    </message>
-    <message>
-        <source>Add description </source>
-        <translation>Voeg beschrijving toe</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3431,7 +3277,7 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <source>New Cold Staking Address</source>
         <translation>Nieuw Cold Staking Adres</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3441,10 +3287,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Transaction Details</source>
         <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
     </message>
     <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
@@ -3541,14 +3383,10 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
-    <message>
-        <source>Add description</source>
-        <translation>Beschrijving toevoegen</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendWidget</name>
     <message>
@@ -3562,10 +3400,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Select coin type to spend</source>
         <translation>Selecteer munttype om te spenderen</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Voer een PIVX-adres of contactlabel in</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -3771,22 +3605,12 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Backup Wallet </source>
         <translation>Wallet Back-uppen</translation>
     </message>
     <message>
         <source>Change Wallet Passphrase</source>
         <translation>Wijzig Portemonnee Wachtwoord</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe doing regular backups, store your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) from another device.</source>
-        <translation>Bewaar uw portemonnee veilig door middel van regelmatige back-ups, bewaar uw back-upbestand extern.
-Deze optie maakt een portemonnee.datbbestand aan dat kan worden gebruikt om uw volledige saldo (transacties en adressen) van een ander apparaat terug te krijgen.</translation>
     </message>
     <message>
         <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
@@ -3797,10 +3621,6 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
     <message>
         <source>Where</source>
         <translation>Waar</translation>
-    </message>
-    <message>
-        <source>Set a folder location</source>
-        <translation>Maplocatie instellen</translation>
     </message>
     <message>
         <source>Backup</source>
@@ -3898,16 +3718,12 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>DECRYPTEER SLEUTEL</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Voeg een PIVX adres toe</translation>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
-    </message>
-    <message>
-        <source>Write a message</source>
-        <translation>Schrijf een bericht</translation>
+        <source>Enter passphrase</source>
+        <translation>Voer wachtwoordzin in</translation>
     </message>
     <message>
         <source>Encrypted Key</source>
@@ -4054,10 +3870,6 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Terugzetten naar standaardinstelling</translation>
     </message>
@@ -4153,14 +3965,6 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
     <message>
         <source>8) Where I should go if I need support?</source>
         <translation>8) Waar moet ik heen gaan als ik ondersteuning nodig heb?</translation>
-    </message>
-    <message>
-        <source>9) What is a Master Node?</source>
-        <translation>9) Wat is een Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Master Node Controller?</source>
-        <translation>10) Wat is een Master Node Controller?</translation>
     </message>
     <message>
         <source>1</source>
@@ -4359,100 +4163,16 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Hoe stakz ik PIV/zPIV?</translation>
     </message>
     <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake PIVX:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of PIVX with a minimum of 101 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (pivx-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zPIV:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zPIV balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Om PIVX te Staken:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Zorg ervoor dat uw portemonnee volledig gesynchroniseerd is en dat u de laatste versie gebruikt.
-                           &lt;li&gt;
-                           U moet een saldo van PIVX hebben met een minimum van 101 bevestigingen.
-                           &lt;li&gt;
-                           Uw portemonnee moet online blijven en worden ontgrendeld voor anonimisering en staking-doeleinden.
-                           &lt;li&gt;
-                           Zodra al deze stappen zijn gevolgd, zal het staken worden ingeschakeld.
-                           &lt;li&gt;
-                           U kunt de status van de staking in de portemonnee zien door op het pictogram in de rij linksboven in de portemonnee-interface te bewegen. Het pakket zal oplichten en zal "Staking Ingeschakeld" aangeven om aan te geven dat het pakket in de portemonnee is geplaatst. Met behulp van de opdrachtregel-interface (pivx-cli); het commando &lt;i&gt;getstakingstatus&lt;/i&gt; zal bevestigen dat de staking actief is.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           Om zPIV te Staken:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                            Zorg ervoor dat uw portemonnee volledig gesynchroniseerd is en dat u de laatste versie gebruikt.
-                           &lt;li&gt;
-                           Uw nieuw gemunte of bestaande zPIV balans moet minimaal 200 bevestigingen hebben.
-                           &lt;li&gt;
-                           Uw portemonnee moet online blijven en worden ontgrendeld voor anonimisering en staking-doeleinden.
-                           Het Staken zou nu ingeschakeld moeten zijn
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
+        <source>What is a Masternode?</source>
+        <translation>Wat is een Masternode?</translation>
     </message>
     <message>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <source>Where I should go if I need support?</source>
-        <translation>Waar moet ik heen gaan als ik ondersteuning nodig heb?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We hebben ondersteuningskanalen in de meeste van onze officiële chatgroepen, bijvoorbeeld
-                           &lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-                           #support in onze Discord&lt;/a&gt;.
-                           Als u liever een ticket indient, kan men dat
-                           &lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-                           op onze Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
         <source>9</source>
         <translation>9</translation>
-    </message>
-    <message>
-        <source>What is a Master Node?</source>
-        <translation>Wat is een Masternode</translation>
     </message>
     <message>
         <source>
@@ -4545,14 +4265,6 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>10</translation>
     </message>
     <message>
-        <source>What is a Master Node Controller?</source>
-        <translation>Wat is een Masternode Controller?</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PIV collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Een Masternode Controller portemonnee is waar de 10.000 PIV onderpand zich kan bevinden tijdens een Controller-Remote masternode setup. Het is een portemonnee die de remote masternode portemonnee(s) kan activeren en waarmee u uw ondergepande munten offline kunt houden terwijl de remote masternode online blijft. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Frequently Asked Questions</source>
         <translation>Frequently Asked Questions</translation>
     </message>
@@ -4596,16 +4308,8 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>User Agent:</translation>
     </message>
     <message>
-        <source>Using BerkeleyDB version:</source>
-        <translation>Gebruikt BerkeleyDB versie:</translation>
-    </message>
-    <message>
         <source>Datadir: </source>
         <translation>Datadir: </translation>
-    </message>
-    <message>
-        <source>Startup Time:  </source>
-        <translation>Starttijd:</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4616,28 +4320,12 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Naam:</translation>
     </message>
     <message>
-        <source>Number Connections:</source>
-        <translation>Nummer Verbindingen:</translation>
-    </message>
-    <message>
         <source>Blockchain</source>
         <translation>Blockchain</translation>
     </message>
     <message>
-        <source>Current Number of Blocks:</source>
-        <translation>Huidige nummer van blokken:</translation>
-    </message>
-    <message>
-        <source>Last Block Time:</source>
-        <translation>Laatste Bloktijd:</translation>
-    </message>
-    <message>
         <source>Memory Pool</source>
         <translation>Geheugenpool</translation>
-    </message>
-    <message>
-        <source>Current Number of Transactions:</source>
-        <translation>Huidige nummer van transacties:</translation>
     </message>
     <message>
         <source>Main</source>
@@ -4776,14 +4464,6 @@ Weet u het zeker?
         <translation>Nieuwe ontvanger voor multisend</translation>
     </message>
     <message>
-        <source>Label (optional)</source>
-        <translation>Label (optioneel)</translation>
-    </message>
-    <message>
-        <source>Enter a label to add this address in your address book</source>
-        <translation>Voer een label in om dit adres toe te voegen aan uw adresboek.</translation>
-    </message>
-    <message>
         <source>Percentage</source>
         <translation>Percentage</translation>
     </message>
@@ -4799,8 +4479,8 @@ Weet u het zeker?
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
+        <source>N/A</source>
+        <translation>NB</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -4906,24 +4586,12 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Leegmaken</translation>
     </message>
     <message>
         <source>Sign/Verify Message</source>
         <translation>Onderteken/Verifiëer Bericht</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Voer een PIVX-adres of contactlabel in</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
     </message>
     <message>
         <source>Sign</source>
@@ -4942,8 +4610,8 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Bericht</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Schrijf een bericht</translation>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -5049,10 +4717,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Wijzigingen ongedaan maken</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Portemonnee</translation>
     </message>
@@ -5118,10 +4782,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
     </message>
     <message>
         <source>Wallet Repair</source>
@@ -5528,7 +5188,7 @@ Weet je zeker dat?
         <source>%n year(s)</source>
         <translation><numerusform>%n jaar</numerusform><numerusform>%n jaren</numerusform></translation>
     </message>
-</context>
+    </context>
 <context>
     <name>TrafficGraphWidget</name>
     <message>
@@ -5796,10 +5456,6 @@ Weet je zeker dat?
     <message>
         <source>PIV Cold Stake</source>
         <translation>PIV Cold Stake</translation>
-    </message>
-    <message>
-        <source>PIV Stake in behalf of</source>
-        <translation>PIV Stake in naam van</translation>
     </message>
     <message>
         <source>Stake delegation</source>
@@ -6070,10 +5726,6 @@ Weet je zeker dat?
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
         <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
     </message>
@@ -6088,10 +5740,6 @@ Weet je zeker dat?
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialoog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -6397,10 +6045,6 @@ PIVX Core Portemonnee</translation>
         <translation>Stel maximale grootte van transacties met hoge prioriteit/low-fee in bytes in (standaard: %d)</translation>
     </message>
     <message>
-        <source>Set the number of included blocks to precompute per cycle. (minimum: %d) (maximum: %d) (default: %d)</source>
-        <translation>Stel het aantal ingesloten blokken in om vooraf te berekenen per cyclus. (minimum: %d) (maximum: %d) (standaard: %d)</translation>
-    </message>
-    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Stel het aantal script verificatie threads (%u tot %d, 0 = auto, &lt;0 = laat dat aantal kernen vrij, standaard: %d)</translation>
     </message>
@@ -6651,10 +6295,6 @@ PIVX Core Portemonnee</translation>
     <message>
         <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
         <translation>Zet automatische Zerocoin minting aan (0-1, standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Enable precomputation of zPIV spends and stakes (0-1, default %u)</source>
-        <translation>Schakel de precomputatie van zPIV-uitgaven en stakes in (0-1, standaard %u) </translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
@@ -7151,10 +6791,6 @@ PIVX Core Portemonnee</translation>
     <message>
         <source>Use block spam filter (default: %u)</source>
         <translation>Gebruik block-spamfilter (standaard: %u)</translation>
-    </message>
-    <message>
-        <source>could not get lock on cs_spendcache</source>
-        <translation>kon niet op cs_spendcache terecht komen</translation>
     </message>
     <message>
         <source>isValid(): Invalid -proxy address or hostname: '%s'</source>

@@ -215,8 +215,8 @@
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Keine aktiven Masternodes bis jetzt</translation>
+        <source>N/A</source>
+        <translation>k.A.</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>z.B. John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>PIVX Adresse einfügen</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -832,10 +828,6 @@ for staking</source>
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>Invalid entry</source>
         <translation>Ungültige Eingabe</translation>
     </message>
@@ -900,10 +892,6 @@ for staking</source>
     <message>
         <source>No transactions</source>
         <translation>Keine Transaktionen</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1052,10 +1040,6 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
     <message>
         <source>Transaction Details</source>
         <translation>Transaktionsdetails</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1428,10 +1412,6 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
         <translation>Adresse</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Erstelle einen neuen Master Node Controller</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Um einen PIVX Masternode zu erstellen benötigen Sie 10'000 PIV (die Einheit von PIVX), welche sie dem Netzwerk zur Verfügung stellen (Diese Münzen gehören Ihnen und werden Ihren Besitz nie verlassen). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Sie können den Node zu jeder Zeit deaktivieren und somit die Münzen freischalten.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1440,16 +1420,8 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
         <translation>Stellen Sie sicher, dass Sie die Anzahl Coins besitzen.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Geben Sie dem Master Node einen Namen</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Eine Transaktion von 10'000 PIV wird gemacht&lt;/p&gt;&lt;p&gt;auf eine leere Adresse in Ihrer Wallet.&lt;/p&gt;&lt;p&gt;Die Adresse wird beschriftet mit dem Namen des Masternodes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Setzen Sie die IP und den Port des Masternodes.</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1458,10 +1430,6 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
     <message>
         <source>Enter IP address</source>
         <translation>IP-Adresse eingeben</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Port angeben</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1496,10 +1464,6 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
         <translation>Ungültige Portnummer</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Vorbereitungen für den Masternode sind fehlgeschlagen..</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Ungültiges masternode.conf file</translation>
     </message>
@@ -1510,46 +1474,6 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>masternode.conf File existiert nicht</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Die Adresse des Empfängers ist nicht gültig, bitte erneut prüfen.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Der zu zahlende Betrag muss größer als 0 sein.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Der Betrag übersteigt ihr Guthaben.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Die Gesamtsumme überschreitet Ihr Guthaben, sobald die Transaktionsgebühr von %1 enthalten ist.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Doppelte Adresse gefunden. Es kann nur einmal pro Sendeoperation an jede Adresse gesendet werden.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Transaktionserstellung fehlgeschlagen!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Die Transaktion wurde abgelehnt! Dies könnte passieren, wenn einige der Coins in deiner Wallet schon ausgegeben wurden. Zum Beispiel wenn du eine Kopie der wallet.dat benutzt hättest und Coins in der Kopie verbracht wurden.  Hier aber noch nicht als verbraucht markiert wurden.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Fehler: Die Wallet wurde nur zum Anonymisieren von Coins freigeschaltet.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Eine Gebühr %1 mal höher als %2 pro kB gilt als wahnsinnig hohe Gebühr.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Fehler: Die Wallet wurde nur zum Anonymisieren von Coins freigeschaltet. Freischaltung aufgehoben.</translation>
     </message>
 </context>
 <context>
@@ -1563,12 +1487,8 @@ Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend K
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Keine aktiven Masternodes bis jetzt</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
+        <source>N/A</source>
+        <translation>k.A.</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1619,13 +1539,13 @@ You will only have to paste the data in the pivx.conf file
 of your remote server and start it, then start the Masternode using
 this controller wallet (select the Masternode in the list and press "start").
 </source>
-        <translation>Sie sind dabei die erforderlichen Daten,
-um einen Masternode auf einem externen Server laufen zu lassen,
+        <translation>Sie sind dabei die erforderlichen Daten, 
+um einen Masternode auf einem externen Server laufen zu lassen, 
 in die Zwischenablage zu kopieren.
 
 
 SIe müssen lediglich die Daten in das pivx.conf-File ihres externen Servers einfügen,
-die Pivx-wallet starten, um dann von der Kontrollwallet aus
+die Pivx-wallet starten, um dann von der Kontrollwallet aus 
 ihren Masternode zu starten.
 </translation>
     </message>
@@ -1669,10 +1589,6 @@ Sind sie sicher?</translation>
     <message>
         <source>Form</source>
         <translation>Formular</translation>
-    </message>
-    <message>
-        <source>Master Node Information</source>
-        <translation>Masternode Inormationen</translation>
     </message>
     <message>
         <source>Public Key:</source>
@@ -2230,8 +2146,8 @@ Adresse: %4</translation>
         <translation>Druckknopf</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Keine aktiven Masternodes bis jetzt</translation>
+        <source>N/A</source>
+        <translation>k.A.</translation>
     </message>
     <message>
         <source>Privacy</source>
@@ -2326,10 +2242,6 @@ Adresse: %4</translation>
     <message>
         <source>Amount</source>
         <translation>Betrag</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>PIVX-Adresse eingeben (z.B. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2782,10 +2694,6 @@ Adresse: %4</translation>
         <translation>Transaktionsdetails</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
@@ -2843,10 +2751,6 @@ Adresse: %4</translation>
     <message>
         <source>Error generating address</source>
         <translation>Fehler beim Erstellen der Adresse</translation>
-    </message>
-    <message>
-        <source>Change Label</source>
-        <translation>Bezeichnung ändern</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -2963,10 +2867,6 @@ Adresse: %4</translation>
         <translation>Beschreibung (optional)</translation>
     </message>
     <message>
-        <source>Add description </source>
-        <translation>Beschreibung hinzufügen</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -2984,10 +2884,6 @@ Adresse: %4</translation>
     <message>
         <source>Transaction Details</source>
         <translation>Transaktionsdetails</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -3064,14 +2960,10 @@ Adresse: %4</translation>
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adresse hinzufügen</translation>
+        <source>Enter address</source>
+        <translation>Adresse einfügen</translation>
     </message>
-    <message>
-        <source>Add description</source>
-        <translation>Beschreibung hinzufügen</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendWidget</name>
     <message>
@@ -3085,10 +2977,6 @@ Adresse: %4</translation>
     <message>
         <source>Select coin type to spend</source>
         <translation>Wähle Coin zum ausgeben</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>PIVX Adresse oder Kontaktbezeichnung einfügen</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -3214,10 +3102,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>Backup Wallet </source>
         <translation>Backup Wallet</translation>
     </message>
@@ -3277,16 +3161,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Clear</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>PIVX Adresse einfügen</translation>
+        <source>Enter address</source>
+        <translation>Adresse einfügen</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adresse hinzufügen</translation>
-    </message>
-    <message>
-        <source>Write a message</source>
-        <translation>Nachricht schreiben</translation>
+        <source>Enter passphrase</source>
+        <translation>Passphrase eingeben</translation>
     </message>
     <message>
         <source>Encrypted Key</source>
@@ -3411,10 +3291,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Auf Voreinstellungen zurücksetzen</translation>
     </message>
@@ -3503,14 +3379,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>8) Wo sollte ich hingehen, wenn ich ein Problem habe?</translation>
     </message>
     <message>
-        <source>9) What is a Master Node?</source>
-        <translation>9) Was ist ein Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Master Node Controller?</source>
-        <translation>10) Was ist ein Masternode Controller?</translation>
-    </message>
-    <message>
         <source>1</source>
         <translation>1</translation>
     </message>
@@ -3559,20 +3427,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Wie stake ich PIV/zPIV?</translation>
     </message>
     <message>
-        <source>Where I should go if I need support?</source>
-        <translation>Wohin kann ich mich wenden, wenn ein Problem auftaucht?</translation>
-    </message>
-    <message>
-        <source>What is a Master Node?</source>
-        <translation>Was ist ein Masternode?</translation>
-    </message>
-    <message>
         <source>10</source>
         <translation>10</translation>
-    </message>
-    <message>
-        <source>What is a Master Node Controller?</source>
-        <translation>Was ist ein Masternodecontroller?</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -3612,10 +3468,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <message>
         <source>Client Version: </source>
         <translation>Client Version</translation>
-    </message>
-    <message>
-        <source>Using BerkeleyDB version:</source>
-        <translation>Verwendete BerkeleyDB Version:</translation>
     </message>
     <message>
         <source>Network</source>
@@ -3691,8 +3543,8 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Keine aktiven Masternodes bis jetzt</translation>
+        <source>N/A</source>
+        <translation>k.A.</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -3726,28 +3578,16 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Clear</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>PIVX Adresse oder Kontaktbezeichnung einfügen</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Adresse hinzufügen</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>Nachricht</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Nachricht schreiben</translation>
+        <source>Enter address</source>
+        <translation>Adresse einfügen</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -3841,10 +3681,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Änderungen verwerfen</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
@@ -3874,10 +3710,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <message>
         <source>TextLabel</source>
         <translation>TextEtikett</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -4478,10 +4310,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druckknopf</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Abbrechen</translation>
     </message>
@@ -4492,10 +4320,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -5181,7 +5005,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <message>
         <source> mints deleted
 </source>
-        <translation>Prägungen gelöscht
+        <translation>Prägungen gelöscht 
 </translation>
     </message>
     <message>

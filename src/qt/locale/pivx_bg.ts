@@ -148,6 +148,10 @@
         <source>TextLabel</source>
         <translation>ТекстовЕтикет</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -882,47 +886,7 @@
         <source>Address</source>
         <translation>Адрес</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Адреса на получателя е недвалиден. Моля преверете.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Сумата на превода трябва да е по-голяма от 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Сумата надхвърля наличността.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Сумата надхвърля наличността, когато преводната такса %1 е включена.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Наличие на един и същи адрес два пъти. Можем да изпращане до всеки адрес само по веднъж по време на всяка отделна операция по изпращане.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Неуспешен превод.</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Превода бе отказам! Това може да се случи ако част от монетите в портфейла вече са биле изпратени, като например ако сте използвали копие на wallet.dat файла и монетите са биле похарчени там, но не са  биле маркирани като изпратени тук.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Грешка: Портфейла е отключен само за анонимизиране на монети.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Такса %1 пъти по-голяма от %2 за кБ се счита неразумно голяма такса.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Грешка: Портфейла е отключен само за анонимизиране на монети. Отключването спряно.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -932,6 +896,10 @@
     <message>
         <source>TextLabel</source>
         <translation>ТекстовЕтикет</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1448,6 +1416,10 @@ Address: %4
         <source>TextLabel</source>
         <translation>ТекстовЕтикет</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
+    </message>
     </context>
 <context>
     <name>ProposalFrame</name>
@@ -1457,10 +1429,6 @@ Address: %4
     <message>
         <source>Amount</source>
         <translation>Сума</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Задайте PIVX адрес (например %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2060,6 +2028,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Изчисти</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Въведете парола</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>Въведената фраза е невалидна.</translation>
     </message>
@@ -2223,6 +2195,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>ТекстовЕтикет</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Няма</translation>
     </message>
     <message>
         <source>Active</source>

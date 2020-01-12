@@ -148,6 +148,10 @@
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -878,47 +882,7 @@
         <source>Address</source>
         <translation>Adresa</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Adresa primatelja nije važeća, ponovo provjerite.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Iznos za plaćanje mora biti veći od 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Iznos prelazi vaš saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Ukupni iznos prelazi vaš saldo kada je uključena naknada za transakciju %1.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Duplicirana adresa pronađena, može poslati samo na svaku adresu jednom po pošiljci.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Izrada transakcija nije uspjela!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transakcija je odbijena! To se može dogoditi ako su neki od novčića u vašem novčaniku već bili potrošeni, primjerice, ako ste upotrijebili kopiju wallet.data, a novčići su potrošeni u kopiji, ali nisu označeni kao ovdje potrošeni.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Pogreška: novčanik je otključan samo za anonimizaciju kovanica.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Naknada %1 puta veća od %2 po kB smatra se nerazumljivo visokom naknadom.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Pogreška: novčanik je otključan samo za anonimizaciju kovanica. Otključavanje je otkazano.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -928,6 +892,10 @@
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1445,6 +1413,10 @@ Adresa: %4
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
+    </message>
     </context>
 <context>
     <name>ProposalFrame</name>
@@ -1454,10 +1426,6 @@ Adresa: %4
     <message>
         <source>Amount</source>
         <translation>Iznos</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Unesite PIVX adresu (npr., %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2057,6 +2025,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Izbriši</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Unesite zaporku</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>Unesena zaporka je nevažeća.</translation>
     </message>
@@ -2220,6 +2192,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
     </message>
     <message>
         <source>Active</source>

@@ -682,6 +682,10 @@ Adresa: %4
         <translation>Importovať adresu:</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Zadajte prístupovú frázu</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>Zadaná prístupová fráza je neplatná.</translation>
     </message>

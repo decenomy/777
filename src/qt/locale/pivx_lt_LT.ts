@@ -148,6 +148,10 @@
         <source>TextLabel</source>
         <translation>Teksto etiketė</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -866,14 +870,6 @@
         <source>Address</source>
         <translation>Adresas</translation>
     </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Ši suma viršija jūsų likutį.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Mokėjimo kūrimas nepavyko!</translation>
-    </message>
     </context>
 <context>
     <name>MasterNodesWidget</name>
@@ -884,6 +880,10 @@
     <message>
         <source>TextLabel</source>
         <translation>Teksto etiketė</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1014,7 +1014,7 @@
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
 https://www.transifex.com/pivx-project/pivx-project-translations</source>
-        <translation>Trūksta kalbos arba vertimas nebaigtas? Padėkite prisidėdami prie vertimų čia:
+        <translation>Trūksta kalbos arba vertimas nebaigtas? Padėkite prisidėdami prie vertimų čia: 
 https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     </message>
     <message>
@@ -1284,6 +1284,10 @@ Adresas: %4
         <source>TextLabel</source>
         <translation>Teksto etiketė</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
     </context>
 <context>
     <name>ProposalFrame</name>
@@ -1293,10 +1297,6 @@ Adresas: %4
     <message>
         <source>Amount</source>
         <translation>Suma</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Įveskite PIVX adresą (pvz. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1596,6 +1596,10 @@ Adresas: %4
         <translation>Išvalyti</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Įveskite slaptafrazę</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>Įvesta slaptafrazė neteisinga.</translation>
     </message>
@@ -1755,6 +1759,10 @@ Adresas: %4
     <message>
         <source>TextLabel</source>
         <translation>Teksto etiketė</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Active</source>

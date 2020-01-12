@@ -168,9 +168,6 @@ QT_TRANSLATE_NOOP("pivx-core", ""
 QT_TRANSLATE_NOOP("pivx-core", ""
 "Set maximum size of high-priority/low-fee transactions in bytes (default: %d)"),
 QT_TRANSLATE_NOOP("pivx-core", ""
-"Set the number of included blocks to precompute per cycle. (minimum: %d) "
-"(maximum: %d) (default: %d)"),
-QT_TRANSLATE_NOOP("pivx-core", ""
 "Set the number of script verification threads (%u to %d, 0 = auto, <0 = "
 "leave that many cores free, default: %d)"),
 QT_TRANSLATE_NOOP("pivx-core", ""
@@ -302,7 +299,6 @@ QT_TRANSLATE_NOOP("pivx-core", "Do not load the wallet and disable wallet RPC ca
 QT_TRANSLATE_NOOP("pivx-core", "Do you want to rebuild the block database now?"),
 QT_TRANSLATE_NOOP("pivx-core", "Done loading"),
 QT_TRANSLATE_NOOP("pivx-core", "Enable automatic Zerocoin minting (0-1, default: %u)"),
-QT_TRANSLATE_NOOP("pivx-core", "Enable precomputation of zPIV spends and stakes (0-1, default %u)"),
 QT_TRANSLATE_NOOP("pivx-core", "Enable publish hash block in <address>"),
 QT_TRANSLATE_NOOP("pivx-core", "Enable publish hash transaction (locked via SwiftX) in <address>"),
 QT_TRANSLATE_NOOP("pivx-core", "Enable publish hash transaction in <address>"),
@@ -501,7 +497,6 @@ QT_TRANSLATE_NOOP("pivx-core", "You need to rebuild the database using -reindex 
 QT_TRANSLATE_NOOP("pivx-core", "Zapping all transactions from wallet..."),
 QT_TRANSLATE_NOOP("pivx-core", "ZeroMQ notification options:"),
 QT_TRANSLATE_NOOP("pivx-core", "Zerocoin options:"),
-QT_TRANSLATE_NOOP("pivx-core", "could not get lock on cs_spendcache"),
 QT_TRANSLATE_NOOP("pivx-core", "isValid(): Invalid -proxy address or hostname: '%s'"),
 QT_TRANSLATE_NOOP("pivx-core", "on startup"),
 QT_TRANSLATE_NOOP("pivx-core", "wallet.dat corrupt, salvage failed"),

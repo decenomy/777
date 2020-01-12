@@ -215,8 +215,8 @@
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Henüz aktif Masternode bulunmuyor</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>örn. Ad Soyad</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Bir PIVX adresi girin</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -858,24 +854,8 @@ Stake için kaldırın</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
-        <source>Owner Address (optional, if empty a new address will be created)</source>
-        <translation>Sahip Adresi (opsiyonel, boş bırakılırsa yeni adres yaratılır)</translation>
-    </message>
-    <message>
         <source>List of delegated balance by address</source>
         <translation>Delege edilmiş tutarların adrese göre listesi </translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation>Toplam</translation>
-    </message>
-    <message>
-        <source>Unconfirmed balance will not be shown</source>
-        <translation>Onaylanmanış bakiye gösterilmez</translation>
     </message>
     <message>
         <source>No balance delegated</source>
@@ -894,30 +874,12 @@ Stake için kaldırın</translation>
         <translation>Delegasyon</translation>
     </message>
     <message>
-        <source>You can delegate your PIVs and let a hot node (24/7 online node)
-stake in your behalf, keeping the keys in a secure place offline.</source>
-        <translation>PIV'lerinizi offline olarak güvenli bir yerde anahtarlarınızı saklarken
-(24/7 online düğüm) olan bir sıcak düğüm ile adınıza stakeletebilirsiniz.</translation>
-    </message>
-    <message>
-        <source>Add owner address</source>
-        <translation>Sahip adresi ekle</translation>
-    </message>
-    <message>
-        <source>Delegate or Accept PIV delegation</source>
-        <translation>Delege et veya PIV delegasyonu kabul et</translation>
-    </message>
-    <message>
         <source>Delegate</source>
         <translation>Delege et</translation>
     </message>
     <message>
         <source>Clear All</source>
         <translation>Hepsini temizle</translation>
-    </message>
-    <message>
-        <source>Add the staking address</source>
-        <translation>Stakeleme adresi ekle</translation>
     </message>
     <message>
         <source>Delegated balance history</source>
@@ -948,10 +910,6 @@ stake in your behalf, keeping the keys in a secure place offline.</source>
         <translation>Geçersiz giriş</translation>
     </message>
     <message>
-        <source>Invalid entry, minimum delegable amount is 10 PIV</source>
-        <translation>Geçersiz giriş, delege edilebilir minimum tutar 10 PIV</translation>
-    </message>
-    <message>
         <source>Owner address invalid</source>
         <translation>Sahip adresi geçersiz</translation>
     </message>
@@ -970,8 +928,8 @@ Do you wish to proceed?</source>
         <translation>Dış bir adrese delege ediliyor!
 
 Delege edilmiş koinler bu cüzdan tarafından harcanamaz.
-Bu koinler owner adresinin olduğu cüzdan veya cihaz
-tarafından harcanabilir.
+Bu koinler owner adresinin olduğu cüzdan veya cihaz 
+tarafından harcanabilir. 
 
 Devam etmek istiyor musunuz?</translation>
     </message>
@@ -1102,10 +1060,6 @@ kopyala</translation>
     <message>
         <source>No transactions</source>
         <translation>İşlem bulunmuyor</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1278,10 +1232,6 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
     <message>
         <source>Transaction Details</source>
         <translation>İşlem Detayları</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1662,10 +1612,6 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>Adres</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Yeni bir Masternode Kontrolörü Yarat</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yeni bir Masternode yaratmak için ağa 10.000 PIV (PIVX birimi) ayırmanız gerekmektedir (buna rağmen koinler hala size aittir ve sahipliğini kororsunuz). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;İstediğiniz zaman devre dışı bırakabilir ve koinlerinizin kilidini kaldırabilirsiniz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1674,16 +1620,8 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>Bu miktarda koininizin olduğundan emin olunuz.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Masternode'unuzun Adını Belirleyin</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;10.000 PIV'lik bir transfer &lt;/p&gt;&lt;p&gt;yeni ve boş bir adrese yapılacaktır.&lt;/p&gt;&lt;p&gt;Adres Masternode'unuz ismi ile etiketlenecektir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>MasterNode'unuzun IP ve Portunu giriniz</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1692,10 +1630,6 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
     <message>
         <source>Enter IP address</source>
         <translation>IP adresini girin</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Port'u girin</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1730,10 +1664,6 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>Geçersiz port numarası</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Masternode hazırlığı başarısız..</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Geçersiz masternode.conf dosyası</translation>
     </message>
@@ -1742,56 +1672,12 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation> masternode.conf dosyası çözümleme hatası</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Geçersiz teminat çıktı endeksi</translation>
-    </message>
-    <message>
         <source>Master node created!</source>
         <translation>Masternode yaratıldı!</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation> masternode.conf dosyası bulunamadı</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Alıcı adresi geçerli değil, lütfen tekrar kontrol edin.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Ödenecek tutar 0'dan büyük olmalıdır.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Miktar, bakiyenizi aşıyor.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Toplam, %1 işlem ücreti dahil edildiğinde bakiyenizi aşıyor.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Yinelenen adres bulundu, her gönderme işleminde aynı adres birden fazla girilemez.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>İşlem oluşturulamadı!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>İşlem reddedildi! Bu, cüzdanındaki koinlerin bir kısmının harcanması durumunda olabilir; mesela, wallet.dat dosyasının bir kopyasını kullandıysanız ve koinlerinizi harcamış fakat cüzdana harcanmış olarak işaretlenmemişse ortaya çıkabilir.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Hata: Cüzdan sadece paraları anonimleştirmek için açıldı.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Bir ücret, kB başına %2'nin %1 katından daha yüksektir, delicesine yüksek bir ücret olarak kabul edilir.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Hata: Cüzdan sadece paraları anonimleştirmek için açıldı. Kilidini açma işlemi iptal edildi.</translation>
     </message>
 </context>
 <context>
@@ -1805,12 +1691,8 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Henüz aktif Masternode bulunmuyor</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1870,7 +1752,7 @@ You will only have to paste the data in the pivx.conf file
 of your remote server and start it, then start the Masternode using
 this controller wallet (select the Masternode in the list and press "start").
 </source>
-        <translation>Uzak bir sunucuda Masternode çalıştırabilmek için gereken bilgiyi
+        <translation>Uzak bir sunucuda Masternode çalıştırabilmek için gereken bilgiyi 
 panoya almak üzeresiniz.
 
 
@@ -1925,10 +1807,6 @@ Emin misiniz?</translation>
         <translation>Form</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Masternode Bilgisi</translation>
-    </message>
-    <message>
         <source>Public Key:</source>
         <translation>Public Key:</translation>
     </message>
@@ -1964,11 +1842,7 @@ Emin misiniz?</translation>
         <source>MISSING</source>
         <translation>EKSİK</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Uzak sunucuda Masternode çalıştırmak için bilgiyi dışarı aktar</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
@@ -2549,8 +2423,8 @@ Adres: %4
         <translation>Butona Basın</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Henüz aktif Masternode bulunmuyor</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Privacy</source>
@@ -2572,10 +2446,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Mint new zPIV or convert back to PIV</source>
         <translation>Yeni zPIV mintle veya PIV'e geri dönüştür</translation>
-    </message>
-    <message>
-        <source>Last Zerocoin Movements</source>
-        <translation>Son Zerocoin Hareketleri</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -2640,10 +2510,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
         <translation>Zerocoin mintleriniz sıfırdan blockchain üzerinde taranacaktır</translation>
-    </message>
-    <message>
-        <source>Reset Spent Zerocoins</source>
-        <translation>Zerocoin harcamalarını resetle</translation>
     </message>
     <message>
         <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
@@ -2727,10 +2593,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Amount</source>
         <translation>Miktar</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Gir bir PIVX addres (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3219,10 +3081,6 @@ transaction history, making transactions untraceable </source>
         <translation>İşlem Detayları</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
@@ -3282,8 +3140,8 @@ transaction history, making transactions untraceable </source>
         <translation>Adres oluşturma hatası</translation>
     </message>
     <message>
-        <source>Change Label</source>
-        <translation>Etiketi Değiştirin</translation>
+        <source>Edit Label</source>
+        <translation>Etiketi Düzenle</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -3396,24 +3254,12 @@ transaction history, making transactions untraceable </source>
         <translation>TALEP ET</translation>
     </message>
     <message>
-        <source>Instead of only sharing a PIVX address, you can create a Payment Request message which bundles up more information than is contained in just a PIVX address.</source>
-        <translation>PIVX adresi paylaşmak yerine, PIVX adresinden daha fazla bilgi içeren bir Ödeme Talebi oluşturabilirsin.</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Etiket</translation>
     </message>
     <message>
-        <source>Enter a label to be saved within the address</source>
-        <translation>Adresin içine kaydedilecek bir etiket belirle</translation>
-    </message>
-    <message>
         <source>Description (optional)</source>
         <translation>Açıklama (opsiyonel)</translation>
-    </message>
-    <message>
-        <source>Add description </source>
-        <translation>Açıklama ekle</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3431,7 +3277,7 @@ transaction history, making transactions untraceable </source>
         <source>New Cold Staking Address</source>
         <translation>Yeni Stakeleme Adresi</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3441,10 +3287,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Transaction Details</source>
         <translation>İşlem Detayları</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
     </message>
     <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
@@ -3541,14 +3383,10 @@ transaction history, making transactions untraceable </source>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres ekle</translation>
+        <source>Enter address</source>
+        <translation>Adres girin</translation>
     </message>
-    <message>
-        <source>Add description</source>
-        <translation>Açıklama ekle</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendWidget</name>
     <message>
@@ -3562,10 +3400,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Select coin type to spend</source>
         <translation>Harcayacağınız koin tipini seçin</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Bir PIVX adresi veya bağlantı etiketi girin</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -3668,7 +3502,7 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
     <message>
         <source>Sending %1 to addresses:
 %2</source>
-        <translation>%1 adresinden
+        <translation>%1 adresinden 
 %2 adreslerine gönderiliyor</translation>
     </message>
     <message>
@@ -3771,22 +3605,12 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>Backup Wallet </source>
         <translation>Cüzdanı Yedekle</translation>
     </message>
     <message>
         <source>Change Wallet Passphrase</source>
         <translation>Cüzdan Parolasını Değiştir</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe doing regular backups, store your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) from another device.</source>
-        <translation>Düzenli yedekler alarak cüzdanınızı güvende tutun, yedeklerinizi dışarıda saklayın.
-Bu opsiyon tüm bakiyenizi (işlemleri ve adresleri) kurtarmak için kullanacağınız yeni bir wallet.dat dosyası yaratır .</translation>
     </message>
     <message>
         <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
@@ -3797,10 +3621,6 @@ Paranıza erişiminizi kaybetmemek için yazmayı ve güvenli bir yerde saklamay
     <message>
         <source>Where</source>
         <translation>Yer</translation>
-    </message>
-    <message>
-        <source>Set a folder location</source>
-        <translation>Bir dosya klasör yeri belirleyin</translation>
     </message>
     <message>
         <source>Backup</source>
@@ -3898,16 +3718,12 @@ Paranıza erişiminizi kaybetmemek için yazmayı ve güvenli bir yerde saklamay
         <translation>ŞİFRE ÇÖZME ANAHTARI</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Bir PIVX adresi girin</translation>
+        <source>Enter address</source>
+        <translation>Adres girin</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres ekle</translation>
-    </message>
-    <message>
-        <source>Write a message</source>
-        <translation>Bir mesaj yaz</translation>
+        <source>Enter passphrase</source>
+        <translation>Şifre sözcüğünüzü girin</translation>
     </message>
     <message>
         <source>Encrypted Key</source>
@@ -4054,10 +3870,6 @@ Verify that you have installed a predetermined text editor.</source>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Varsayılana konumlandır</translation>
     </message>
@@ -4139,7 +3951,7 @@ Verify that you have installed a predetermined text editor.</source>
     <message>
         <source>5) Why did my wallet convert the balance
     into zPIV automatically?</source>
-        <translation>5)Neden cüzdanım bakiyemi otomatik olarak
+        <translation>5)Neden cüzdanım bakiyemi otomatik olarak 
 zPIV'e dönüştürdü?</translation>
     </message>
     <message>
@@ -4153,14 +3965,6 @@ zPIV'e dönüştürdü?</translation>
     <message>
         <source>8) Where I should go if I need support?</source>
         <translation>8) Yardıma ihtiyacım olduğunda nereye gitmeliyim?</translation>
-    </message>
-    <message>
-        <source>9) What is a Master Node?</source>
-        <translation>9) Masternode nedir?</translation>
-    </message>
-    <message>
-        <source>10) What is a Master Node Controller?</source>
-        <translation>10) Masternode kontrolörü nedir?</translation>
     </message>
     <message>
         <source>1</source>
@@ -4188,9 +3992,9 @@ zPIV'e dönüştürdü?</translation>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
                            PIVX blockchain teknolojisini kullanan bir dijital online para birimidir
-                           global olarak anında ve sıfıra yakın ücretlerle transfer edilebilir
+                           global olarak anında ve sıfıra yakın ücretlerle transfer edilebilir 
                            PIVX sektördeki en ileri güvenlik ve gizliliğe sahip olmakla birlikte
-                          Zerocoin (zPIV) ve Zerocoin staking özelliklerini
+                          Zerocoin (zPIV) ve Zerocoin staking özelliklerini 
                           uygulayan ilk PoS (Proof of Stake) Kriptoparadır.
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            PIVX bir  Proof of Stake (PoS) konsensüs algoritma sistemi kullanmaktadır,
@@ -4220,10 +4024,10 @@ bu sayede PIVX sahipleri blok ödülü kazanımına katılabilmektedir
                          </source>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Yeni alınmış PIVX'lerin harcanabilr hale gelmesi için ağdan 6 onay
+                           Yeni alınmış PIVX'lerin harcanabilr hale gelmesi için ağdan 6 onay 
                            alması gerekmektedir, bu işlem yaklaşık olarak 6 dakika sürer.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           PIVX cüzdanınızın ağdaki bakiyesini görebilmesi ve harcayabilmesi
+                           PIVX cüzdanınızın ağdaki bakiyesini görebilmesi ve harcayabilmesi 
                            için tamamen senkronize olması gerekmektedir.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
@@ -4248,7 +4052,7 @@ bu sayede PIVX sahipleri blok ödülü kazanımına katılabilmektedir
                          </source>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zPIV PIVX blockchaini üzerinde koinleri karıştırmak için kullanılan
+                           zPIV PIVX blockchaini üzerinde koinleri karıştırmak için kullanılan 
 gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
  hiçbir tarayıcı tarafından takip edilemez. Teknik detayları
  hakkında daha çok bilgi almak için
@@ -4313,8 +4117,8 @@ gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            Teknik detayları hakkında daha çok bilgi almak için
                            &lt;a style='color: #b088ff' href='https://PIVX.org/zpiv/'&gt; "PIVX Zerocoin (zPIV) Teknik Makalesi"&lt;/a&gt;.
-                           zPIV'lerinizi tutmak ve stakelemek istiyorsanız, lütfen SSS kısmındaki "Nasıl Stake yaparım"
-kısmını okuyunuz.
+                           zPIV'lerinizi tutmak ve stakelemek istiyorsanız, lütfen SSS kısmındaki "Nasıl Stake yaparım" 
+kısmını okuyunuz. 
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
     </message>
@@ -4338,10 +4142,10 @@ kısmını okuyunuz.
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
                            zPIV herhangi bir PIVX adresine gönderilerek harcanabilir.
-                           Alıcı standart PIVX alacaktır fakat PIVX kaynağı
+                           Alıcı standart PIVX alacaktır fakat PIVX kaynağı 
 zPIV Protokolü ile anonimleştirilmiş olacaktır.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           Daha fazla zPIV istiyorsanız, "Gizlilik" tabından bakiyenizi mintlemeniz gerekecektir.
+                           Daha fazla zPIV istiyorsanız, "Gizlilik" tabından bakiyenizi mintlemeniz gerekecektir. 
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
     </message>
@@ -4354,100 +4158,16 @@ zPIV Protokolü ile anonimleştirilmiş olacaktır.
         <translation>Nasıl PIV/zPIV staking yapabilirim?</translation>
     </message>
     <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake PIVX:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of PIVX with a minimum of 101 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (pivx-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zPIV:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zPIV balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           PIVX Staking yapabilmek için:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Cüzdanınızı tamamen senkronize olduğundan ve son versiyonu kullandığınızdan emin olun.
-                           &lt;li&gt;
-                           En az 101 onay almış bir PIVX bakiyeniz olmaldır.
-                           &lt;li&gt;
-                           Cüzdanınız online olmalı, stake ve anonimleştirme işlemleri için kilidini açılmış olmalıdır.
-                           &lt;li&gt;
-                           Bu adımlar tamamlanmışsa staking çalışıyor olmalıdır.
-                           &lt;li&gt;
-                           Staking durumunu kontrol etmek için fare imlecini cüzdanın sol üst kısmındaki paket ikonu üzerinde tuttuğunuzda görebilirsiniz. Yaptığını göstermek için paket ikonunun ışığı yanacak ve "Staking aktif" yazacaktır. Komut satırı arayüzünden (pivx-cli);  &lt;i&gt;getstakingstatus&lt;/i&gt; komutunu çalıştırarak staking'in etkin olduğunu onaylayabilirsiniz.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           zPIV Staking yapabilmek için:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Cüzdanınızı tamamen senkronize olduğundan ve son versiyonu kullandığınızdan emin olun.
-                           &lt;li&gt;
-                           En az 200 onay almış yeni oluşturulmuş veya eskiden bulunan zPIVX bakiyeniz olmaldır.
-                           &lt;li&gt;
-                           Cüzdanınız online olmalı, stake ve anonimleştirme işlemleri için kilidini açılmış olmalıdır.
-                           Bu adımlar tamamlanmışsa staking çalışıyor olmalıdır.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
+        <source>What is a Masternode?</source>
+        <translation>Masternode nedir?</translation>
     </message>
     <message>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <source>Where I should go if I need support?</source>
-        <translation>Yardıma ihtiyacım olduğunda nereye gitmeliyim?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Resmi chat gruplarımızın çoğunun içinde destek kanalları bulunmaktadır, örneğin
-                           &lt;a style='color: #b088ff' href='https://Discord.PIVX.com'&gt;
-                           Discord içinnde #support &lt;/a&gt;.
-                           Bir destek talebi açmak isterseniz,bunu
-                           &lt;a style='color: #b088ff' href='https://PIVX.FreshDesk.com'&gt;
-                           Freshdesk destek sitesinden yapabilirsiniz&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
         <source>9</source>
         <translation>9</translation>
-    </message>
-    <message>
-        <source>What is a Master Node?</source>
-        <translation>Masternode nedir?</translation>
     </message>
     <message>
         <source>
@@ -4509,8 +4229,8 @@ zPIV Protokolü ile anonimleştirilmiş olacaktır.
                            &lt;/ul&gt;
 
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           Bu tür hizmetler vermesi ile masternodlar her blok ödülünden belli
-bir oranda pay alırlar. Bu masternode sahiplerine
+                           Bu tür hizmetler vermesi ile masternodlar her blok ödülünden belli 
+bir oranda pay alırlar. Bu masternode sahiplerine 
 işletim maliyetleri sonrası pasif bir gelir sunar.
                             &lt;/p&gt;&lt;p align="justify"&gt;
 
@@ -4538,14 +4258,6 @@ işletim maliyetleri sonrası pasif bir gelir sunar.
     <message>
         <source>10</source>
         <translation>10</translation>
-    </message>
-    <message>
-        <source>What is a Master Node Controller?</source>
-        <translation>Masternode Kontrolörü nedir?</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PIV collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Masternode Kontrol cüzdanı Masternode Uzaktan-Kontrol kurulumu yapırken içinde 10,000 PIV teminatını bulundurur. Bu cüzdan uzak masternode cüzdan/larını etkinleştirebilir, ayrıca masternodlarınız online iken teminatınızı bağlantı dışında tutmanıza imkan sağlar. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -4591,16 +4303,8 @@ işletim maliyetleri sonrası pasif bir gelir sunar.
         <translation>Kullanıcı Aracısı:</translation>
     </message>
     <message>
-        <source>Using BerkeleyDB version:</source>
-        <translation>BerkeleyDB version</translation>
-    </message>
-    <message>
         <source>Datadir: </source>
         <translation>Bilgi Dizini:</translation>
-    </message>
-    <message>
-        <source>Startup Time:  </source>
-        <translation>Başlatma zamanı</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4611,28 +4315,12 @@ işletim maliyetleri sonrası pasif bir gelir sunar.
         <translation>İsim</translation>
     </message>
     <message>
-        <source>Number Connections:</source>
-        <translation>Bağlantı Sayısı:</translation>
-    </message>
-    <message>
         <source>Blockchain</source>
         <translation>Blockchain</translation>
     </message>
     <message>
-        <source>Current Number of Blocks:</source>
-        <translation>Mevcut Blok Sayısı</translation>
-    </message>
-    <message>
-        <source>Last Block Time:</source>
-        <translation>Son Blok Zamanı</translation>
-    </message>
-    <message>
         <source>Memory Pool</source>
         <translation>Hafıza Havuzu</translation>
-    </message>
-    <message>
-        <source>Current Number of Transactions:</source>
-        <translation>Mevcut İşlem Sayısı:</translation>
     </message>
     <message>
         <source>Main</source>
@@ -4771,14 +4459,6 @@ Emin misiniz?
         <translation>ÇokluGönder için yeni alıcı</translation>
     </message>
     <message>
-        <source>Label (optional)</source>
-        <translation>Etiket (Opsiyonel)</translation>
-    </message>
-    <message>
-        <source>Enter a label to add this address in your address book</source>
-        <translation>Adres defterinize kaydetmek için bir etiket girin</translation>
-    </message>
-    <message>
         <source>Percentage</source>
         <translation>Yüzde</translation>
     </message>
@@ -4794,8 +4474,8 @@ Emin misiniz?
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Henüz aktif Masternode bulunmuyor</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -4901,24 +4581,12 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>temizle</translation>
     </message>
     <message>
         <source>Sign/Verify Message</source>
         <translation>Mesaj İmza/Onay</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Bir PIVX adresi veya bağlantı etiketi girin</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Adres ekle</translation>
     </message>
     <message>
         <source>Sign</source>
@@ -4937,8 +4605,8 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Mesaj</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Bir mesaj yaz</translation>
+        <source>Enter address</source>
+        <translation>Adres girin</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -5044,10 +4712,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Değişikliklerden vazgeç</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>cüzdan</translation>
     </message>
@@ -5113,10 +4777,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     <message>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
     </message>
     <message>
         <source>Wallet Repair</source>
@@ -5523,7 +5183,7 @@ Emin misiniz?
         <source>%n year(s)</source>
         <translation><numerusform>%n yıl</numerusform><numerusform>%n yıl</numerusform></translation>
     </message>
-</context>
+    </context>
 <context>
     <name>TrafficGraphWidget</name>
     <message>
@@ -5791,10 +5451,6 @@ Emin misiniz?
     <message>
         <source>PIV Cold Stake</source>
         <translation>PIV Soğuk Stake</translation>
-    </message>
-    <message>
-        <source>PIV Stake in behalf of</source>
-        <translation>Yerine PIV stake </translation>
     </message>
     <message>
         <source>Stake delegation</source>
@@ -6065,10 +5721,6 @@ Emin misiniz?
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Butona Basın</translation>
-    </message>
-    <message>
         <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
         <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
     </message>
@@ -6083,10 +5735,6 @@ Emin misiniz?
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Diyalog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -6392,10 +6040,6 @@ Hoşgeldiniz</translation>
         <translation>Yüksek öncelik/düşük maliyet işlemlerin maksimum blok büyüklüğünü belirle (varsayılan: %d)</translation>
     </message>
     <message>
-        <source>Set the number of included blocks to precompute per cycle. (minimum: %d) (maximum: %d) (default: %d)</source>
-        <translation>Her döngüde eklenen blokların ön işlemeye alınacak sayısını belirle. (minimum: %d) (maksimum: %d) (varsayılan: %d)</translation>
-    </message>
-    <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
         <translation>Betik onaylama işlem parça sayısını belirle (%u 'den %d 'ye, 0 = otomatik, &lt;0 = işlemci çekirdeklerini bırak, varsayılan: %d)</translation>
     </message>
@@ -6646,10 +6290,6 @@ Hoşgeldiniz</translation>
     <message>
         <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
         <translation>zPIV minting yapılmasını etkinleştir (0-1, varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>Enable precomputation of zPIV spends and stakes (0-1, default %u)</source>
-        <translation>zPIV harcamalarının ve stakelerinin önhesaplamasını etkinleştir (0-1, varsayılan %u)</translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
@@ -7146,10 +6786,6 @@ Hoşgeldiniz</translation>
     <message>
         <source>Use block spam filter (default: %u)</source>
         <translation>Blok spam filtresini kullan (varsayılan: %u)</translation>
-    </message>
-    <message>
-        <source>could not get lock on cs_spendcache</source>
-        <translation>cs_spendcache'e kilitlenilemedi</translation>
     </message>
     <message>
         <source>isValid(): Invalid -proxy address or hostname: '%s'</source>

@@ -207,8 +207,8 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Još nema aktivnih Master Nodeova</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -233,10 +233,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>npr. Ivan Ivić</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Unesite PIVX adresu</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -703,10 +699,6 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
-    </message>
-    <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
         <translation>Nema dostupnih kontakata, možete ići na ekran s kontaktima i dodati neke!</translation>
     </message>
@@ -767,10 +759,6 @@
     <message>
         <source>No transactions</source>
         <translation>Nema transakcija</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -873,10 +861,6 @@
     <message>
         <source>Transaction Details</source>
         <translation>Detalji o transakciji</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>5000</source>
@@ -1121,10 +1105,6 @@
         <translation>oznaka adrese ne može biti prazna</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Priprema masternodea neuspjela...</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Neispravna masternode.conf datoteka</translation>
     </message>
@@ -1132,19 +1112,7 @@
         <source>masternode.conf file doesn't exists</source>
         <translation>masternode.conf datoteka ne postoji</translation>
     </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Iznos koji plaćate mora biti veći od 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Iznos premašuje vaš saldo.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Greška. Novčanik je otključan jedino za anonimizaciju novčića.</translation>
-    </message>
-    </context>
+</context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -1156,12 +1124,8 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Još nema aktivnih Master Nodeova</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1397,8 +1361,8 @@
         <translation>PritisniTipku</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Još nema aktivnih Master Nodeova</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -1413,10 +1377,6 @@
     <message>
         <source>Amount</source>
         <translation>Iznos</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Unesi PIVX adresu (npr. %1)</translation>
     </message>
     <message>
         <source>NETWORK</source>
@@ -1517,10 +1477,6 @@
         <translation>Detalji o transakciji</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
@@ -1562,10 +1518,6 @@
     <message>
         <source>Error generating address</source>
         <translation>Greška pri stvaranju adrese</translation>
-    </message>
-    <message>
-        <source>Change Label</source>
-        <translation>Promjeni oznaku</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -1666,14 +1618,6 @@
         <translation>Oznaka</translation>
     </message>
     <message>
-        <source>Enter a label to be saved within the address</source>
-        <translation>Unesi oznaku da bude spremljena međju adrese</translation>
-    </message>
-    <message>
-        <source>Add description </source>
-        <translation>Dodaj opis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Greška</translation>
     </message>
@@ -1683,10 +1627,6 @@
     <message>
         <source>Transaction Details</source>
         <translation>Detalji o transakciji</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1735,23 +1675,15 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Dodaj adresu</translation>
+        <source>Enter address</source>
+        <translation>Unesi adresu</translation>
     </message>
-    <message>
-        <source>Add description</source>
-        <translation>Dodaj opis</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendWidget</name>
     <message>
         <source>Send</source>
         <translation>Pošalji</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Unesite PIVX adresu ili oznaku kontakta</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -1801,10 +1733,6 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
-    </message>
-    <message>
         <source>Backup Wallet </source>
         <translation>Pohrani novčanik</translation>
     </message>
@@ -1852,12 +1780,12 @@
         <translation>Dešifriraj adresu</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Unesite PIVX adresu</translation>
+        <source>Enter address</source>
+        <translation>Unesi adresu</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Dodaj adresu</translation>
+        <source>Enter passphrase</source>
+        <translation>Unesite zaporku</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -1936,10 +1864,6 @@
     <message>
         <source>TextLabel</source>
         <translation>TekstualnaOznaka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>Discard changes</source>
@@ -2053,10 +1977,6 @@
         <source>SAVE</source>
         <translation>SPREMI</translation>
     </message>
-    <message>
-        <source>Label (optional)</source>
-        <translation>Oznaka (neobavezno)</translation>
-    </message>
     </context>
 <context>
     <name>SettingsMultisendWidget</name>
@@ -2069,8 +1989,8 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Još nema aktivnih Master Nodeova</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2092,20 +2012,12 @@
         <translation>TekstualnaOznaka</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address or contact label</source>
-        <translation>Unesite PIVX adresu ili oznaku kontakta</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Dodaj adresu</translation>
-    </message>
-    <message>
         <source>Message</source>
         <translation>Poruka</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Unesi adresu</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2163,10 +2075,6 @@
         <translation>Odbaci promjene</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Novčanik</translation>
     </message>
@@ -2188,10 +2096,6 @@
     <message>
         <source>TextLabel</source>
         <translation>TekstualnaOznaka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
@@ -2534,10 +2438,6 @@
     <message>
         <source>TextLabel</source>
         <translation>TekstualnaOznaka</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>PritisniTipku</translation>
     </message>
     <message>
         <source>CANCEL</source>

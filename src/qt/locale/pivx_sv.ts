@@ -215,8 +215,8 @@
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen Aktiv Masternode ännu</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>Till Exempel John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Skriv in en PIVX adress</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -839,10 +835,6 @@ for staking</source>
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>Address copied</source>
         <translation>Adress kopierad</translation>
     </message>
@@ -883,10 +875,6 @@ for staking</source>
     <message>
         <source>No transactions</source>
         <translation>Inga transaktioner</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1039,10 +1027,6 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
     <message>
         <source>Transaction Details</source>
         <translation>Transaktions detaljer</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1419,10 +1403,6 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>Adress</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Skapa ny masternode kontrollör</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>För att skapa en PIVX Masternode måste du avsätta 10.000 PIV (enheten till PIVX) till nätverket (dessa mynt är dock fortfarande dina och kommer aldrig att lämna ditt innehav). Du kan stänga av noden och låsa upp mynt när som helst.</translation>
     </message>
@@ -1431,16 +1411,8 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>Se till att du har denna mängd mynt.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Ställ in Masternode namn</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>En transaktion på 10 000 PIV kommer göras till en ny tom adress i din plånbok. Adressen är märkt under huvudnodens namn.</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Ställ in Masternode IP och port</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1449,10 +1421,6 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
     <message>
         <source>Enter IP address</source>
         <translation>Skriv in IP adressen</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Skriv in Port namnet</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1531,10 +1499,6 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>Fel nummer till port</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Förberedande av  huvudnoden misslyckades ..</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Ogiltig masternode.conf-fil</translation>
     </message>
@@ -1543,56 +1507,12 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>Fel vid analys av masternode.conf-fil</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Ogiltigt collaterall index</translation>
-    </message>
-    <message>
         <source>Master node created!</source>
         <translation>Masternode skapad !</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>Masternode conf file existerar inte</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Mottagaradressen är ej giltig, var vänlig kontrollera den.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Mängden som betalas måste överstiga 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Mängden överstiger ditt saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Det totala överstiger ditt saldo när %1 transaktionsavgiften lägg på.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>En adress har använts två gånger, kan endast skicka till en adress en gång per skickad transaktion.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Misslyckades att skapa transaktion!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transaktionen nekades! Detta kan hända om några mynt i din plånbok redan har spenderats, möjligen att du använt en kopia av wallet.dat och spenderade mynt från kopian men de inte blivit markerade som spenderade här.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Felmeddelande: Plånboken låstes upp endast för att anonymisera mynt.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>En avgift %1 gånger större än %2 per kB anses vara en galet hög avgift.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Felmeddelande: Plånboken låstes upp endast för att anonymisera mynt. Upplåsning avbrutet.</translation>
     </message>
 </context>
 <context>
@@ -1606,12 +1526,8 @@ Den startar automatiskt så snart plånboken har tillräckligt många bekräftel
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen Aktiv Masternode ännu</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1716,10 +1632,6 @@ Are you sure?</source>
         <translation>Formulär</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Masternode Information</translation>
-    </message>
-    <message>
         <source>Public Key:</source>
         <translation>Allmän Nyckel</translation>
     </message>
@@ -1747,11 +1659,7 @@ Are you sure?</source>
         <source>MISSING</source>
         <translation>Saknas</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Exportera data för att köra Master Node på en annan server.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
@@ -2320,8 +2228,8 @@ Adress: %4
         <translation>Tryck på knappen</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen Aktiv Masternode ännu</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Privacy</source>
@@ -2344,10 +2252,6 @@ transaktionshistorik, vilket gör transaktioner ospårbara</translation>
     <message>
         <source>Mint new zPIV or convert back to PIV</source>
         <translation>Prägla nya zPIV eller konvertera tillbaka till PIV</translation>
-    </message>
-    <message>
-        <source>Last Zerocoin Movements</source>
-        <translation>Sista Zerocoin Rörelsen</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -2454,10 +2358,6 @@ transaktionshistorik, vilket gör transaktioner ospårbara</translation>
     <message>
         <source>Amount</source>
         <translation>Mängd</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Mata in en PIVX adress (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2930,10 +2830,6 @@ transaktionshistorik, vilket gör transaktioner ospårbara</translation>
         <translation>Transaktions detaljer</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
@@ -3042,10 +2938,6 @@ transaktionshistorik, vilket gör transaktioner ospårbara</translation>
         <translation>Transaktions detaljer</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>cancel</translation>
     </message>
@@ -3086,6 +2978,10 @@ transaktionshistorik, vilket gör transaktioner ospårbara</translation>
     <message>
         <source>TextLabel</source>
         <translation>text etikett</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Skriv in Adress</translation>
     </message>
     </context>
 <context>
@@ -3150,10 +3046,6 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>Backup Wallet</source>
         <translation>Gör en backup på plånboken</translation>
     </message>
@@ -3185,8 +3077,12 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Rensa</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Skriv in en PIVX adress</translation>
+        <source>Enter address</source>
+        <translation>Skriv in Adress</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Fyll i lösenfras</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -3277,10 +3173,6 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
     <message>
         <source>TextLabel</source>
         <translation>text etikett</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -3418,8 +3310,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen Aktiv Masternode ännu</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -3467,16 +3359,16 @@ Var vänlig kontrollera adressen och försök igen.</translation>
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Rensa</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>Meddelande</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Skriv in Adress</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -3554,10 +3446,6 @@ Var vänlig kontrollera adressen och försök igen.</translation>
         <translation>CheckBox</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Plånbok</translation>
     </message>
@@ -3587,10 +3475,6 @@ Var vänlig kontrollera adressen och försök igen.</translation>
     <message>
         <source>TextLabel</source>
         <translation>text etikett</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -4171,10 +4055,6 @@ Var vänlig kontrollera adressen och försök igen.</translation>
         <translation>text etikett</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryck på knappen</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>cancel</translation>
     </message>
@@ -4185,10 +4065,6 @@ Var vänlig kontrollera adressen och försök igen.</translation>
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>

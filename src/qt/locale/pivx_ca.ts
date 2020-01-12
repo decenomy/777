@@ -203,10 +203,6 @@
         <translation>EtiquetaDeText</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Encara no es actiu el node Mestre</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>Nom del contacte</translation>
     </message>
@@ -233,10 +229,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>Per exemple: John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Introdueix l'adreça PIVX</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -1066,10 +1058,6 @@ for staking</source>
         <translation>EtiquetaDeText</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Encara no es actiu el node Mestre</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
@@ -1265,10 +1253,6 @@ for staking</source>
     <message>
         <source>TextLabel</source>
         <translation>EtiquetaDeText</translation>
-    </message>
-    <message>
-        <source>No active Master Node yet</source>
-        <translation>Encara no es actiu el node Mestre</translation>
     </message>
     </context>
 <context>
@@ -1540,6 +1524,10 @@ for staking</source>
         <source>TextLabel</source>
         <translation>EtiquetaDeText</translation>
     </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Introdueix adreça</translation>
+    </message>
     </context>
 <context>
     <name>SendWidget</name>
@@ -1590,8 +1578,12 @@ for staking</source>
         <translation>Importa adreça</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Introdueix l'adreça PIVX</translation>
+        <source>Enter address</source>
+        <translation>Introdueix adreça</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Introduïu una contrasenya</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -1727,10 +1719,6 @@ for staking</source>
         <translation>EtiquetaDeText</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Encara no es actiu el node Mestre</translation>
-    </message>
-    <message>
         <source>Active</source>
         <translation>Actiu</translation>
     </message>
@@ -1748,6 +1736,10 @@ for staking</source>
     <message>
         <source>Message</source>
         <translation>Missatge</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Introdueix adreça</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -2028,10 +2020,6 @@ for staking</source>
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Diàleg</translation>
-    </message>
     <message>
         <source>Welcome</source>
         <translation>Benvingut</translation>

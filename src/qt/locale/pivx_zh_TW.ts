@@ -510,6 +510,10 @@
         <translation>匯入位址:</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>輸入密碼</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>輸入的密碼不符合規定</translation>
     </message>

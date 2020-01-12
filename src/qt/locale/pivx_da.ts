@@ -201,8 +201,8 @@
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen aktiv Master node endnu</translation>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -231,10 +231,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>F.eks John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Skriv en PIVX adresse</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -808,10 +804,6 @@ For Staking</translation>
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>Address copied</source>
         <translation>Adresse kopieret</translation>
     </message>
@@ -848,10 +840,6 @@ For Staking</translation>
     <message>
         <source>No transactions</source>
         <translation>Ingen Transaktioner</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -984,10 +972,6 @@ Den vil starte automatisk så snart at pungen har nok bekræftelser på nogen af
     <message>
         <source>Transaction Details</source>
         <translation>Transaktions Detaljer</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
     </message>
     <message>
         <source>500</source>
@@ -1271,47 +1255,7 @@ Den vil starte automatisk så snart at pungen har nok bekræftelser på nogen af
         <source>OK</source>
         <translation>Ok</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Modtageradressen er ikke gyldig. Kontroller igen</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Beløbet skal være større end 0</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Beløbet overstiger saldoen</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Totalbeløbet overstiger saldoen når transaktionsgebyret %1 medregnes</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Den samme adresse er anvendt flere gange. Der kan kun sendes til den samme adresse en gang pr. afsendelse</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Oprettelse af transaktionen mislykkedes</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transaktionen blev afvist! Dette kan ske, hvis nogle af mønterne i tegnebogen allerede er brugt. For eksempel hvis De har brugt en kopi af Wallet.dat filen, og mønterne har været brugt, men ikke markerede som brugte i den. </translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Fejl! Tegnebogen blev kun låst op for at anonymisere mønterne. </translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Et gebyr %1 gange højere end %2 pr. kilobyte er vanvittigt højt.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Fejl: Tegnebogen blev låst op for at anonymisere mønter. Lås op afbrudt.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodesWidget</name>
     <message>
@@ -1323,12 +1267,8 @@ Den vil starte automatisk så snart at pungen har nok bekræftelser på nogen af
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen aktiv Master node endnu</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1858,8 +1798,8 @@ Adresse: %4
         <translation>Tryk på Knappen</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen aktiv Master node endnu</translation>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -1874,10 +1814,6 @@ Adresse: %4
     <message>
         <source>Amount</source>
         <translation>Beløb</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Indtast en PIVX adresse (F.eks. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2326,10 +2262,6 @@ Adresse: %4
         <translation>Transaktions Detaljer</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Afslut</translation>
     </message>
@@ -2430,10 +2362,6 @@ Adresse: %4
         <translation>Transaktions Detaljer</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Afslut</translation>
     </message>
@@ -2474,6 +2402,10 @@ Adresse: %4
     <message>
         <source>TextLabel</source>
         <translation>Tekstmærke</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Skriv adresse</translation>
     </message>
     </context>
 <context>
@@ -2538,10 +2470,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>Backup Wallet</source>
         <translation>Tag sikkerhedskopi af tegnebogen.</translation>
     </message>
@@ -2573,8 +2501,12 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>&amp;clear</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Skriv en PIVX adresse</translation>
+        <source>Enter address</source>
+        <translation>Skriv adresse</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Indtast Password</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -2657,10 +2589,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     <message>
         <source>TextLabel</source>
         <translation>Tekstmærke</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -2782,8 +2710,8 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Ingen aktiv Master node endnu</translation>
+        <source>N/A</source>
+        <translation>Ikke tilgængelig</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2806,16 +2734,16 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>&amp;clear</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>Besked</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Skriv adresse</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -2889,10 +2817,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Tegnebog</translation>
     </message>
@@ -2922,10 +2846,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     <message>
         <source>TextLabel</source>
         <translation>Tekstmærke</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -3498,10 +3418,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Tryk på Knappen</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Afslut</translation>
     </message>
@@ -3512,10 +3428,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>

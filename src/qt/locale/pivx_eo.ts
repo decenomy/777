@@ -1376,6 +1376,10 @@ Adreso: %4
         <translation>Malplenigi</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Skribu pasfrazon</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>La skribita pasfrazo estas nevalida.</translation>
     </message>

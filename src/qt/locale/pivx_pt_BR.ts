@@ -215,8 +215,8 @@
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nenhum MasterNOde ativo ainda</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -245,10 +245,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>por exemplo. John Doe</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>Digite um endereço PIVX</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -832,10 +828,6 @@ para 'Staking'</translation>
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>Address copied</source>
         <translation>Endereço copiado</translation>
     </message>
@@ -872,10 +864,6 @@ para 'Staking'</translation>
     <message>
         <source>No transactions</source>
         <translation>Nenhuma transação</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -1028,10 +1016,6 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
     <message>
         <source>Transaction Details</source>
         <translation>Detalhes da transação</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
     </message>
     <message>
         <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
@@ -1412,10 +1396,6 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
         <translation>Endereço</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Criar novo controlador de nó principal</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>Para criar um Masternode PIVX, você deve dedicar 10.000 PIV (a unidade do PIVX) à rede (no entanto, essas moedas ainda são suas e nunca deixarão sua posse). Você pode desativar o nó e desbloquear as moedas a qualquer momento.</translation>
     </message>
@@ -1424,16 +1404,8 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
         <translation>Verifique se você tem essa quantidade de moedas.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Definir o nome do Masternode</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PIV will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>A transação de 10.000 PIV será feita com um novo endereço vazio em sua carteira. O endereço é rotulado com o nome do nó principal.</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Definir o IP e porto de Masternode</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1442,10 +1414,6 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
     <message>
         <source>Enter IP address</source>
         <translation>Digite o endereço IP</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Digite o porto</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1480,10 +1448,6 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
         <translation>Número de porta inválido</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Falha na preparação do masternode.</translation>
-    </message>
-    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Arquivo masternode.conf inválido</translation>
     </message>
@@ -1492,56 +1456,12 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
         <translation>Erro ao analisar o arquivo masternode.conf</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Índice de saída de garantia inválido</translation>
-    </message>
-    <message>
         <source>Master node created!</source>
         <translation>Masternode criado!</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>O arquivo masternode.conf não existe</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>O endereço de recebimento não é válido, favor conferir novamente.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>A quantia a ser paga deve ser maior que 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>A quantia excede o seu saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>O total excede seu saldo quando a taxa de %1 transação é incluída.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Endereço duplicado encontrado, somente possível enviar uma vez a cada endereço por operação.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Criação da transação falhou!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>A transação foi rejeitada! Isso pode acontecer se algumas das moedas em sua carteira já tiverem sido gastas, como se você usasse uma cópia de wallet.dat e moedas tenham sido gastas na cópia, mas não marcadas como gastas aqui.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Erro: A carteira foi destravada apenas para anonimizar moedas.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Uma taxa %1 vezes maior que %2 por kB é considerada extremamente alta.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Erro: a carteira foi desbloqueada apenas para anonimizar moedas. Desbloqueio cancelado.</translation>
     </message>
 </context>
 <context>
@@ -1555,12 +1475,8 @@ Ele será iniciado automaticamente assim que a carteira tiver confirmações suf
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nenhum MasterNOde ativo ainda</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1599,7 +1515,7 @@ e votar no sistema de tesouraria recebendo uma recompensa periódica.</translati
     <message>
         <source>Are you sure you want to start masternode %1?
 </source>
-        <translation>Tem certeza de que deseja iniciar o masternode %1?
+        <translation>Tem certeza de que deseja iniciar o masternode %1? 
 
 </translation>
     </message>
@@ -1678,10 +1594,6 @@ Você tem certeza?</translation>
         <translation>Formulário</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Informação Masternode</translation>
-    </message>
-    <message>
         <source>Public Key:</source>
         <translation>Chave pública:</translation>
     </message>
@@ -1717,11 +1629,7 @@ Você tem certeza?</translation>
         <source>MISSING</source>
         <translation>FALTANDO</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Exportar dados para executar o Masternode em um servidor remoto</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
@@ -2109,8 +2017,8 @@ Endereço: %4
         <translation>Aperte o Botão</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nenhum MasterNOde ativo ainda</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>No transactions yet</source>
@@ -2125,10 +2033,6 @@ Endereço: %4
     <message>
         <source>Amount</source>
         <translation>Quantidade</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>Insira um endereço PIVX (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2417,10 +2321,6 @@ Endereço: %4
         <translation>Detalhes da transação</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
         <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
@@ -2529,10 +2429,6 @@ Endereço: %4
         <translation>Detalhes da transação</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Cancelar </translation>
     </message>
@@ -2574,6 +2470,10 @@ Endereço: %4
         <source>TextLabel</source>
         <translation>Rótulo</translation>
     </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Insira o endereço</translation>
+    </message>
     </context>
 <context>
     <name>SendWidget</name>
@@ -2609,10 +2509,6 @@ Endereço: %4
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>Backup Wallet</source>
         <translation>Carteira de backup</translation>
     </message>
@@ -2644,8 +2540,12 @@ Endereço: %4
         <translation>Limpar</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>Digite um endereço PIVX</translation>
+        <source>Enter address</source>
+        <translation>Insira o endereço</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Insira palavra-chave</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -2724,10 +2624,6 @@ Endereço: %4
     <message>
         <source>TextLabel</source>
         <translation>Rótulo</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -2861,8 +2757,8 @@ Endereço: %4
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nenhum MasterNOde ativo ainda</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -2884,16 +2780,16 @@ Endereço: %4
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Limpar</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>Mensagem</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Insira o endereço</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -2963,10 +2859,6 @@ Endereço: %4
         <translation>CheckBox</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Carteira</translation>
     </message>
@@ -2992,10 +2884,6 @@ Endereço: %4
     <message>
         <source>TextLabel</source>
         <translation>Rótulo</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -3504,10 +3392,6 @@ Endereço: %4
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Aperte o Botão</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Cancelar </translation>
     </message>
@@ -3518,10 +3402,6 @@ Endereço: %4
 </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Diálogo</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>

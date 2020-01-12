@@ -357,6 +357,10 @@
     </context>
 <context>
     <name>SettingsBitToolWidget</name>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Введіть кодове слово</translation>
+    </message>
     </context>
 <context>
     <name>SettingsConsoleWidget</name>

@@ -354,22 +354,6 @@
         <source>Address</source>
         <translation>Endereço</translation>
     </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>A quantidade a ser paga deve ser maior que 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>A quantia excede o seu saldo.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>A criação da transação falhou!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>A transação foi rejeitada! Isto pode acontecer se algumas de suas moedas na sua carteira já foram gastas, como por exemplo se você usou uma cópia do wallet.dat e as moedas foram gastas na cópia mas não marcadas como gastas aqui.</translation>
-    </message>
     </context>
 <context>
     <name>MasterNodesWidget</name>
@@ -504,6 +488,10 @@
     <message>
         <source>Clear</source>
         <translation>Limpar</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>Digite a sua senha</translation>
     </message>
     <message>
         <source>Allowed: 0-9,a-z,A-Z,</source>

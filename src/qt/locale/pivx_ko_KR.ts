@@ -203,8 +203,8 @@
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>지금은 활성화된 마스터 노드가 없습니다.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -233,10 +233,6 @@
     <message>
         <source>e.g. John Doe</source>
         <translation>예) 홍길동</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address</source>
-        <translation>PIVX 주소를 입력하세요.</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -789,10 +785,6 @@ for staking</source>
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>Address copied</source>
         <translation>주소가 복사되었습니다.</translation>
     </message>
@@ -829,10 +821,6 @@ for staking</source>
     <message>
         <source>No transactions</source>
         <translation>거래가 없음</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
@@ -955,10 +943,6 @@ for staking</source>
     <message>
         <source>Transaction Details</source>
         <translation>전송 상세내역</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
     </message>
     <message>
         <source>5000</source>
@@ -1263,24 +1247,12 @@ for staking</source>
         <translation>주소</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>새로운 마스터노드 컨트롤러 생성</translation>
-    </message>
-    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PIVX Masternode you must dedicate 10.000 PIV (the unit of PIVX) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;PIVX 마스터노드 생성을 위해서는 최소 10,000 PIV (PIVX 단위) 가 네트워크 상에 존재해야 합니다. (해당 코인들의 소유권은 그대로 유지되며 사라지지 않습니다) &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt; 언제든지 소유하고 있는 노드를 비활성화 시키거나 코인의 잠금상태를 해제할 수 있습니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>마스터노드 이름 지정</translation>
-    </message>
-    <message>
         <source>Enter IP address</source>
         <translation>IP 주소 입력</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Port 입력</translation>
     </message>
     <message>
         <source>CANCEL</source>
@@ -1314,46 +1286,6 @@ for staking</source>
         <source>masternode.conf file doesn't exists</source>
         <translation>masternode.conf 파일이 생성되지 않았습니다.</translation>
     </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>수신자 주소가 유효하지 않습니다. 다시 확인해주세요.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>지불 할 금액은 0보다 커야합니다.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>입력한 금액이 잔액을 초과합니다.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>%1 트랜잭션 수수료가 포함하면 현재 잔액을 초과합니다.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>중복된 주소를 발견했습니다. 각 주소는 전송 작업당 한 번씩만 보낼 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>트랜잭션 생성 실패!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>트랜잭션이 거부되었습니다! 지갑에 있는 코인 중 일부가 이미 사용된 경우일 수 있습니다. wallet.dat 사본을 사용하고 코인을 이미 사용하고 현재 여기에 표시되지 않은 경우에 이런 현상이 발생할 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>오류: 현재 지갑이 익명 처리를 위해 잠금해제 되어 있습니다. 익명화 및 스테이킹 전용을 해제하시고 다시 시도하세요.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>KB당 %1보다 %2배 많은 수수료는 너무 높은 수수료입니다.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>에러 : 현재 지갑은 코인 익명화를 위해서만 잠금해제되었습니다. 잠금해제가 취소됩니다.</translation>
-    </message>
 </context>
 <context>
     <name>MasterNodesWidget</name>
@@ -1366,12 +1298,8 @@ for staking</source>
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>지금은 활성화된 마스터 노드가 없습니다.</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>No active Masternode yet</source>
@@ -1958,8 +1886,8 @@ Address: %4
         <translation>누르기</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>지금은 활성화된 마스터 노드가 없습니다.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Convert back to PIV</source>
@@ -1982,10 +1910,6 @@ Address: %4
     <message>
         <source>Amount</source>
         <translation>금액</translation>
-    </message>
-    <message>
-        <source>Enter a PIVX address (e.g. %1)</source>
-        <translation>PIVX 주소를 입력하세요 (예 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2431,10 +2355,6 @@ Address: %4
         <translation>전송 상세내역</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>취소</translation>
     </message>
@@ -2527,10 +2447,6 @@ Address: %4
         <translation>전송 상세내역</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>취소</translation>
     </message>
@@ -2571,6 +2487,10 @@ Address: %4
     <message>
         <source>TextLabel</source>
         <translation>텍스트라벨</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>주소 입력</translation>
     </message>
     </context>
 <context>
@@ -2634,10 +2554,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>Backup Wallet</source>
         <translation>지갑 백업</translation>
     </message>
@@ -2669,8 +2585,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>지우기</translation>
     </message>
     <message>
-        <source>Enter a PIVX address</source>
-        <translation>PIVX 주소를 입력하세요.</translation>
+        <source>Enter address</source>
+        <translation>주소 입력</translation>
+    </message>
+    <message>
+        <source>Enter passphrase</source>
+        <translation>암호 입력</translation>
     </message>
     <message>
         <source>ENCRYPT</source>
@@ -2753,10 +2673,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>텍스트라벨</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -2874,8 +2790,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>지금은 활성화된 마스터 노드가 없습니다.</translation>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Active</source>
@@ -2897,16 +2813,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>지우기</translation>
     </message>
     <message>
         <source>Message</source>
         <translation>메세지</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>주소 입력</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -2980,10 +2896,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>지갑</translation>
     </message>
@@ -3013,10 +2925,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>텍스트라벨</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
@@ -3584,10 +3492,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>TextLabel</source>
         <translation>텍스트라벨</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>누르기</translation>
     </message>
     <message>
         <source>CANCEL</source>

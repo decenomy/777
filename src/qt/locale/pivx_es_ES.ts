@@ -406,6 +406,10 @@
         <translation>Importar dirección</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Introduzca clave de seguridad</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>La contraseña introducida es inválida</translation>
     </message>

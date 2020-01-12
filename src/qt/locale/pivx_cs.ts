@@ -148,6 +148,10 @@
         <source>TextLabel</source>
         <translation>TextPopisku</translation>
     </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
     </context>
 <context>
     <name>AskPassphraseDialog</name>
@@ -818,6 +822,10 @@
         <translation>TextPopisku</translation>
     </message>
     <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
@@ -1085,6 +1093,10 @@ Adresa: %4
     <message>
         <source>TextLabel</source>
         <translation>TextPopisku</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     </context>
 <context>
@@ -1398,6 +1410,10 @@ Adresa: %4
         <translation>Vymazat</translation>
     </message>
     <message>
+        <source>Enter passphrase</source>
+        <translation>Zadejte frázové heslo</translation>
+    </message>
+    <message>
         <source>The entered passphrase is invalid. </source>
         <translation>Zadané frázové heslo není validní.</translation>
     </message>
@@ -1541,6 +1557,10 @@ Adresa: %4
     <message>
         <source>TextLabel</source>
         <translation>TextPopisku</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Active</source>
