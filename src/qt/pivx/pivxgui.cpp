@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,6 +18,7 @@
 #include "qt/pivx/defaultdialog.h"
 #include "qt/pivx/settings/settingsfaqwidget.h"
 
+#include <QDesktopWidget>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QApplication>
@@ -31,6 +32,7 @@
 #define BASE_WINDOW_WIDTH 1200
 #define BASE_WINDOW_HEIGHT 740
 #define BASE_WINDOW_MIN_HEIGHT 620
+#define BASE_WINDOW_MIN_WIDTH 1100
 
 
 const QString PIVXGUI::DEFAULT_WALLET = "~Default";
@@ -41,8 +43,18 @@ PIVXGUI::PIVXGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
     /* Open CSS when configured */
     this->setStyleSheet(GUIUtil::loadStyleSheet());
-    this->setMinimumSize(BASE_WINDOW_WIDTH, BASE_WINDOW_MIN_HEIGHT);
-    GUIUtil::restoreWindowGeometry("nWindow", QSize(BASE_WINDOW_WIDTH, BASE_WINDOW_HEIGHT), this);
+    this->setMinimumSize(BASE_WINDOW_MIN_WIDTH, BASE_WINDOW_MIN_HEIGHT);
+
+
+    // Adapt screen size
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int adaptedHeight = (rec.height() < BASE_WINDOW_HEIGHT) ?  BASE_WINDOW_MIN_HEIGHT : BASE_WINDOW_HEIGHT;
+    int adaptedWidth = (rec.width() < BASE_WINDOW_WIDTH) ?  BASE_WINDOW_MIN_WIDTH : BASE_WINDOW_WIDTH;
+    GUIUtil::restoreWindowGeometry(
+            "nWindow",
+            QSize(adaptedWidth, adaptedHeight),
+            this
+    );
 
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
@@ -71,7 +83,7 @@ PIVXGUI::PIVXGUI(const NetworkStyle* networkStyle, QWidget* parent) :
     if(enableWallet){
 
         QFrame* centralWidget = new QFrame(this);
-        this->setMinimumWidth(BASE_WINDOW_WIDTH);
+        this->setMinimumWidth(BASE_WINDOW_MIN_WIDTH);
         this->setMinimumHeight(BASE_WINDOW_MIN_HEIGHT);
         QHBoxLayout* centralWidgetLayouot = new QHBoxLayout();
         centralWidget->setLayout(centralWidgetLayouot);

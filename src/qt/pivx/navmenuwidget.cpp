@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -162,6 +162,13 @@ void NavMenuWidget::onShowHideColdStakingChanged(bool show) {
     ui->btnColdStaking->setVisible(show);
     if (show)
         ui->scrollAreaNav->verticalScrollBar()->setValue(ui->btnColdStaking->y());
+}
+
+void NavMenuWidget::showEvent(QShowEvent *event) {
+    if (!init) {
+        init = true;
+        ui->scrollAreaNav->verticalScrollBar()->setValue(ui->btnDashboard->y());
+    }
 }
 
 void NavMenuWidget::updateButtonStyles(){

@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1336,15 +1336,12 @@ CAmount CWalletTx::GetLockedCredit() const
         // Skip spent coins
         if (pwallet->IsSpent(hashTx, i)) continue;
 
-        // Add delegated coins
-        nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE_DELEGATED);
-
         // Add locked coins
         if (pwallet->IsLockedCoin(hashTx, i)) {
-            nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
+            nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE_ALL);
         }
 
-        // Add masternode collaterals which are handled likc locked coins
+        // Add masternode collaterals which are handled like locked coins
         else if (fMasterNode && vout[i].nValue == 10000 * COIN) {
             nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
         }
