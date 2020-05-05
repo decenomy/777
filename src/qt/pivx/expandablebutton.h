@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,7 +57,7 @@ private Q_SLOTS:
 
     void on_pushButton_clicked(bool checked);
 
-    void mousePressEvent();
+    void innerMousePressEvent();
 private:
     Ui::ExpandableButton *ui;
     QString notExpandedText;

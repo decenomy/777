@@ -1,18 +1,9 @@
-// Copyright (c) 2019 The PIVX developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/pivx/settings/settingswidget.h"
 #include "qt/pivx/settings/forms/ui_settingswidget.h"
-#include "qt/pivx/settings/settingsbackupwallet.h"
-#include "qt/pivx/settings/settingsbittoolwidget.h"
-#include "qt/pivx/settings/settingswalletrepairwidget.h"
-#include "qt/pivx/settings/settingswalletoptionswidget.h"
-#include "qt/pivx/settings/settingsmainoptionswidget.h"
-#include "qt/pivx/settings/settingsdisplayoptionswidget.h"
-#include "qt/pivx/settings/settingsmultisendwidget.h"
-#include "qt/pivx/settings/settingsinformationwidget.h"
-#include "qt/pivx/settings/settingsconsolewidget.h"
 #include "qt/pivx/qtutils.h"
 #include "qt/pivx/defaultdialog.h"
 #include "optionsmodel.h"
@@ -85,6 +76,9 @@ SettingsWidget::SettingsWidget(PIVXGUI* parent) :
         ui->pushButtonTools5,
     };
 
+    /* disable multisend for now */
+    ui->pushButtonFile3->setVisible(false);
+
     menus.insert(ui->pushButtonFile, ui->fileButtonsWidget);
     menus.insert(ui->pushButtonConfiguration, ui->configurationButtonsWidget);
     menus.insert(ui->pushButtonOptions, ui->optionsButtonsWidget);
@@ -99,7 +93,7 @@ SettingsWidget::SettingsWidget(PIVXGUI* parent) :
     settingsWalletOptionsWidget = new SettingsWalletOptionsWidget(window, this);
     settingsMainOptionsWidget = new SettingsMainOptionsWidget(window, this);
     settingsDisplayOptionsWidget = new SettingsDisplayOptionsWidget(window, this);
-    settingsMultisendWidget = new SettingsMultisendWidget(this);
+    //settingsMultisendWidget = new SettingsMultisendWidget(this); // no visible for now
     settingsInformationWidget = new SettingsInformationWidget(window, this);
     settingsConsoleWidget = new SettingsConsoleWidget(window, this);
 
@@ -111,7 +105,7 @@ SettingsWidget::SettingsWidget(PIVXGUI* parent) :
     ui->stackedWidgetContainer->addWidget(settingsWalletOptionsWidget);
     ui->stackedWidgetContainer->addWidget(settingsMainOptionsWidget);
     ui->stackedWidgetContainer->addWidget(settingsDisplayOptionsWidget);
-    ui->stackedWidgetContainer->addWidget(settingsMultisendWidget);
+    //ui->stackedWidgetContainer->addWidget(settingsMultisendWidget);
     ui->stackedWidgetContainer->addWidget(settingsInformationWidget);
     ui->stackedWidgetContainer->addWidget(settingsConsoleWidget);
     ui->stackedWidgetContainer->setCurrentWidget(settingsBackupWallet);
@@ -154,8 +148,9 @@ SettingsWidget::SettingsWidget(PIVXGUI* parent) :
     connect(settingsExportCsvWidget, &SettingsExportCSV::message,this, &SettingsWidget::message);
     connect(settingsExportCsvWidget, &SettingsExportCSV::showHide, this, &SettingsWidget::showHide);
     connect(settingsExportCsvWidget, &SettingsExportCSV::execDialog, this, &SettingsWidget::execDialog);
-    connect(settingsMultisendWidget, &SettingsMultisendWidget::showHide, this, &SettingsWidget::showHide);
-    connect(settingsMultisendWidget, &SettingsMultisendWidget::message, this, &SettingsWidget::message);
+    // no visible for now
+    //connect(settingsMultisendWidget, &SettingsMultisendWidget::showHide, this, &SettingsWidget::showHide);
+    //connect(settingsMultisendWidget, &SettingsMultisendWidget::message, this, &SettingsWidget::message);
     connect(settingsMainOptionsWidget, &SettingsMainOptionsWidget::message, this, &SettingsWidget::message);
     connect(settingsDisplayOptionsWidget, &SettingsDisplayOptionsWidget::message, this, &SettingsWidget::message);
     connect(settingsWalletOptionsWidget, &SettingsWalletOptionsWidget::message, this, &SettingsWidget::message);
@@ -215,7 +210,7 @@ void SettingsWidget::loadWalletModel(){
     this->settingsExportCsvWidget->setWalletModel(this->walletModel);
     this->settingsSingMessageWidgets->setWalletModel(this->walletModel);
     this->settingsBitToolWidget->setWalletModel(this->walletModel);
-    this->settingsMultisendWidget->setWalletModel(this->walletModel);
+    //this->settingsMultisendWidget->setWalletModel(this->walletModel); no visible for now
     this->settingsDisplayOptionsWidget->setWalletModel(this->walletModel);
 }
 

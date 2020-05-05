@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -85,7 +85,7 @@ static std::string Translate(const char* psz)
     return QCoreApplication::translate("pivx-core", psz).toStdString();
 }
 
-static QString GetLangTerritory()
+static QString GetLangTerritory(bool forceLangFromSetting = false)
 {
     QSettings settings;
     // Get desired locale (e.g. "de_DE")
@@ -97,11 +97,11 @@ static QString GetLangTerritory()
         lang_territory = lang_territory_qsettings;
     // 3) -lang command line argument
     lang_territory = QString::fromStdString(GetArg("-lang", lang_territory.toStdString()));
-    return lang_territory;
+    return (forceLangFromSetting) ? lang_territory_qsettings : lang_territory;
 }
 
 /** Set up translations */
-static void initTranslations(QTranslator& qtTranslatorBase, QTranslator& qtTranslator, QTranslator& translatorBase, QTranslator& translator)
+static void initTranslations(QTranslator& qtTranslatorBase, QTranslator& qtTranslator, QTranslator& translatorBase, QTranslator& translator, bool forceLangFromSettings = false)
 {
     // Remove old translators
     QApplication::removeTranslator(&qtTranslatorBase);
@@ -111,7 +111,7 @@ static void initTranslations(QTranslator& qtTranslatorBase, QTranslator& qtTrans
 
     // Get desired locale (e.g. "de_DE")
     // 1) System default language
-    QString lang_territory = GetLangTerritory();
+    QString lang_territory = GetLangTerritory(forceLangFromSettings);
 
     // Convert to "de" only by truncating "_DE"
     QString lang = lang_territory;
@@ -216,7 +216,7 @@ public Q_SLOTS:
     void shutdownResult(int retval);
     /// Handle runaway exceptions. Shows a message box with the problem and quits the program.
     void handleRunawayException(const QString& message);
-    void updateTranslation();
+    void updateTranslation(bool forceLangFromSettings = false);
 
 Q_SIGNALS:
     void requestedInitialize();
@@ -382,7 +382,7 @@ bool BitcoinApplication::createTutorialScreen()
     WelcomeContentWidget* widget = new WelcomeContentWidget();
 
     connect(widget, &WelcomeContentWidget::onLanguageSelected, [this](){
-        updateTranslation();
+        updateTranslation(true);
     });
 
     widget->exec();
@@ -391,9 +391,9 @@ bool BitcoinApplication::createTutorialScreen()
     return ret;
 }
 
-void BitcoinApplication::updateTranslation(){
+void BitcoinApplication::updateTranslation(bool forceLangFromSettings){
     // Re-initialize translations after change them
-    initTranslations(this->qtTranslatorBase, this->qtTranslator, this->translatorBase, this->translator);
+    initTranslations(this->qtTranslatorBase, this->qtTranslator, this->translatorBase, this->translator, forceLangFromSettings);
 }
 
 void BitcoinApplication::startThread()
@@ -420,6 +420,10 @@ void BitcoinApplication::startThread()
 
 void BitcoinApplication::parameterSetup()
 {
+    // Default printtoconsole to false for the GUI. GUI programs should not
+    // print to the console unnecessarily.
+    SoftSetBoolArg("-printtoconsole", false);
+
     InitLogging();
     InitParameterInteraction();
 }

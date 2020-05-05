@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -144,7 +144,7 @@ void SettingsDisplayOptionsWidget::onResetClicked()
 void SettingsDisplayOptionsWidget::setMapper(QDataWidgetMapper *mapper)
 {
     mapper->addMapping(ui->comboBoxDigits, OptionsModel::Digits);
-    mapper->addMapping(ui->comboBoxLanguage, OptionsModel::Language);
+    mapper->addMapping(ui->comboBoxLanguage, OptionsModel::Language, "currentData");
     mapper->addMapping(ui->comboBoxUnit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->pushButtonSwitchBalance, OptionsModel::HideZeroBalances);
 #ifdef USE_QTCHARTS
