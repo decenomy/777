@@ -1572,6 +1572,12 @@ and vote on the treasury system receiving a periodic reward.</source>
         <translation>Impossible de modifier le masternode, portefeuille verrouillé</translation>
     </message>
     <message>
+        <source>Cannot start masternode, the collateral transaction has not been confirmed by the network yet.
+Please wait few more minutes (masternode collaterals require %1 confirmations).</source>
+        <translation>Impossible de démarrer le masternode, la transaction du dépôt de garantie n'a pas encore été confirmée par le réseau.
+S'il vous plaît attendez quelques minutes de plus (le dépôt de garantie du masternode requiert %1 confirmations).</translation>
+    </message>
+    <message>
         <source>Background task is being executed, please wait</source>
         <translation>Une tâche en arrière plan est en cours d'exécution, attendez SVP</translation>
     </message>
@@ -3327,7 +3333,15 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <source>SAVE</source>
         <translation>SAUVEGARDER</translation>
     </message>
-    </context>
+    <message>
+        <source>Fee too high. Must be below: %1</source>
+        <translation>Frais trop élevés. Doit être en dessous de: %1</translation>
+    </message>
+    <message>
+        <source>Fee too low. Must be at least: %1</source>
+        <translation>Frais trop bas. Doit être au dessus de: %1</translation>
+    </message>
+</context>
 <context>
     <name>SendMultiRow</name>
     <message>

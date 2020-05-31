@@ -208,7 +208,7 @@
     <name>AddressesWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formulasz</translation>
     </message>
     <message>
         <source>Send</source>
@@ -460,7 +460,7 @@ do stakingu</translation>
     <name>CSRow</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Savings</source>
@@ -642,19 +642,19 @@ do stakingu</translation>
     </message>
     <message>
         <source>highest</source>
-        <translation>Najwyższy</translation>
+        <translation>najwyższy</translation>
     </message>
     <message>
         <source>higher</source>
-        <translation>Wyższy</translation>
+        <translation>wyższy</translation>
     </message>
     <message>
         <source>high</source>
-        <translation>Wysoki</translation>
+        <translation>wysoki</translation>
     </message>
     <message>
         <source>medium-high</source>
-        <translation>Średnio-wysoki</translation>
+        <translation>średnio-wysoki</translation>
     </message>
     <message>
         <source>medium</source>
@@ -687,6 +687,10 @@ do stakingu</translation>
     <message>
         <source>yes</source>
         <translation>tak</translation>
+    </message>
+    <message>
+        <source>delegated to %1 for cold staking</source>
+        <translation>przekazane do %1 dla cold staking</translation>
     </message>
     <message>
         <source>no</source>
@@ -826,12 +830,16 @@ stake w Twoim imieniu, podczas gdy klucze są bezpiecznie offline.</translation>
         <translation>Brak dostępnych kontaktów, możesz przejść do ekranu kontaktów i tam dodać!</translation>
     </message>
     <message>
+        <source>Cannot send delegation, wallet locked</source>
+        <translation>Nie można przekazać delegacji, portfel zablokowany</translation>
+    </message>
+    <message>
         <source>Cold staking is networkely disabled</source>
         <translation>Cold staking jest wyłączony przez sieć</translation>
     </message>
     <message>
         <source>Invalid entry</source>
-        <translation>niewłaściwy wpis</translation>
+        <translation>Niewłaściwy wpis</translation>
     </message>
     <message>
         <source>Invalid entry, minimum delegable amount is </source>
@@ -960,7 +968,7 @@ adres</translation>
     <name>ContactDropdownRow</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Bob Allen</source>
@@ -975,7 +983,7 @@ adres</translation>
     <name>DashboardWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Transactions</source>
@@ -995,7 +1003,7 @@ adres</translation>
     </message>
     <message>
         <source>Staking Rewards</source>
-        <translation>nagroda Staking</translation>
+        <translation>Nagroda Staking</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1015,7 +1023,7 @@ adres</translation>
     </message>
     <message>
         <source>Sort by</source>
-        <translation>sortuj</translation>
+        <translation>Sortuj</translation>
     </message>
     <message>
         <source>Days</source>
@@ -1221,7 +1229,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     </message>
     <message>
         <source>Usage:</source>
-        <translation>użycie:</translation>
+        <translation>Użycie:</translation>
     </message>
     <message>
         <source>command-line options</source>
@@ -1238,6 +1246,10 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <message>
         <source>Show splash screen on startup (default: %u)</source>
         <translation>Pokaż ekran powitalny podczas uruchamiania (domyślnie: %u )</translation>
+    </message>
+    <message>
+        <source>Hide QT staking charts on startup (default: %u)</source>
+        <translation>Ukryj wykresy staking QT przy uruchomieniu (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
@@ -1346,14 +1358,14 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     </message>
     <message>
         <source>Staking Only</source>
-        <translation>tylko Staking</translation>
+        <translation>Tylko Staking</translation>
     </message>
 </context>
 <context>
     <name>MNRow</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
 </context>
 <context>
@@ -1469,6 +1481,10 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Niepoprawny wskaźnik wyjściowy zabezpieczenia</translation>
     </message>
     <message>
+        <source>Master node created! Wait %1 confirmations before starting it.</source>
+        <translation>Utworzono węzeł główny! Poczekaj %1 potwierdzeń przed uruchomieniem.</translation>
+    </message>
+    <message>
         <source>Cannot send collateral transaction.
 
 %1</source>
@@ -1493,7 +1509,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <name>MasterNodesWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1564,6 +1580,10 @@ i głosuj na system skarbu otrzymujący okresową nagrodę.</translation>
         <translation>Zadanie w tle jest wykonywane, proszę czekać</translation>
     </message>
     <message>
+        <source>Start ALL masternodes failed</source>
+        <translation>Uruchomienie WSZYSTKICH masternode nie powiodło się</translation>
+    </message>
+    <message>
         <source>Wallet unlock cancelled</source>
         <translation>Anulowanie odblokowania portfela</translation>
     </message>
@@ -1578,6 +1598,14 @@ i głosuj na system skarbu otrzymujący okresową nagrodę.</translation>
     <message>
         <source>All Masternodes started!</source>
         <translation>Wszystkie Masternodes wystartowały!</translation>
+    </message>
+    <message>
+        <source>Cannot show Masternode information, wallet locked</source>
+        <translation>Nie można wyświetlić informacji o masternode, portfel zablokowany</translation>
+    </message>
+    <message>
+        <source>Masternode data copied to the clipboard.</source>
+        <translation>Dane Masternode skopiowane do schowka.</translation>
     </message>
     <message>
         <source>Remote Masternode Data</source>
@@ -1628,6 +1656,10 @@ Jesteś pewny?</translation>
         <translation>plik masternode.conf nie istnieje</translation>
     </message>
     <message>
+        <source>Cannot create Masternode controller, wallet locked</source>
+        <translation>Nie można utworzyć kontrolera Masternode, portfel zablokowany</translation>
+    </message>
+    <message>
         <source>Not enough balance to create a masternode, 10,000 PIV required.</source>
         <translation>Nie wystarczające saldo do utworzenia masternode, wymagane 10000 PIV.</translation>
     </message>
@@ -1640,7 +1672,7 @@ Jesteś pewny?</translation>
     <name>MnInfoDialog</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Masternode Information</source>
@@ -1691,11 +1723,11 @@ Jesteś pewny?</translation>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Savings</source>
-        <translation>oszczędności</translation>
+        <translation>Oszczędności</translation>
     </message>
     <message>
         <source>Jan. 19, 2019</source>
@@ -1710,7 +1742,7 @@ Jesteś pewny?</translation>
     <name>NavMenuWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>V 1.0.0</source>
@@ -2017,7 +2049,7 @@ https://www.transifex.com/pivx-project/pivx-project-translations </translation>
     </message>
     <message>
         <source>Any</source>
-        <translation>jakikolwiek</translation>
+        <translation>Jakikolwiek</translation>
     </message>
     <message>
         <source>default</source>
@@ -2457,6 +2489,10 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <translation>Cold Staking</translation>
     </message>
     <message>
+        <source>Cold Staking Contact</source>
+        <translation>Cold Staking Kontakt</translation>
+    </message>
+    <message>
         <source>Hidden</source>
         <translation>Ukryty</translation>
     </message>
@@ -2471,6 +2507,30 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     <message>
         <source>Contacts</source>
         <translation>Kontakty</translation>
+    </message>
+    <message>
+        <source>Delegators</source>
+        <translation>Delegaci</translation>
+    </message>
+    <message>
+        <source>Staking Contacts</source>
+        <translation>Kontakty Staking</translation>
+    </message>
+    <message>
+        <source>Date desc</source>
+        <translation>Data nowe</translation>
+    </message>
+    <message>
+        <source>Date asc</source>
+        <translation>Data stare</translation>
+    </message>
+    <message>
+        <source>Amount desc</source>
+        <translation>Kwoty najniższe</translation>
+    </message>
+    <message>
+        <source>Amount asc</source>
+        <translation>Kwoty najwyższe</translation>
     </message>
     <message>
         <source>Received</source>
@@ -2512,7 +2572,19 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <source>Delegations</source>
         <translation>Delegacje</translation>
     </message>
-    </context>
+    <message>
+        <source>by Label</source>
+        <translation>według etykiety</translation>
+    </message>
+    <message>
+        <source>by Address</source>
+        <translation>według adresu</translation>
+    </message>
+    <message>
+        <source>by Date</source>
+        <translation>według daty</translation>
+    </message>
+</context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -2549,7 +2621,7 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     </message>
     <message>
         <source>Startup time</source>
-        <translation>Czas startupu</translation>
+        <translation>Czas startup</translation>
     </message>
     <message>
         <source>Network</source>
@@ -2947,7 +3019,7 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     <name>ReceiveWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -3191,6 +3263,10 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <translation>ZAPISZ</translation>
     </message>
     <message>
+        <source>RESET</source>
+        <translation>RESET</translation>
+    </message>
+    <message>
         <source>Invalid address</source>
         <translation>Nieprawidłowy adres</translation>
     </message>
@@ -3199,7 +3275,7 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Transaction Details</source>
@@ -3212,6 +3288,10 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     <message>
         <source>Recommended</source>
         <translation>Zalecane</translation>
+    </message>
+    <message>
+        <source>PIV/kilobyte</source>
+        <translation>PIV/kilobyte</translation>
     </message>
     <message>
         <source>0.00 KB</source>
@@ -3234,6 +3314,10 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <translation>Dostosuj opłatę</translation>
     </message>
     <message>
+        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
+        <translation>Dostosuj opłatę transakcyjną, w zależności od wartości opłaty Twoja transakcja może zostać uwzględniona szybciej w blockchain.</translation>
+    </message>
+    <message>
         <source>Normal</source>
         <translation>Normalna</translation>
     </message>
@@ -3249,7 +3333,15 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <source>SAVE</source>
         <translation>ZAPISZ</translation>
     </message>
-    </context>
+    <message>
+        <source>Fee too high. Must be below: %1</source>
+        <translation>Opłata za wysoka. Musi być poniżej: %1</translation>
+    </message>
+    <message>
+        <source>Fee too low. Must be at least: %1</source>
+        <translation>Opłata za niska. Musi być co najmniej: %1</translation>
+    </message>
+</context>
 <context>
     <name>SendMultiRow</name>
     <message>
@@ -3328,6 +3420,14 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
         <translation>Ostrzeżenie!</translation>
     </message>
     <message>
+        <source>The change address doesn't belong to this wallet.
+
+Do you want to continue?</source>
+        <translation>Adres reszty nie należy do tego portfela.
+
+Czy chcesz kontynuować?</translation>
+    </message>
+    <message>
         <source>Customize Fee</source>
         <translation>Dostosuj opłatę</translation>
     </message>
@@ -3342,6 +3442,10 @@ historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</tra
     <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Nieprawidłowy wpis, poprzednie wpisy muszą być ważne przed dodaniem nowego</translation>
+    </message>
+    <message>
+        <source>Possibly spend coins delegated for cold-staking (currently available: %1</source>
+        <translation>Maksymalna kwota delegowania do cold-staking (obecnie dostępne: %1</translation>
     </message>
     <message>
         <source>Invalid entry</source>
@@ -3763,7 +3867,7 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
     <name>SettingsDisplayOptionsWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -3826,7 +3930,15 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
     <name>SettingsExportCSV</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>Export Accounting</source>
+        <translation>Wyeksportuj Księgowość</translation>
+    </message>
+    <message>
+        <source>Export your wallet's accounting data to a csv file.</source>
+        <translation>Wyeksportuj Księgowość portfela do pliku csv.</translation>
     </message>
     <message>
         <source>Where</source>
@@ -3837,8 +3949,28 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
         <translation>Wybierz katalog...</translation>
     </message>
     <message>
+        <source>Export Address Book</source>
+        <translation>Eksportuj książkę adresową</translation>
+    </message>
+    <message>
+        <source>Export CSV</source>
+        <translation>Eksportuj CSV</translation>
+    </message>
+    <message>
         <source>Export Address List</source>
         <translation>Eksportuj listę adresów</translation>
+    </message>
+    <message>
+        <source>PIVX_tx_csv_export(*.csv)</source>
+        <translation>PIVX_tx_csv_export(*.csv)</translation>
+    </message>
+    <message>
+        <source>PIVX_addresses_csv_export(*.csv)</source>
+        <translation>PIVX_addresses_csv_export(*.csv)</translation>
+    </message>
+    <message>
+        <source>Please select a folder to export the csv file first.</source>
+        <translation>Najpierw wybierz folder, aby wyeksportować plik csv.</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -3868,7 +4000,35 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
         <source>ID</source>
         <translation>ID</translation>
     </message>
-    </context>
+    <message>
+        <source>Exporting Successful
+The transaction history was successfully saved to %1.</source>
+        <translation>Wyeksportowano pomyślne
+Historia transakcji została pomyślnie zapisana w %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Failed
+There was an error trying to save the transaction history to %1.</source>
+        <translation>Eksportowanie nie powiodło się
+Wystąpił błąd podczas próby zapisania historii transakcji w %1.</translation>
+    </message>
+    <message>
+        <source>No available addresses to export under the selected filter</source>
+        <translation>Brak dostępnych adresów do wyeksportowania pod wybranym filtrem</translation>
+    </message>
+    <message>
+        <source>Exporting Successful
+The address book was successfully saved to %1.</source>
+        <translation>Wyeksportowano pomyślne
+Książka adresowa została pomyślnie zapisana w %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Failed
+There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Eksportowanie nie powiodło się
+Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj ponownie</translation>
+    </message>
+</context>
 <context>
     <name>SettingsFaqWidget</name>
     <message>
@@ -4022,7 +4182,7 @@ do zPIV automatycznie?</translation>
     <name>SettingsInformationWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Network Monitor</source>
@@ -4249,7 +4409,7 @@ Jesteś pewny?
     <name>SettingsMultisendWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -4308,6 +4468,10 @@ Jesteś pewny?
         <translation>Wyczyść wszystko nie powiodło się, nie można zlokalizować adresu w pliku portfela</translation>
     </message>
     <message>
+        <source>Cannot add multisend recipient, wallet locked</source>
+        <translation>Nie można dodać odbiorcy multisend, portfel zablokowany</translation>
+    </message>
+    <message>
         <source>The entered address: %1 is invalid.
 Please check the address and try again.</source>
         <translation>Wprowadzony adres: %1 jest nieprawidłowy.
@@ -4360,7 +4524,7 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <name>SettingsSignMessageWidgets</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -4566,7 +4730,7 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <name>SettingsWalletRepairWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -4661,7 +4825,7 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <name>SettingsWidget</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Wallet Data</source>
@@ -4674,6 +4838,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <message>
         <source>Multisend</source>
         <translation>Multisend</translation>
+    </message>
+    <message>
+        <source>Export Accounting</source>
+        <translation>Wyeksportuj Księgowość</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -4917,6 +5085,10 @@ Jesteś pewny?
         <source>%n active connection(s)</source>
         <translation><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform></translation>
     </message>
+    <message>
+        <source>Synchronized - Block: %1</source>
+        <translation>Zsynchronizowano - Blok: %1</translation>
+    </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
         <translation><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform></translation>
@@ -4938,6 +5110,26 @@ Jesteś pewny?
         <translation><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform></translation>
     </message>
     <message>
+        <source>Wallet Upgrade</source>
+        <translation>Aktualizacja portfela</translation>
+    </message>
+    <message>
+        <source>Upgrading to HD wallet will improve
+the wallet's reliability and security.
+
+
+NOTE: after the upgrade, a new
+backup will be created.
+</source>
+        <translation>Uaktualnienie do portfela HD ulegnie poprawie
+niezawodność i bezpieczeństwo portfela.
+
+
+UWAGA: po aktualizacji nowa
+kopia zapasowa zostanie utworzona.
+</translation>
+    </message>
+    <message>
         <source>Upgrade Wallet</source>
         <translation>Uaktualnij portfel</translation>
     </message>
@@ -4946,8 +5138,28 @@ Jesteś pewny?
         <translation>Anulowanie odblokowania portfela</translation>
     </message>
     <message>
+        <source>Tor Active: %1</source>
+        <translation>Tor Aktywny: %1</translation>
+    </message>
+    <message>
+        <source>Tor Disabled</source>
+        <translation>Tor Nieaktywny</translation>
+    </message>
+    <message>
         <source>Available (Locked included)</source>
         <translation>Dostępne (ale Zablokowane)</translation>
+    </message>
+    <message>
+        <source>The wallet has been successfully upgraded to HD.</source>
+        <translation>Portfel został pomyślnie uaktualniony do HD.</translation>
+    </message>
+    <message>
+        <source>It is advised to make a backup.</source>
+        <translation>Zaleca się wykonanie kopii zapasowej.</translation>
+    </message>
+    <message>
+        <source>Do you wish to backup now?</source>
+        <translation>Czy chcesz teraz wykonać kopię zapasową?</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -4965,7 +5177,23 @@ Jesteś pewny?
         <source>Backup creation failed</source>
         <translation>Tworzenie kopii zapasowej nie powiodło się</translation>
     </message>
-    </context>
+    <message>
+        <source>no file selected</source>
+        <translation>nie wybrano pliku</translation>
+    </message>
+    <message>
+        <source>Wallet upgraded successfully, but no backup created.</source>
+        <translation>Portfel został uaktualniony pomyślnie, ale nie utworzono kopii zapasowej.</translation>
+    </message>
+    <message>
+        <source>WARNING: remember to make a copy of your wallet.dat file!</source>
+        <translation>UWAGA: pamiętaj, aby zrobić kopię pliku wallet.dat!</translation>
+    </message>
+    <message>
+        <source>Upgrade Wallet Error</source>
+        <translation>Błąd aktualizacji portfela</translation>
+    </message>
+</context>
 <context>
     <name>TrafficGraphWidget</name>
     <message>
@@ -5269,6 +5497,10 @@ Jesteś pewny?
     <message>
         <source>PIV Stake on behalf of</source>
         <translation>PIV Stake w imieniu</translation>
+    </message>
+    <message>
+        <source>Stake delegation spent by</source>
+        <translation>Delegacja Stake wydana przez</translation>
     </message>
     <message>
         <source>Mined</source>
@@ -5633,6 +5865,10 @@ Portfel PIVX Core</translation>
     <message>
         <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
         <translation>Błąd: Znaleziono nieobsługiwany argument -socks. Ustawienie wersji SOCKS nie jest już możliwe, obsługiwane są tylko serwery proxy SOCKS5.</translation>
+    </message>
+    <message>
+        <source>Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories.</source>
+        <translation>Wyklucz informacje debugowania dla kategorii. Może być używany w połączeniu z opcją -debug=1, aby wyświetlać dzienniki debugowania dla wszystkich kategorii oprócz jednej lub więcej określonych kategorii.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -6271,6 +6507,10 @@ Portfel PIVX Core</translation>
         <translation>Ładowanie adresów ...</translation>
     </message>
     <message>
+        <source>Loading banlist...</source>
+        <translation>Ładowanie listy banów ...</translation>
+    </message>
+    <message>
         <source>Loading block index...</source>
         <translation>Ładowanie indeksu bloków ...</translation>
     </message>
@@ -6305,6 +6545,10 @@ Portfel PIVX Core</translation>
     <message>
         <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
         <translation>Lookup (): Niepoprawny -proxy adres lub nazwa hosta: '%s'</translation>
+    </message>
+    <message>
+        <source>MNs synchronization pending...</source>
+        <translation>Trwa synchronizacja MN ...</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
@@ -6347,6 +6591,10 @@ Portfel PIVX Core</translation>
         <translation>Liczba lokalizacji kopii zapasowych do zachowania (domyślnie: %d)</translation>
     </message>
     <message>
+        <source>On first run, create a legacy wallet instead of a HD wallet</source>
+        <translation>Przy pierwszym uruchomieniu utwórz starszy portfel zamiast portfela HD</translation>
+    </message>
+    <message>
         <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
         <translation>Akceptuj tylko wbudowane punkty kontrolne łańcucha bloków (domyślnie: %u)</translation>
     </message>
@@ -6361,6 +6609,10 @@ Portfel PIVX Core</translation>
     <message>
         <source>Password for JSON-RPC connections</source>
         <translation>Hasło dla połączeń JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Peers are being disconnected due time differences.</source>
+        <translation>Peers są rozłączani z powodu różnic czasowych.</translation>
     </message>
     <message>
         <source>Unable to find transaction containing mint %s</source>
@@ -6387,8 +6639,16 @@ Portfel PIVX Core</translation>
         <translation>Sprawdź, czy data i godzina komputera są poprawne! Jeśli zegar jest nieprawidłowy, PIVX Core nie będzie działać poprawnie.</translation>
     </message>
     <message>
+        <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
+        <translation>Określ lokalizację pliku dziennika debugowania: może to być ścieżka bezwzględna lub ścieżka względem katalogu danych (domyślnie: %s)</translation>
+    </message>
+    <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>Nie można odwzorować adresu -%s: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot upgrade to HD wallet (already running HD support). Version: %d</source>
+        <translation>Nie można uaktualnić do portfela HD (już działa obsługa HD). Wersja: %d</translation>
     </message>
     <message>
         <source>Need destination or change address because change is not exact</source>
@@ -6643,6 +6903,10 @@ Portfel PIVX Core</translation>
         <translation>Nie można wygenerować klucza początkowego</translation>
     </message>
     <message>
+        <source>Unable to generate keys</source>
+        <translation>Nie można wygenerować kluczy</translation>
+    </message>
+    <message>
         <source>Unable to sign spork message, wrong key?</source>
         <translation>Nie można podpisać wiadomości „Spork”, zły klucz?</translation>
     </message>
@@ -6653,6 +6917,10 @@ Portfel PIVX Core</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Nieznana sieć określona w -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unsupported logging category %s=%s.</source>
+        <translation>Nieobsługiwana kategoria rejestrowania %s = %s.</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
@@ -6743,6 +7011,10 @@ Portfel PIVX Core</translation>
         <translation>Opcje powiadomień ZeroMQ:</translation>
     </message>
     <message>
+        <source>Zerocoin minting available only on regtest</source>
+        <translation>Zerocoin minting dostępne tylko podczas testu regtest</translation>
+    </message>
+    <message>
         <source>Zerocoin options:</source>
         <translation>Opcje Zerocoin:</translation>
     </message>
@@ -6759,7 +7031,7 @@ Portfel PIVX Core</translation>
     <name>send</name>
     <message>
         <source>Form</source>
-        <translation>Forma</translation>
+        <translation>Formularz</translation>
     </message>
     <message>
         <source>Send</source>
@@ -6768,6 +7040,10 @@ Portfel PIVX Core</translation>
     <message>
         <source>TextLabel</source>
         <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>Include delegated</source>
+        <translation>Uwzględnij delegowane</translation>
     </message>
     <message>
         <source>PushButton</source>

@@ -251,6 +251,10 @@
         <translation>örn. Ad Soyad</translation>
     </message>
     <message>
+        <source>Enter PIVX address</source>
+        <translation>Bir PIVX adresi girin</translation>
+    </message>
+    <message>
         <source>SAVE</source>
         <translation>KAYDET</translation>
     </message>
@@ -368,12 +372,28 @@ Stake için kaldırın</translation>
         <translation>cüzdan şifrelemesini onayla</translation>
     </message>
     <message>
+        <source>WARNING</source>
+        <translation>UYARI</translation>
+    </message>
+    <message>
+        <source>If you encrypt your wallet and lose your passphrase, you will</source>
+        <translation>Cüzdanınızı şifreler ve şifreyi kaybederseniz</translation>
+    </message>
+    <message>
+        <source>LOSE ALL OF YOUR PIV</source>
+        <translation>BUTUN PIV 'LERI KAYBEDERSINIZ</translation>
+    </message>
+    <message>
         <source>ENCRYPT</source>
         <translation>ŞİFRELE</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>WARNING: The Caps Lock key is on!</source>
+        <translation>UYARI: Caps Lock tuşu açık!</translation>
     </message>
     <message>
         <source>PIVX will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
@@ -488,6 +508,10 @@ Stake için kaldırın</translation>
         <translation>Koin Seçimi</translation>
     </message>
     <message>
+        <source>Select PIV Outputs to Spend</source>
+        <translation>Harcama için PIV Çıktılarını Seçin</translation>
+    </message>
+    <message>
         <source>Dust:</source>
         <translation>Dust</translation>
     </message>
@@ -588,6 +612,30 @@ Stake için kaldırın</translation>
         <translation>Bu fonksiyonu kullanmak için "Liste moduna" geçin.</translation>
     </message>
     <message>
+        <source>Quantity Copied</source>
+        <translation>Tutar Kopyalandı</translation>
+    </message>
+    <message>
+        <source>Amount Copied</source>
+        <translation>Miktar Kopyalandı</translation>
+    </message>
+    <message>
+        <source>Fee Copied</source>
+        <translation>İşlem ücreti Kopyalandı</translation>
+    </message>
+    <message>
+        <source>After Fee Copied</source>
+        <translation>İşlem Ücretinden Kalan Kopyalandı</translation>
+    </message>
+    <message>
+        <source>Bytes Copied</source>
+        <translation>Baytlar Kopyalandı</translation>
+    </message>
+    <message>
+        <source>Change Copied</source>
+        <translation>Değişiklik Kopyalandı</translation>
+    </message>
+    <message>
         <source>highest</source>
         <translation>en üst</translation>
     </message>
@@ -634,6 +682,10 @@ Stake için kaldırın</translation>
     <message>
         <source>yes</source>
         <translation>evet</translation>
+    </message>
+    <message>
+        <source>delegated to %1 for cold staking</source>
+        <translation>soğuk stakin  için %1'e devredildi</translation>
     </message>
     <message>
         <source>no</source>
@@ -695,6 +747,14 @@ Stake için kaldırın</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
+        <source>Owner address (optional, if empty a new address will be created)</source>
+        <translation>Sahibinin adresi (isteğe bağlı, boş ise yeni bir adres oluşturulur)</translation>
+    </message>
+    <message>
+        <source>Total Staking:</source>
+        <translation>Toplam Staking:</translation>
+    </message>
+    <message>
         <source>List of delegated balance by address</source>
         <translation>Delege edilmiş tutarların adrese göre listesi </translation>
     </message>
@@ -737,6 +797,16 @@ Stake için kaldırın</translation>
     <message>
         <source>Error loading delegations: %1</source>
         <translation>Delegasyonların yüklenmesinde hata:%1</translation>
+    </message>
+    <message>
+        <source>You can delegate your PIVs, letting a hot node (24/7 online node)
+stake on your behalf, while you keep the keys securely offline.</source>
+        <translation>Sıcak bir düğüme izin vererek PIV'lerinizi devredebilirsiniz (7/24 çevrimiçi düğüm)
+anahtarları çevrimdışı bir şekilde güvenli tutarken, kendi adınıza stake yapın.</translation>
+    </message>
+    <message>
+        <source>Enter owner address</source>
+        <translation>Varlıkların sahibinin adresini girin</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
