@@ -604,14 +604,13 @@ bool DashboardWidget::loadChartData(bool withMonthNames)
             piv = (pair["piv"] != 0) ? pair["piv"] / 100000000 : 0;
             mnrewards = (pair["mn"] != 0) ? pair["mn"] / 100000000 : 0;
 			chartData->totalPiv += pair["piv"];
-            chartData->totalZpiv += pair["zpiv"];
             chartData->totalMNRewards += pair["mn"];
         }
 
         chartData->xLabels << ((withMonthNames) ? monthsNames[num - 1] : QString::number(num));
 
         chartData->valuesPiv.append(piv);
-        chartData->valueszPiv.append(zpiv);
+        chartData->valuesMNRewards.append(mnrewards);
 
         int max = std::max(piv, mnrewards);
         if (max > chartData->maxValue) {
