@@ -519,7 +519,7 @@
             <item>
              <widget class="QLabel" name="labelMessage">
               <property name="text">
-               <string>Amount of 777 and z777 staked.</string>
+               <string>Amount of 777.</string>
               </property>
              </widget>
             </item>
