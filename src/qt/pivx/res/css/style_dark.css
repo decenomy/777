@@ -137,11 +137,29 @@ QPushButton[cssClass="img-nav-logo"] {
     color: #B088FF;
 }
 
-/*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-!#############
- ################################*/
+ /*****
+*masternode.conf & jackpot.conf file edit topbar buttons.
+*****/
 
- QPushButton[cssClass="btn-check-console"] {
+QPushButton[cssClass="btn-check-conf"] {
+    qproperty-icon: url("://ic-check-settings") ;
+    qproperty-iconSize: 24px 24px;
+    color:#ffffff;
+    background-color:#0b2c42;
+    border-bottom:2px solid #43b3ff;
+    border-radius:2px;
+}
+
+QPushButton[cssClass="btn-check-masternodes"] {
+    qproperty-icon: url("://ic-check-settings") ;
+    qproperty-iconSize: 24px 24px;
+    color:#ffffff;
+    background-color:#0b2c42;
+    border-bottom:2px solid #43b3ff;
+    border-radius:2px;
+}
+
+QPushButton[cssClass="btn-check-console"] {
     qproperty-icon: url("://ic-check-console") ;
     qproperty-iconSize: 24px 24px;
     color:#ffffff;
@@ -149,6 +167,10 @@ QPushButton[cssClass="img-nav-logo"] {
     border-bottom:2px solid #43b3ff;
     border-radius:2px;
 }
+
+/*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+!#############
+ ################################*/
 
 /*******************
 ******cold staking top bar*********
