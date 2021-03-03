@@ -168,7 +168,7 @@ bool TransactionFilterProxy::isStakeTx(int type) const {
 
 bool TransactionFilterProxy::isMasternodeRewardTx(int type) const {
     return (type == TransactionRecord::MNReward);
-}	}
+}
 
 bool TransactionFilterProxy::isColdStake(int type) const {
     return type == TransactionRecord::P2CSDelegation || type == TransactionRecord::P2CSDelegationSent || type == TransactionRecord::P2CSDelegationSentOwner || type == TransactionRecord::StakeDelegated || type == TransactionRecord::StakeHot;
