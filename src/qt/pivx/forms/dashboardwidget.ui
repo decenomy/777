@@ -512,7 +512,7 @@
                </size>
               </property>
               <property name="text">
-               <string>Staking Rewards</string>
+               <string>Rewards Chart</string>
               </property>
              </widget>
             </item>
@@ -575,9 +575,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelAmountZpiv">
+           <widget class="QLabel" name="labelAmountMNRewards">
             <property name="text">
-             <string notr="true">0 z777</string>
+             <string>TextLabel</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -715,7 +715,7 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QLabel" name="labelSquarezPiv">
+                 <widget class="QLabel" name="labelSquareMNRewards">
                   <property name="minimumSize">
                    <size>
                     <width>14</width>
@@ -734,9 +734,9 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="labelZpiv">
+                 <widget class="QLabel" name="labelMNRewards">
                   <property name="text">
-                   <string notr="true">z777</string>
+                   <string notr="true">777 MN</string>
                   </property>
                  </widget>
                 </item>
