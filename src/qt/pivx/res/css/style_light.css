@@ -641,7 +641,6 @@ QPushButton[cssClass="btn-check-conf"] {
     qproperty-iconSize: 24px 24px;
     color:#ffffff;
     background-color:#505c4b7d;
-    border-bottom:2px solid #5C4B7D;
     border-radius:2px;
 }
 
@@ -650,7 +649,6 @@ QPushButton[cssClass="btn-check-masternodes"] {
     qproperty-iconSize: 24px 24px;
     color:#ffffff;
     background-color:#505c4b7d;
-    border-bottom:2px solid #5C4B7D;
     border-radius:2px;
 }
 
@@ -659,7 +657,6 @@ QPushButton[cssClass="btn-check-console"] {
 	qproperty-iconSize: 24px 24px;
 	color:#ffffff;
 	background-color:#505c4b7d;
-	border-bottom:2px solid #5C4B7D;
 	border-radius:2px;
   }
 
