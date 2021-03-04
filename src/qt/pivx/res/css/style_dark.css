@@ -172,24 +172,30 @@ QPushButton[cssClass="img-nav-logo"] {
 QPushButton[cssClass="btn-check-conf"] {
     qproperty-icon: url("://ic-check-settings") ;
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
     background-color:#505c4b7d;
+    color:#FFFFFF;
+    padding-right:6px;
+    padding-left:6px;
     border-radius:2px;
 }
 
 QPushButton[cssClass="btn-check-masternodes"] {
     qproperty-icon: url("://ic-check-settings") ;
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
     background-color:#505c4b7d;
+    color:#FFFFFF;
+    padding-right:6px;
+    padding-left:6px;
     border-radius:2px;
 }
 
 QPushButton[cssClass="btn-check-console"] {
     qproperty-icon: url("://ic-check-console") ;
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
     background-color:#505c4b7d;
+    color:#FFFFFF;
+    padding-right:6px;
+    padding-left:6px;
     border-radius:2px;
 }
 

@@ -633,31 +633,37 @@ QPushButton[cssClass="btn-check-stack"]:checked {
 }
 
 /*****
-*masternode.conf & saphire.conf file edit topbar buttons.
+*masternode.conf & jackpot.conf file edit topbar buttons.
 *****/
 
 QPushButton[cssClass="btn-check-conf"] {
     qproperty-icon: url("://ic-check-settings") ;
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
-    background-color:#505c4b7d;
-    border-radius:2px;
+    background-color: #d1d3d4;
+    color: #262626;
+    padding-right: 6px;
+    padding-left: 6px;
+    border-radius: 2px;
 }
 
 QPushButton[cssClass="btn-check-masternodes"] {
     qproperty-icon: url("://ic-check-settings") ;
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
-    background-color:#505c4b7d;
-    border-radius:2px;
+    background-color: #d1d3d4;
+    color: #262626;
+    padding-right: 6px;
+    padding-left: 6px;
+    border-radius: 2px;
 }
 
 QPushButton[cssClass="btn-check-console"] {
 	qproperty-icon: url("://ic-check-console") ;
 	qproperty-iconSize: 24px 24px;
-	color:#ffffff;
-	background-color:#505c4b7d;
-	border-radius:2px;
+  background-color: #d1d3d4;
+  color: #262626;
+  padding-right: 6px;
+  padding-left: 6px;
+  border-radius: 2px;
   }
 
 /*******************
