@@ -2812,11 +2812,6 @@ bool CWallet::CreateTransactionInternal(
         if (recipient.fSubtractFeeFromAmount)
             outputs_to_subtract_fee_from++;
     }
-    if (vecSend.empty())
-    {
-        error = _("Transaction must have at least one recipient");
-        return false;
-    }
 
     CMutableTransaction txNew;
     FeeCalculation feeCalc;
@@ -3113,6 +3108,11 @@ bool CWallet::CreateTransaction(
         FeeCalculation& fee_calc_out,
         bool sign)
 {
+    if (vecSend.empty()) {
+        error = _("Transaction must have at least one recipient");
+        return false;
+    }
+
     int nChangePosIn = nChangePosInOut;
     Assert(!tx); // tx is an out-param. TODO change the return type from bool to tx (or nullptr)
     bool res = CreateTransactionInternal(vecSend, tx, nFeeRet, nChangePosInOut, error, coin_control, fee_calc_out, sign);
