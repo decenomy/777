@@ -1,5 +1,5 @@
 
-Jackpot wallet repository
+Jackpot wallet repository 
 =====================================
 
 ### Coin Specs
