@@ -12,6 +12,7 @@
 #include "masternode-sync.h"
 #include "masternodeman.h"
 #include "netbase.h"
+#include "rewards.h"
 #include "spork.h"
 #include "sync.h"
 #include "util.h"
@@ -188,17 +189,11 @@ void CMasternode::Check(bool forceCheck)
 {
     if (ShutdownRequested()) return;
 
-    const Consensus::Params& consensus = Params().GetConsensus();
-
-    // todo: add LOCK(cs) but be careful with the AcceptableInputs() below that requires cs_main.
-
-    if (!forceCheck && (GetTime() - lastTimeChecked < MASTERNODE_CHECK_SECONDS)) return;
-    lastTimeChecked = GetTime();
-
-
     //once spent, stop doing the checks
     if (activeState == MASTERNODE_VIN_SPENT) return;
 
+    if (!forceCheck && (GetTime() - lastTimeChecked < MASTERNODE_CHECK_SECONDS)) return;
+    lastTimeChecked = GetTime();
 
     if (!IsPingedWithin(MASTERNODE_REMOVAL_SECONDS)) {
         activeState = MASTERNODE_REMOVE;
@@ -215,7 +210,10 @@ void CMasternode::Check(bool forceCheck)
         return;
     }
 
-    if (!unitTest && lastTimeChecked - lastTimeCollateralChecked > MINUTE_IN_SECONDS) {
+    if (!unitTest && 
+        forceCheck && 
+        lastTimeChecked - lastTimeCollateralChecked > MINUTE_IN_SECONDS
+    ) {
         lastTimeCollateralChecked = lastTimeChecked;
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
@@ -233,6 +231,8 @@ void CMasternode::Check(bool forceCheck)
                 return;
             }
         }
+
+        const auto& consensus = Params().GetConsensus();
 
         // ----------- burn address scanning -----------
         if (!consensus.mBurnAddresses.empty()) {
@@ -379,39 +379,14 @@ CAmount CMasternode::GetMasternodeNodeCollateral(int nHeight)
     return 15000 * COIN;
 }
 
-CAmount CMasternode::GetBlockValue(int nHeight)
-{
-    const Consensus::Params& consensus = Params().GetConsensus();
-
-    // Mint for distribution
-    if (nHeight == consensus.nMintHeight) return consensus.nMintValue + GetBlockValue(nHeight + 1);
-    if (nHeight == consensus.nMintHeight2) return consensus.nMintValue2 + GetBlockValue(nHeight + 1);
-
-    if(nHeight > 900000) return      200 * COIN;
-    if(nHeight > 700000) return      300 * COIN;
-    if(nHeight > 550000) return      400 * COIN;
-
-    if(nHeight > 400000) return      200 * COIN;
-    if(nHeight > 300000) return      260 * COIN;
-    if(nHeight > 240000) return      300 * COIN;
-    if(nHeight > 200000) return      150 * COIN;
-    if(nHeight > 100000) return      125 * COIN;
-    if(nHeight >      1) return      100 * COIN;
-    if(nHeight >      0) return 30000000 * COIN;
-
-    return 0;
-}
-
 CAmount CMasternode::GetMasternodePayment(int nHeight)
 {
-    const Consensus::Params& consensus = Params().GetConsensus();
+    // Mint for ESBC and PWRB distribution
+    if (nHeight == 550001) return GetMasternodePayment(nHeight + 1);
+    if (nHeight == 947500) return GetMasternodePayment(nHeight + 1);
 
-    // Mint for distribution
-    if (nHeight == consensus.nMintHeight) return GetMasternodePayment(nHeight + 1);
-    if (nHeight == consensus.nMintHeight2) return GetMasternodePayment(nHeight + 1);
-
-    if(nHeight > 240000) return GetBlockValue(nHeight) * 65 / 100;
-    if(nHeight >   5000) return GetBlockValue(nHeight) * 95 / 100;
+    if(nHeight > 240000) return CRewards::GetBlockValue(nHeight) * 65 / 100;
+    if(nHeight >   5000) return CRewards::GetBlockValue(nHeight) * 95 / 100;
 
     return 0;
 }
@@ -709,7 +684,7 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
         //take the newest entry
         LogPrint(BCLog::MASTERNODE, "mnb - Got updated entry for %s\n", vin.prevout.ToStringShort());
         if (pmn->UpdateFromNewBroadcast((*this))) {
-            pmn->Check();
+            pmn->Check(true);
             if (pmn->IsEnabled()) Relay();
         }
         masternodeSync.AddedMasternodeList(GetHash());
