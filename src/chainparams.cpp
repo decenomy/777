@@ -16,6 +16,7 @@
 #include <boost/assign/list_of.hpp>
 
 #include <assert.h>
+#include "timedata.h"
 
 #define DISABLED 0x7FFFFFFE;
 
@@ -70,114 +71,23 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256S("00000366a6d89ece72f3481f4c81e813f17c4512d2cce519c9d869d8eaebf71d"))
-    (13092, uint256S("f229f2b08558fda694c91279856b1b5643755e247e014a922604bdb46da89a15"))
-    (26185, uint256S("24206f3812e6bfb5d8ca954e2ff50efacaeab555ca9c4da05417d09969f0c99a"))
-    (39278, uint256S("8b48ce7873a25df2d867b60ef8ef63fc4f75886b9a21ef3e4ca5990f7c43c5d0"))
-    (52371, uint256S("594c5631a63f66ba4261c3639ef49b42757ddc818c8e1813f26829da08cf6002"))
-    (65464, uint256S("d0f9a4f3d164eaf449e6fbeb807d98bbfed9324b1b6302f5a10fb215b05475a5"))
-    (78557, uint256S("6c1ff3a64bcc0ac890d788a9f97ed2e5df7215786e00cf89435c2449e007cc2b"))
-    (91650, uint256S("6d8b3bd819b791006bfde3dfbb444153be8e69ce5eca7e8512f68a2cd4f86da8"))
-    (104743, uint256S("b391ef9da064111b8ac97b1cd782eedeedc1be1a541d69e7e2aff1798bf61a7c"))
-    (117836, uint256S("4ce9c436a18502d4b47865bb8c0ac46c9452fef2a9f1c1005de9e1d3985c3317"))
-    (130929, uint256S("7bed3b766b52af94e7a60f5720c6489a7a2c57f8e37330d1657f14c8edae2a66"))
-    (144022, uint256S("af6a1efd838b3cd57fc3e16a07ad3af7e1607940516a374a89227955523c49a9"))
-    (157115, uint256S("df2e6f8f75219a15ff343e6a09d5fb116409346b6e0d95ebde39bb43910ae7fb"))
-    (170208, uint256S("91220643459370ec66ada5a6d3780574a98a9fdb08554b9547dae2972d2b534a"))
-    (183301, uint256S("138b51d2d7873b05d0d1101c51b48b6c197437896c5a775336f2bdae52a23e03"))
-    (196394, uint256S("7f5f55e91a08c2095a03b0af74486e6673a5ebe660063ddedba2671e542edea9"))
-    (209487, uint256S("073180d5ca52023fef1e7f85401c0910d83ea95fd843ca95ded5b7e4893cb605"))
-    (222580, uint256S("7697b9920ac0b923daf493bd5757cb4d4f58a47cbd7a00f16c98556f6dbd7cad"))
-    (235673, uint256S("b3a80a84c39ff81e960978d86c8ad7a3d29bf35f3ed2fe25956e40237937c124"))
-    (248766, uint256S("97c4e658feba1669d262c7d3e515167c9b0eb2feb9272ec99b3117c1a1eacdcc"))
-    (261859, uint256S("5ed512a3035d2bde0047b4215d149dad6e325db0a71592b806594575420ad5fa"))
-    (274952, uint256S("83e505794bb78d7ce0e3422d8bd11926b6b1dd97abc683e69e0ee16c8708b69b"))
-    (288045, uint256S("87ba1fa25ce3819a278481a8958bc3ac5a8a45d80a1e7aec47d0e195dce5658d"))
-    (301138, uint256S("cf5b6692de51067c63bfb567c7ca5419ad52ed2c8fe888d968375a85cd95f355"))
-    (314231, uint256S("cb051905310dc489f5dcccdddb61415add4c9369a5925bf6680fcf5423e7e0e7"))
-    (327324, uint256S("65e3f814fe03d7f935402b42ca7598ba198d265377b6094fc1868823c6f966b3"))
-    (340417, uint256S("e873023f5b41288d2a5ed0f0920c80186b40c99c18f6c8d19039629631c99be3"))
-    (353510, uint256S("637188ec371ba8fba55a77c705d0c7cb54f9dfcdebd5675f02c313a60fc0b0bf"))
-    (366603, uint256S("269d10f0abfebda1d80992ecb97a5475ccec8c4912c23099588cef1f37707ae5"))
-    (379696, uint256S("baf85f5015e48f723459774463d9d0fbf73ade6d6d374489889e328c4e706423"))
-    (392789, uint256S("2581d21ef827f1409fea9de1f31f567546d19808be60cc51301e04cd7d90b729"))
-    (405882, uint256S("5ebbd996ff8703131a70e39ddbe2df1c5feb09f7e310fa65b1c7ac48f3c4a6ca"))
-    (418975, uint256S("25b654a03f7b7ae613223d3942319dd76f834ec05e86a7a44ef1d5c2956a982e"))
-    (432068, uint256S("5e0fb9f9f18b5f32f850567770b9a22e22f5543e8dd88e4c610ba6aec06f7762"))
-    (445161, uint256S("393828ab4fead3c636283bb54adf1656d67a90cd4823d75a2d9ed336cc18b518"))
-    (458254, uint256S("ea95d2b3ab6036fae5bf33cdb432b5fd827d8cf92994e2e479dca3a890898a52"))
-    (471347, uint256S("014944b7bde57f0e37bb9f8fc528840a056ace3d31e9b363e86f179e46d711f3"))
-    (484440, uint256S("5a17d9be29d5005ca0dc3c8b7df9a804c38f1837b117726c49caedec581a5506"))
-    (497533, uint256S("aaabb36c1070a0408471eedbba1f1256e1d210d60ffd5342d8becf79b3ae6fa4"))
-    (510626, uint256S("1eddccb62fae5dc0f7b8aaa44e3a682a0dbcd7569cee09df5c5a96f04f291a59"))
-    (523719, uint256S("c1aa81ae4de040b647572f8f955ae811baeb02ecac7b2f24469843abf16a7a45"))
-    (536812, uint256S("fcf4d5042844db7714f11651b8ec58a0f0fb9e776aed6129a37756bdac3f9c15"))
-    (549905, uint256S("5d30fb30e2e434a3b70a45e7acfac449602d8f906f169aaf4b65f88aff168e64"))
-    (562998, uint256S("e1850ab3680b08f5de0f2f2b9a4120b702074611e7753996c83eb1cd25886e6d"))
-    (576091, uint256S("9fb3d78cd898b881448b21d40a004a4353e39a524b95a297e7e5191f8674b6fa"))
-    (589184, uint256S("62b886b33c66e947c094bb878ee46a59f1847733ad7c8a7f18c29df79d3a33d1"))
-    (602277, uint256S("022185e1a19f140a1712df4d21899bbcb6f6a055b9b03e6230d25a2158820c84"))
-    (615370, uint256S("21e5337e91744777c85b0ab5092a5d4d5828fae15fd43a5ae22aeb7ed3417728"))
-    (628463, uint256S("899d8d7454424f588762c539bd7620b832072d28f6da15f896d7387b7a6ed6e3"))
-    (641556, uint256S("99071374227a1277fc52c7c107c220dc714d5fc656369a81d60aaefca803f794"))
-    (654649, uint256S("b9f1251357838472c2c66f409c26a352b0a5d45ab137542fd2f39937944e109b"))
-    (667742, uint256S("dbaccf4250392c712e1540f5407247cc8b0831ab7fa8da8d92ef027dc8361ef6"))
-    (680835, uint256S("7b8210acd227d84de4825e44395b9ede1c7bbaa5ecade2a27b10403d4f7f3fed"))
-    (693928, uint256S("be17ea8c2d88cc188b42117ad9f1762be33cb3a5e3bffdd036d285bc3d75d0ef"))
-    (707021, uint256S("60801da2a078dbfbbb7b84a5473f1fd4ee9fece53ccd8ae699bec271393233f4"))
-    (720114, uint256S("f3dcbba3447848565466e74c22889c5fc24dc1b59ab6fd7e37a60d51504ae485"))
-    (733207, uint256S("ea5361e725fd61171561e2732b0db036bb598d9950f42d3bef9da64f2b7e17fd"))
-    (746300, uint256S("588cf8afd49f0b04eeb4b22aa71513e42cd806333193f98485e95a3c22d07fe9"))
-    (759393, uint256S("3b06b394c45cb4e69df0f76391d04943dd4431c59f06cf2b538cb5f7138208f2"))
-    (772486, uint256S("771356297d68234bdcfb0f156a2a298b76ece1045d79e85272d5ce75c2547374"))
-    (785579, uint256S("529dd00575ed16dd21b1bf4f7784e3a1c7a9f2ec3e304bfdd21f27d04a8e34fc"))
-    (798672, uint256S("e0939f0aa5776e674b568d9349530d937250bdaa54e758e8f37be5b3329d4c74"))
-    (811765, uint256S("1c585d684fff56d8724a216b280e534dd2fcef28f02de9662c662fe393c22e6d"))
-    (824858, uint256S("faaa21d456d9bd418319b0971490b24e573d27c44029044265a03123b785abd2"))
-    (837951, uint256S("ba1d013b633d6101aaa715c2a6248436b9a8bf50bc692b7bd47ada8c39d0390d"))
-    (851044, uint256S("3a7063ec76ead203011236f1208dd1af85ec192915be645f096f93b265b20a52"))
-    (864137, uint256S("68de7cde2551aede7f0c6775080994fa3507b1bd2e8f14ac92c4bf01ff0e0d01"))
-    (877230, uint256S("4ee6c5a7078ba9851c1a49b69dac04e399081c908b31931ade2e53ef7f53dc54"))
-    (890323, uint256S("e7640bda8863be8f58a777e41932396ee0a1651a6fd8fbad3a0b915695c0e47c"))
-    (903416, uint256S("c7ce572a0757264331d2b69d7f78f957671f3ebf710993852cc7341dadcb4df7"))
-    (916509, uint256S("5938ce8ff1acb22bd3b4db070a87b7f833c19708342391bd9704ddae32507b2e"))
-    (929602, uint256S("c3dfb06a63ed2a051b2f9b7d2707391d230c8569f2c83e5aca939edce7f72c88"))
-    (942695, uint256S("51fe45c18982b5290b60d31779f13005d4648a87cce77c3a71feffa15c3b5c03"))
-    (955788, uint256S("433417d9dd72c458cb27fcb7d7008aec477c23674c3e1ea9a7ce16e46aab2a7a"))
-    (968881, uint256S("b014bb4795d21d86ee500d5fbbf03984d2da900a3ebe94be058cd63e1737c035"))
-    (981974, uint256S("0a1120665c1bf9931c9cfcab1cde57afe25ef976ed35c827ada432b8387da3a4"))
-    (995067, uint256S("809fb84cc4184682bddeeeddfed7d71f173875830ab039c389280d97ce810c4f"))
-    (1008160, uint256S("0e405d9086b43b72b3840e21ee41b9d60105d5cfd90e204778ac6d58f9041b23"))
-    (1021253, uint256S("9aef4fc6e57581db40b73cd36dabda837338d120a145f471c7ca0cb3f362802e"))
-    (1034346, uint256S("d8122084f8a6027662104caebf7ec3fc658776e00c246ee64aef1660517bb1b1"))
-    (1047439, uint256S("2ff0d29b0ef91a3d0ccc1dd3cdd7a66d6c8caf08e025d7de3b96102888a1bc6c"))
-    (1060532, uint256S("4d68f884984fe7b207579310e707262a4bf61db83cb4849996a6e9a3bbc35ad5"))
-    (1073625, uint256S("93563a13423a30549ffe3a4fe81dd90f1fe23712dc9252a9a4b7ad1b71a07fbd"))
-    (1086718, uint256S("b826947411e705dbc44a578a331972327b33ae10b1b70458a719aff912c10d3d"))
-    (1099811, uint256S("8656f176c069a17614cf6cb1f7a0c93c31aab113d66a1839e516da9a8f52d740"))
-    (1112904, uint256S("a8dfe6784bf4180b06619b64c0af98fb948ae534ce6135d198bf4a6c3e4685d4"))
-    (1125997, uint256S("d00bba6602a97be9547df86699fcca6246753d8733595d393705ffe4c40be85d"))
-    (1139090, uint256S("91854b09281e068e2ef5631bc4e74e021e719296bb36c434e3b4fd84f94faa43"))
-    (1152183, uint256S("f7eb627db0b7c4c4c9b696631f3cdd15fdfc150dcf42bfab6cc7140e47707af3"))
-    (1165276, uint256S("d9e1ac23265f81839b0dc076cb89bed41150c329426380d8d507867a422e5cd6"))
-    (1178369, uint256S("7e5097784aae567459fa21c2b5c1d0eb88822aeb70128b00d0be74688f7a90d5"))
-    (1191462, uint256S("e8ad58a6feffa50e9d0acd63cd37d5e7bb2156956a7828e87df7f7aacafeda1b"))
-    (1204555, uint256S("2a49f5a01ec0819828c262a341f5ddd78d4ed072116a3f77f19e17a935ff3864"))
-    (1217648, uint256S("d9b4fb5964ec822021083197c7804b8d6b0c7088d55fbbfe5c7d567a12991942"))
-    (1230741, uint256S("5ce4defbd2dc4f3d19667699f993a03878790b0f562e78d6125a40fc17a27754"))
-    (1243834, uint256S("b50b3c5885520c959919c0477206ef028e4de665e520b33e32dfcc81041dd8b6"))
-    (1256927, uint256S("e69d4d7abddf27c6f68ce0020c6f5f403b498ac82c9436e5a9f8871a00667a9f"))
-    (1270020, uint256S("83ea945eca317e033bf0cad2e9b471e2c1e25c6ea911928b8ac291d3d7fc5af7"))
-    (1283113, uint256S("0e15112e07be475597172c5b7fdbc1744845b831f28d7503750ae90758554dc9"))
-    (1296206, uint256S("3042b406122ae08f3e80190552fae9c025ff5ec48fab035d14dd11cb21871041"))
-    (1309299, uint256S("06efe8eb13b77d87bfe8e1f85f2035bbffc53c1a4c9fa68cb1e9e59c6d6a13e3"))
+    (195522, uint256S("e15e0b9d363a389c6a6b260238a660f9c725316f99eda7bdb6787c061b0ba568"))
+    (391045, uint256S("44348f0e083eb3167f37721dbd1f53701c046b8dc5c767ec443f6b4f4535de2f"))
+    (586568, uint256S("00268f136164ce33f3f14357b6e5a554b8d99c999afbab371fa7272cc9ce106d"))
+    (782091, uint256S("a2840065e247b66f673b75a080fceb4e429dbf37d68004ebf4157095fe702e80"))
+    (977614, uint256S("d7127ab0d9112f5a782d4390889694f6ef1b3179a50e574be6d7036a64f91693"))
+    (1173137, uint256S("d71168277a15433dec4edde0a649c9b1ae53629a836c694687ed309636aeb09c"))
+    (1368660, uint256S("3dcb6d4bbdde8cb165868bb50aedcf0afe87918d7f3b0f4c8f91b82f077fbc30"))
+    (1564183, uint256S("36f06c8746d913457ffb13d98f8cc8fae2613011af3b371f27233fdfa123a3cf"))
+    (1759706, uint256S("ced4cc84c6cd275956e29520a9531778fe41b2428c94a87171cd15f734d4f847"))
 ;
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1692821760, // * UNIX timestamp of last checkpoint block
-    2943279,    // * total number of transactions between genesis and last checkpoint
+    1720480380, // * UNIX timestamp of last checkpoint block
+    3874829,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
-    2814        // * estimated number of transactions per day after checkpoint
+    2832        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -274,14 +184,7 @@ public:
         consensus.nTargetTimespanV2 = 30 * 60;
         consensus.nTargetSpacing = 1 * 60;
         consensus.nTimeSlotLength = 15;
-
-        consensus.nMintHeight = 550001;
-        consensus.nMintValue = 34000000 * COIN;
-        consensus.sMintAddress = "7BicbhE37YhQwmCMmG6qeQkK4USPzV29Dy";
-
-        consensus.nMintHeight2 = 947500;
-        consensus.nMintValue2 = 23000000 * COIN;
-        consensus.sMintAddress2 = "7FTJn1XZXi7ods8S3fELd4T4YMXVn3remk";
+        consensus.nRewardAdjustmentInterval = 7 * DAY_IN_SECONDS / consensus.nTargetSpacing;
 
         // spork keys
         consensus.strSporkPubKey = "0371d4e47e0ab43865206e9df7c065d6c68471b154bab3815d99f8380d46c7015f";
@@ -305,6 +208,9 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight = 1741;
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight     = 5001;
         consensus.vUpgrades[Consensus::UPGRADE_MASTERNODE_RANK_V2].nActivationHeight     = 235001;
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_REWARDS].nActivationHeight        = 1975001;
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_COLLATERALS].nActivationHeight    = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V3].nActivationHeight                 = 1975001;
 
         consensus.vUpgrades[Consensus::UPGRADE_POS].hashActivationBlock                    = uint256S("1bfd90165e662b99293bbe05a321377d0dc2f2bcf36d52e5abed63c4b006ec6b");
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].hashActivationBlock                 = uint256S("690164ed39d09a8c62a03f1a17d9e14630094cf8e4a5015f58ad4361af3b7eee");
@@ -314,6 +220,9 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].hashActivationBlock = uint256S("7a8aa7d86ebf47008da5b39ba6eb07c380a6638a85d1a632de326a4f5238cc36");
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].hashActivationBlock     = uint256S("cb863ebd9d14c47dd733cd9a90b47e79a7ab82250a60fa6009eeaabf89778abb");
         consensus.vUpgrades[Consensus::UPGRADE_MASTERNODE_RANK_V2].hashActivationBlock     = uint256S("b99924befe2810ac0a613e3c8b43c3d423b870ca3710cd81ab5f8f95ee316d40");
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_REWARDS].hashActivationBlock        = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_COLLATERALS].hashActivationBlock    = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V3].hashActivationBlock                 = uint256S("0x0");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -388,6 +297,7 @@ public:
         consensus.nTargetTimespanV2 = 30 * 60;
         consensus.nTargetSpacing = 1 * 60;
         consensus.nTimeSlotLength = 15;
+        consensus.nRewardAdjustmentInterval = 60;
 
         // spork keys
         consensus.strSporkPubKey = "04E88BB455E2A04E65FCC41D88CD367E9CCE1F5A409BE94D8C2B4B35D223DED9C8E2F4E061349BA3A38839282508066B6DC4DB72DD432AC4067991E6BF20176127";
@@ -405,14 +315,22 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].nActivationHeight          = 1641;
         consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].nActivationHeight    = 1741;
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].nActivationHeight        = 1841;
+        consensus.vUpgrades[Consensus::UPGRADE_MASTERNODE_RANK_V2].nActivationHeight        = 1941;
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_REWARDS].nActivationHeight           = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_COLLATERALS].nActivationHeight       = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V3].nActivationHeight                    = Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
 
         consensus.vUpgrades[Consensus::UPGRADE_POS].hashActivationBlock                     = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_POS_V2].hashActivationBlock                  = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock                   = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MODIFIER_V2].hashActivationBlock       = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_TIME_PROTOCOL_V2].hashActivationBlock        = uint256S("0x0");
-        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].hashActivationBlock  =uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_P2PKH_BLOCK_SIGNATURES].hashActivationBlock  = uint256S("0x0");
         consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].hashActivationBlock      = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_STAKE_MIN_DEPTH_V2].hashActivationBlock      = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_REWARDS].hashActivationBlock         = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_DYNAMIC_COLLATERALS].hashActivationBlock     = uint256S("0x0");
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V3].hashActivationBlock                  = uint256S("0x0");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
